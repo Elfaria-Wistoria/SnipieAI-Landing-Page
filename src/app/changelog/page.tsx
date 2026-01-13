@@ -11,6 +11,11 @@ async function getChangelogs() {
     return data || [];
 }
 
+export const metadata = {
+    title: 'Changelog',
+    description: 'Track the latest updates, features, and improvements to the Clasely ecosystem.',
+};
+
 export default async function ChangelogPage() {
     const changelogs = await getChangelogs();
 

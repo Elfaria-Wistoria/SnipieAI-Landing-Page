@@ -15,6 +15,11 @@ export const revalidate = 60;
 
 const logger = getLogger('HomePage');
 
+export const metadata = {
+  title: 'Clasely - AI Tools for Creators',
+  description: 'Discover Clasely\'s ecosystem of lifetime-license AI tools including Clipiee. Professional video creation, streamlined.',
+};
+
 export default async function Home() {
   logger.info('Rendering Home Page');
 

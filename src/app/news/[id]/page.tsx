@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
 import { getLogger } from "@/lib/logger";
+import { Metadata } from "next";
 
 // Enable revalidation for ISR
 export const revalidate = 60;
@@ -31,6 +32,31 @@ interface NewsItem {
     category: string;
     content: string;
     image: string | null;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
+    const { data: article } = await supabase
+        .from('news')
+        .select('title, excerpt, image')
+        .eq('id', id)
+        .single();
+
+    if (!article) {
+        return {
+            title: 'Article Not Found',
+        };
+    }
+
+    return {
+        title: article.title,
+        description: article.excerpt || `Read about ${article.title} on Clasely.`,
+        openGraph: {
+            title: article.title,
+            description: article.excerpt || undefined,
+            images: article.image ? [{ url: article.image }] : undefined,
+        },
+    };
 }
 
 export default async function NewsArticlePage({ params }: { params: Promise<{ id: string }> }) {

@@ -9,6 +9,11 @@ export const revalidate = 60; // Revalidate every 60 seconds
 
 const logger = getLogger('NewsPage');
 
+export const metadata = {
+    title: 'News & Updates',
+    description: 'Latest news, announcements, and insights from the Clasely team.',
+};
+
 export default async function NewsPage() {
     logger.info('Rendering News Listing Page');
 
@@ -26,7 +31,8 @@ export default async function NewsPage() {
     return (
         <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
             <Navbar />
-            <div className="pt-20">
+            <div className="pt-32 container px-4">
+                <h1 className="text-4xl font-bold tracking-tight mb-8">News & Updates</h1>
                 <News items={newsItems || []} />
             </div>
             <Footer />

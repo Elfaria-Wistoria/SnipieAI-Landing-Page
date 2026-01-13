@@ -1,3 +1,8 @@
+export const metadata = {
+    title: 'About Us',
+    description: 'We are building tools for the next generation of creators. Learn about Clasely\'s mission and vision.',
+};
+
 export default function AboutPage() {
     return (
         <div className="container py-20 font-mono">

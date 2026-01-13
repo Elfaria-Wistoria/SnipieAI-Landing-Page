@@ -33,8 +33,8 @@ interface NewsItem {
     image: string | null;
 }
 
-export default async function NewsArticlePage({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default async function NewsArticlePage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
     logger.info({ articleId: id }, 'Rendering News Article Page');
 
     const { data: article, error } = await supabase

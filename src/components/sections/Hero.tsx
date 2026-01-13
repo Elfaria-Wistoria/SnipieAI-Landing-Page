@@ -6,12 +6,38 @@ import { ArrowRight, Scissors, Terminal } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
-            {/* Background Elements */}
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-            <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
+        <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center z-0">
+            {/* Animated Falling Liquid Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    animate={{
+                        y: ["-20%", "120%"],
+                        rotate: [0, 5],
+                        opacity: [0, 0.5, 0]
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-[50%] left-[20%] w-[20vw] h-[80vh] bg-gradient-to-b from-transparent via-purple-950 to-transparent blur-[80px] opacity-30 mix-blend-screen"
+                />
+                <motion.div
+                    animate={{
+                        y: ["-40%", "120%"],
+                        rotate: [0, -5],
+                        opacity: [0, 0.4, 0]
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 2 }}
+                    className="absolute -top-[50%] right-[30%] w-[25vw] h-[100vh] bg-gradient-to-b from-transparent via-blue-950 to-transparent blur-[100px] opacity-20 mix-blend-screen"
+                />
+                <motion.div
+                    animate={{
+                        y: ["-60%", "120%"],
+                        opacity: [0, 0.3, 0]
+                    }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
+                    className="absolute -top-[50%] left-[50%] w-[30vw] h-[90vh] bg-gradient-to-b from-transparent via-indigo-950 to-transparent blur-[120px] opacity-20 mix-blend-screen"
+                />
+            </div>
 
-            <div className="container px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="container px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
                 {/* Content */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -28,20 +54,21 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-                        Turn long videos into <br className="hidden md:block" />
+                        Clasely. <br className="hidden md:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
-                            viral clips automatically
-                        </span>.
+                            Let It Free.
+                        </span>
                     </h1>
 
                     <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-                        Clipiee uses AI to find the best moments, add active captions, and insert viral hooks.
-                        Stop editing manually. Start shipping content.
+                        We sell super apps with lifetime licenses.
+                        Build, create, and ship without limits.<br />
+                        <span className="text-white font-medium">#F*ckSubscriptions</span>
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                         <Button size="lg" className="h-12 px-8 font-mono group">
-                            Get Clipiee $49
+                            Explore Ecosystem
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <p className="text-sm text-muted-foreground">Pay once, use forever.</p>
@@ -65,51 +92,87 @@ export default function Hero() {
                             <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                             <div className="w-3 h-3 rounded-full bg-green-500/50" />
                             <div className="ml-4 h-5 w-48 bg-muted/50 rounded flex items-center px-2 text-[10px] text-muted-foreground font-mono">
-                                clipiee_editor.exe
+                                clasely_hub
                             </div>
                         </div>
 
-                        {/* Editor Body */}
-                        <div className="flex-1 p-6 flex flex-col gap-4 relative">
-                            {/* Timeline Mockup */}
-                            <div className="flex-1 bg-black/40 rounded-lg relative overflow-hidden group">
-                                <div className="absolute inset-x-0 bottom-8 h-24 flex items-end gap-1 px-4 opacity-50">
-                                    {[...Array(20)].map((_, i) => (
-                                        <motion.div
-                                            key={i}
-                                            className="flex-1 bg-primary/40 rounded-t-sm"
-                                            initial={{ height: "20%" }}
-                                            animate={{ height: ["20%", "60%", "30%", "80%", "40%"] }}
-                                            transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.05 }}
-                                        />
-                                    ))}
-                                </div>
-                                {/* Playhead */}
+                        {/* Hub Body */}
+                        <div className="flex-1 p-6 relative flex flex-col gap-6">
+                            {/* App Grid */}
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Clipiee App Card - Active */}
                                 <motion.div
-                                    className="absolute top-0 bottom-0 left-1/3 w-0.5 bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
-                                    animate={{ left: ["0%", "100%"] }}
-                                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                />
+                                    className="bg-primary/10 border border-primary/20 rounded-lg p-4 flex flex-col gap-2 relative overflow-hidden"
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <div className="absolute inset-0 bg-primary/5 animate-pulse" />
+                                    <div className="h-8 w-8 rounded bg-primary/20 flex items-center justify-center">
+                                        <Scissors className="w-4 h-4 text-primary" />
+                                    </div>
+                                    <div className="z-10">
+                                        <div className="text-sm font-bold">Clipiee</div>
+                                        <div className="text-[10px] text-primary">Active • Lifetime</div>
+                                    </div>
+                                </motion.div>
 
-                                {/* Floating Caption */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                                    <motion.div
-                                        className="bg-black/80 px-4 py-2 rounded-lg text-white font-bold text-xl backdrop-blur-sm border border-white/10"
-                                        animate={{ scale: [1, 1.1, 1] }}
-                                        transition={{ duration: 1.5, repeat: Infinity }}
-                                    >
-                                        Wait for the drop... 🎵
-                                    </motion.div>
+                                {/* Placeholder App - Coming Soon */}
+                                <div className="bg-muted/10 border border-muted/10 rounded-lg p-4 flex flex-col gap-2 opacity-50">
+                                    <div className="h-8 w-8 rounded bg-muted/20 flex items-center justify-center">
+                                        <Terminal className="w-4 h-4 text-muted-foreground" />
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-bold text-muted-foreground">ScrapeFlow</div>
+                                        <div className="text-[10px] text-muted-foreground">Coming Soon</div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Controls */}
-                            <div className="h-16 border border-border/50 rounded-lg bg-background/30 flex items-center justify-between px-6">
-                                <div className="flex gap-4">
-                                    <Scissors className="w-5 h-5 text-muted-foreground hover:text-foreground cursor-pointer" />
-                                    <Terminal className="w-5 h-5 text-muted-foreground hover:text-foreground cursor-pointer" />
-                                </div>
-                                <Button size="sm" variant="secondary" className="text-xs h-8">Export Clip</Button>
+                            {/* System Status / Terminal */}
+                            <div className="flex-1 bg-black/40 rounded-lg p-4 font-mono text-[10px] text-green-400 overflow-hidden relative">
+                                <div className="absolute inset-0 bg-green-500/5 pointer-events-none" />
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="flex flex-col gap-1"
+                                >
+                                    <div>{">"} initializing clasely_core...</div>
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: 0.5 }}
+                                    >
+                                        {">"} checking_licenses...
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: 1.5 }}
+                                        className="text-red-400"
+                                    >
+                                        {">"} subscription_model: NOT_FOUND (404)
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: 2.5 }}
+                                    >
+                                        {">"} switching to LIFETIME_MODE... OK
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: 3.5 }}
+                                        className="text-primary font-bold mt-2"
+                                    >
+                                        {">"} Welcome to the ecosystem.
+                                    </motion.div>
+                                    <motion.div
+                                        animate={{ opacity: [0, 1, 0] }}
+                                        transition={{ duration: 1, repeat: Infinity }}
+                                        className="w-2 h-4 bg-green-400 inline-block align-middle ml-1"
+                                    />
+                                </motion.div>
                             </div>
                         </div>
                     </div>

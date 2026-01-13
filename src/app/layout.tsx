@@ -9,8 +9,8 @@ const jetbrainsMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Clipiee | Auto Clip Long Videos',
-  description: 'AI-powered video clipping software. Buy once, use forever.',
+  title: 'Clasely',
+  description: 'AI-powered efficiency tools. Home of Clipiee.',
 }
 
 export default function RootLayout({

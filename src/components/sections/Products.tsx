@@ -7,28 +7,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const products = [
     {
-        id: "authzero",
-        title: "AuthZero",
-        description: "Self-hosted authentication that doesn't sell your user data. Open source and forever free for individuals.",
-        icon: Lock,
-        color: "from-orange-500 to-red-500",
-        image: "linear-gradient(to bottom right, #1f2937, #111827)", // Placeholder for actual image
+        id: "clipiee",
+        title: "Clipiee",
+        description: "Turn long videos into viral clips automatically. AI-powered captioning and hook generation.",
+        icon: Play,
+        color: "from-primary to-purple-500",
+        image: "linear-gradient(to bottom right, #2e1065, #000000)",
     },
     {
-        id: "basekit",
-        title: "BaseKit",
-        description: "The ultimate component library for Shadcn lovers. Copy, paste, and ship faster than ever.",
-        icon: Code,
+        id: "scrapeflow",
+        title: "ScrapeFlow",
+        description: "Visual web scraper. Extract data from any website without writing code. (Coming Soon)",
+        icon: Database,
         color: "from-blue-500 to-cyan-500",
         image: "linear-gradient(to bottom right, #172554, #1e3a8a)",
     },
     {
-        id: "queryflow",
-        title: "QueryFlow",
-        description: "Visual database schema manager. Build complex relations with drag-and-drop simplicity.",
-        icon: Database,
-        color: "from-emerald-500 to-green-500",
-        image: "linear-gradient(to bottom right, #064e3b, #065f46)",
+        id: "authzero",
+        title: "AuthZero",
+        description: "Self-hosted authentication that doesn't sell your user data. Open source and forever free.",
+        icon: Lock,
+        color: "from-orange-500 to-red-500",
+        image: "linear-gradient(to bottom right, #1f2937, #111827)",
     }
 ];
 
@@ -49,7 +49,7 @@ export default function Products() {
                             viewport={{ once: true }}
                             className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
                         >
-                            The Clipiee Ecosystem
+                            Our Products
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0 }}

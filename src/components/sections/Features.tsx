@@ -1,5 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+"use client";
+
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, Type, Anchor, Zap, Lock, Wand2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
     {
@@ -34,28 +37,66 @@ const features = [
     }
 ];
 
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+};
+
 export default function Features() {
     return (
         <section id="features" className="py-20 bg-muted/50">
             <div className="container px-4">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight mb-4">Complete Video Pipeline</h2>
-                    <p className="text-muted-foreground">Everything you need to turn one long video into a month of content.</p>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl font-bold tracking-tight mb-4"
+                    >
+                        Complete Video Pipeline
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-muted-foreground"
+                    >
+                        Everything you need to turn one long video into a month of content.
+                    </motion.p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
                     {features.map((feature, i) => (
-                        <Card key={i} className="bg-background/50 backdrop-blur border-border/50 hover:border-primary/50 transition-colors">
-                            <CardHeader>
-                                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                                    <feature.icon className="h-6 w-6" />
-                                </div>
-                                <CardTitle>{feature.title}</CardTitle>
-                                <CardDescription>{feature.description}</CardDescription>
-                            </CardHeader>
-                        </Card>
+                        <motion.div key={i} variants={item}>
+                            <Card className="bg-background/50 backdrop-blur border-border/50 hover:border-primary/50 transition-colors h-full">
+                                <CardHeader>
+                                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                                        <feature.icon className="h-6 w-6" />
+                                    </div>
+                                    <CardTitle>{feature.title}</CardTitle>
+                                    <CardDescription>{feature.description}</CardDescription>
+                                </CardHeader>
+                            </Card>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -2,37 +2,27 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Database, Lock, Play } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Play, Package } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
-const products = [
-    {
-        id: "clipiee",
-        title: "Clipiee",
-        description: "Turn long videos into viral clips automatically. AI-powered captioning and hook generation.",
-        icon: Play,
-        color: "from-primary to-purple-500",
-        image: "linear-gradient(to bottom right, #2e1065, #000000)",
-    },
-    {
-        id: "scrapeflow",
-        title: "ScrapeFlow",
-        description: "Visual web scraper. Extract data from any website without writing code. (Coming Soon)",
-        icon: Database,
-        color: "from-blue-500 to-cyan-500",
-        image: "linear-gradient(to bottom right, #172554, #1e3a8a)",
-    },
-    {
-        id: "authzero",
-        title: "AuthZero",
-        description: "Self-hosted authentication that doesn't sell your user data. Open source and forever free.",
-        icon: Lock,
-        color: "from-orange-500 to-red-500",
-        image: "linear-gradient(to bottom right, #1f2937, #111827)",
-    }
-];
+export interface ProductItem {
+    id: string;
+    title: string;
+    description: string;
+    link: string | null;
+    color_from: string | null;
+    color_to: string | null;
+    image_url: string | null;
+    video_url: string | null;
+}
 
-export default function Products() {
+interface ProductsProps {
+    items?: ProductItem[];
+}
+
+export default function Products({ items = [] }: ProductsProps) {
     const [hovered, setHovered] = useState<string | null>(null);
 
     return (
@@ -74,64 +64,79 @@ export default function Products() {
                     </motion.div>
                 </div>
 
-                <div className="grid lg:grid-cols-3 gap-8">
-                    {products.map((product, i) => (
-                        <motion.div
-                            key={product.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            onHoverStart={() => setHovered(product.id)}
-                            onHoverEnd={() => setHovered(null)}
-                            className="group relative rounded-2xl border border-border/50 bg-card overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300"
-                        >
-                            {/* Media Preview Area */}
-                            <div
-                                className="h-48 w-full relative overflow-hidden"
-                                style={{ background: product.image }}
+                {items.length === 0 ? (
+                    <div className="text-center py-20 bg-muted/10 rounded-2xl border border-dashed border-border">
+                        <p className="text-muted-foreground">No products available yet.</p>
+                    </div>
+                ) : (
+                    <div className="grid lg:grid-cols-3 gap-8">
+                        {items.map((product, i) => (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                onHoverStart={() => setHovered(product.id)}
+                                onHoverEnd={() => setHovered(null)}
+                                className="group relative rounded-2xl border border-border/50 bg-card overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 flex flex-col"
                             >
-                                <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 mix-blend-overlay`} />
-
-                                {/* Simulated UI elements for uniqueness */}
-                                <div className="absolute inset-4 rounded-lg bg-black/20 border border-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                                    {hovered === product.id ? (
-                                        <motion.div
-                                            initial={{ scale: 0.8, opacity: 0 }}
-                                            animate={{ scale: 1, opacity: 1 }}
-                                            className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center"
-                                        >
-                                            <Play className="w-5 h-5 text-white fill-white" />
-                                        </motion.div>
+                                {/* Media Preview Area */}
+                                <div className="h-48 w-full relative overflow-hidden bg-muted">
+                                    {product.image_url ? (
+                                        <Image
+                                            src={product.image_url}
+                                            alt={product.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
                                     ) : (
-                                        <product.icon className="w-12 h-12 text-white/20" />
+                                        <div className={`w-full h-full bg-gradient-to-br ${product.color_from || 'from-gray-800'} ${product.color_to || 'to-gray-900'}`} />
+                                    )}
+
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+
+                                    {/* Play Icon / Overlay */}
+                                    <div className="absolute inset-4 rounded-lg bg-black/10 border border-white/10 backdrop-blur-[2px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                            {product.video_url ? (
+                                                <Play className="w-5 h-5 text-white fill-white" />
+                                            ) : (
+                                                <ArrowRight className="w-5 h-5 text-white" />
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="p-6 relative flex-1 flex flex-col">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className={`p-2 rounded-lg bg-gradient-to-br ${product.color_from || 'from-primary'} ${product.color_to || 'to-purple-500'} bg-opacity-10`}>
+                                            <Package className="w-5 h-5 text-white" />
+                                        </div>
+                                        <h3 className="font-bold text-xl">{product.title}</h3>
+                                    </div>
+
+                                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                                        {product.description}
+                                    </p>
+
+                                    {product.link ? (
+                                        <Link href={product.link} target="_blank" rel="noopener noreferrer">
+                                            <Button variant="outline" className="w-full font-mono text-xs group-hover:bg-primary group-hover:text-primary-foreground border-primary/20">
+                                                View Product
+                                            </Button>
+                                        </Link>
+                                    ) : (
+                                        <Button variant="outline" disabled className="w-full font-mono text-xs opacity-50 cursor-not-allowed">
+                                            Coming Soon
+                                        </Button>
                                     )}
                                 </div>
-                            </div>
-
-                            <div className="p-6 relative">
-                                <div className={`absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                                    <ArrowRight className="w-5 h-5 text-primary" />
-                                </div>
-
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className={`p-2 rounded-lg bg-gradient-to-br ${product.color} bg-opacity-10`}>
-                                        <product.icon className="w-5 h-5 text-white" />
-                                    </div>
-                                    <h3 className="font-bold text-xl">{product.title}</h3>
-                                </div>
-
-                                <p className="text-muted-foreground text-sm leading-relaxed mb-6 h-20">
-                                    {product.description}
-                                </p>
-
-                                <Button variant="outline" className="w-full font-mono text-xs group-hover:bg-primary group-hover:text-primary-foreground border-primary/20">
-                                    View Demo
-                                </Button>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );

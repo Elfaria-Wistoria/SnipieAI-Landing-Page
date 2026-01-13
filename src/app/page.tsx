@@ -29,6 +29,16 @@ export default async function Home() {
     .order('created_at', { ascending: false })
     .limit(3);
 
+  const { data: products } = await supabase
+    .from('products')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const { data: plans } = await supabase
+    .from('pricing_plans')
+    .select('*')
+    .order('created_at', { ascending: true }); // Display older plans first (usually standard plans) or add an 'order' field later
+
   if (error) {
     logger.error({ err: error }, 'Failed to fetch news for homepage');
   } else {
@@ -40,8 +50,8 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Features />
-      <Products />
-      <Pricing />
+      <Products items={products || []} />
+      <Pricing plans={plans || []} />
       <Download />
       <News items={newsItems || []} />
       <FAQ />

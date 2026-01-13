@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Newspaper, Settings, LogOut, History } from "lucide-react";
+import { LayoutDashboard, Newspaper, Settings, LogOut, History, Package, CreditCard } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -23,6 +23,16 @@ const sidebarItems = [
         title: "Changelog",
         href: "/admin/changelog",
         icon: History,
+    },
+    {
+        title: "Products",
+        href: "/admin/products",
+        icon: Package,
+    },
+    {
+        title: "Pricing",
+        href: "/admin/pricing",
+        icon: CreditCard,
     },
     {
         title: "Settings",

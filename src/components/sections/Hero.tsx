@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Scissors, Terminal } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center z-0">
+        <section className="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center z-0">
             {/* Animated Falling Liquid Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -56,7 +57,20 @@ export default function Hero() {
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                         Clasely. <br className="hidden md:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
-                            Let It Free.
+                            {"Let It Free.".split("").map((char, index) => (
+                                <motion.span
+                                    key={index}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{
+                                        duration: 0.1,
+                                        delay: index * 0.1,
+                                        ease: "easeIn"
+                                    }}
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
                         </span>
                     </h1>
 
@@ -67,10 +81,12 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                        <Button size="lg" className="h-12 px-8 font-mono group">
-                            Explore Ecosystem
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        <Link href="/products">
+                            <Button size="lg" className="h-12 px-8 font-mono group">
+                                Explore Products
+                                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
                         <p className="text-sm text-muted-foreground">Pay once, use forever.</p>
                     </div>
                 </motion.div>

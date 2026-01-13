@@ -31,7 +31,7 @@ export default function LoginPage() {
             setStatus("error");
         } else {
             logger.info({ email }, "Login successful");
-            router.push("/admin/news/create");
+            router.push("/admin");
         }
     };
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Newspaper, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Newspaper, Settings, LogOut, History } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -18,6 +18,11 @@ const sidebarItems = [
         title: "News",
         href: "/admin/news",
         icon: Newspaper,
+    },
+    {
+        title: "Changelog",
+        href: "/admin/changelog",
+        icon: History,
     },
     {
         title: "Settings",

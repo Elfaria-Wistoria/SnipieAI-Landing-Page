@@ -1,11 +1,11 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+// Fallback to placeholder to prevent build errors if env vars are missing
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key';
 
-if (!supabaseUrl || !supabaseServiceKey) {
-    // It's okay to log this in dev, but in prod we might want to be quieter or throw
-    console.warn('Missing Supabase Service Role Key or URL for admin client.');
+if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing SUPABASE_SERVICE_ROLE_KEY. Admin operations will fail.');
 }
 
 export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {

@@ -56,7 +56,7 @@ export function Sidebar() {
     };
 
     return (
-        <div className="flex h-full w-64 flex-col border-r bg-background">
+        <div className="flex h-screen w-64 flex-col border-r bg-background sticky top-0">
             <div className="p-6">
                 <h2 className="text-lg font-bold tracking-tight">Admin</h2>
             </div>

@@ -2,7 +2,6 @@
 
 import { revalidatePath } from 'next/cache';
 import { getLogger } from '@/lib/logger';
-import { supabase } from '@/lib/supabase';
 
 const logger = getLogger('PricingActions');
 

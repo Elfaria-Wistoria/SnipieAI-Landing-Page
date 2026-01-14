@@ -111,7 +111,7 @@ export default async function AdminDashboardPage() {
                         <CardTitle>Overview</CardTitle>
                         <CardDescription>Daily revenue breakdown.</CardDescription>
                     </CardHeader>
-                    <CardContent className="pl-2">
+                    <CardContent className="pl-2 pt-6">
                         <Overview data={chartData} />
                     </CardContent>
                 </Card>

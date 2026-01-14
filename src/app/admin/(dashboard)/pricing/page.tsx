@@ -1,22 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { format } from "date-fns";
-import { Edit, Plus, Trash2, CreditCard } from "lucide-react";
+import { Edit, Plus, CreditCard } from "lucide-react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase-server";
 import { revalidatePricing } from "@/app/actions/pricing";
 import { Badge } from "@/components/ui/badge";
+import DeleteButton from "@/components/admin/DeleteButton";
 
 export const revalidate = 0;
 
-async function deletePricingPlan(formData: FormData) {
-    'use server'
-    const id = formData.get('id') as string;
-    await supabase.from('pricing_plans').delete().eq('id', id);
-    await revalidatePricing();
-}
-
 export default async function AdminPricingPage() {
+    const supabase = await createClient();
     const { data: plans } = await supabase
         .from('pricing_plans')
         .select('*')
@@ -81,17 +76,11 @@ export default async function AdminPricingPage() {
                                                     <Edit className="w-4 h-4" />
                                                 </Button>
                                             </Link>
-                                            <form action={deletePricingPlan}>
-                                                <input type="hidden" name="id" value={plan.id} />
-                                                <Button
-                                                    variant="ghost"
-                                                    size="icon"
-                                                    className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
-                                                    type="submit"
-                                                >
-                                                    <Trash2 className="w-4 h-4" />
-                                                </Button>
-                                            </form>
+                                            <DeleteButton
+                                                table="pricing_plans"
+                                                id={plan.id}
+                                                revalidateAction={revalidatePricing}
+                                            />
                                         </div>
                                     </TableCell>
                                 </TableRow>

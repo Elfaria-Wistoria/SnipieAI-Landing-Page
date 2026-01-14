@@ -1,22 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { format } from "date-fns";
-import { Edit, Plus, Trash2, Package } from "lucide-react";
+import { Edit, Plus, Package } from "lucide-react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase-server";
 import { revalidateProducts } from "@/app/actions/products";
 import Image from "next/image";
+import DeleteButton from "@/components/admin/DeleteButton";
 
 export const revalidate = 0;
 
-async function deleteProduct(formData: FormData) {
-    'use server'
-    const id = formData.get('id') as string;
-    await supabase.from('products').delete().eq('id', id);
-    await revalidateProducts();
-}
-
 export default async function AdminProductsPage() {
+    const supabase = await createClient();
     const { data: products } = await supabase
         .from('products')
         .select('*')
@@ -66,6 +61,7 @@ export default async function AdminProductsPage() {
                                                     alt={product.title}
                                                     fill
                                                     className="object-cover"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 />
                                             )}
                                         </div>
@@ -89,17 +85,11 @@ export default async function AdminProductsPage() {
                                                     <Edit className="w-4 h-4" />
                                                 </Button>
                                             </Link>
-                                            <form action={deleteProduct}>
-                                                <input type="hidden" name="id" value={product.id} />
-                                                <Button
-                                                    variant="ghost"
-                                                    size="icon"
-                                                    className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
-                                                    type="submit"
-                                                >
-                                                    <Trash2 className="w-4 h-4" />
-                                                </Button>
-                                            </form>
+                                            <DeleteButton
+                                                table="products"
+                                                id={product.id}
+                                                revalidateAction={revalidateProducts}
+                                            />
                                         </div>
                                     </TableCell>
                                 </TableRow>

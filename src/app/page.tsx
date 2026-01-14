@@ -1,5 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
+import TypographyReveal from '@/components/sections/TypographyReveal';
 import Features from '@/components/sections/Features';
 import Products from '@/components/sections/Products';
 import Pricing from '@/components/sections/Pricing';
@@ -7,6 +8,8 @@ import Download from '@/components/sections/Download';
 import News from '@/components/sections/News';
 import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/sections/Footer';
+import Newsletter from '@/components/sections/Newsletter';
+import BottomCTA from '@/components/sections/BottomCTA';
 import { supabase } from '@/lib/supabase';
 import { getLogger } from '@/lib/logger';
 
@@ -49,12 +52,15 @@ export default async function Home() {
     <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
       <Navbar />
       <Hero />
+      <TypographyReveal />
       <Features />
       <Products items={products || []} />
       <Pricing plans={plans || []} />
       <Download />
       <News items={newsItems || []} />
       <FAQ />
+      <Newsletter />
+      <BottomCTA />
       <Footer />
     </main>
   );

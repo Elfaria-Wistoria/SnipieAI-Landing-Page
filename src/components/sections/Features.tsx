@@ -1,39 +1,39 @@
 "use client";
 
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Sparkles, Type, Anchor, Zap, Lock, Wand2 } from "lucide-react";
+import { Infinity, Layers, Lock, Zap, Users, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
     {
-        title: "AI Auto-Clip",
-        description: "Our AI analyzes your video to find the most engaging 60-second moments automatically.",
-        icon: Sparkles
+        title: "Lifetime Access",
+        description: "Pay once, use forever. No monthly fees, no hidden costs. You own your tools.",
+        icon: Infinity
     },
     {
-        title: "Smart Subtitles",
-        description: "Generate 99% accurate captions with active highlighting and custom styles.",
-        icon: Type
+        title: "Creator First Ecosystem",
+        description: "A suite of interconnected tools built specifically to solve creator workflows.",
+        icon: Layers
     },
     {
-        title: "Viral Hooks",
-        description: "Automatically inserts trending hooks at the start of your clips to stop the scroll.",
-        icon: Anchor
-    },
-    {
-        title: "Face Crop",
-        description: "Auto-detects active speakers and crops vertical video perfectly.",
-        icon: Wand2
-    },
-    {
-        title: "Local Processing",
-        description: "Your videos are processed securely. We don't train on your content.",
+        title: "Privacy Focused",
+        description: "We believe in your right to privacy. Your content stays yours, processed securely.",
         icon: Lock
     },
     {
-        title: "Instant Export",
-        description: "Render 10 clips in minutes. Ready for TikTok, Reels, and Shorts.",
+        title: "Rapid Innovation",
+        description: "We ship fast. Get access to the latest AI models and features as they release.",
         icon: Zap
+    },
+    {
+        title: "Community Driven",
+        description: "Built by creators, for creators. Your feedback directly shapes our roadmap.",
+        icon: Users
+    },
+    {
+        title: "Battle Tested",
+        description: "Powering thousands of hours of content creation for creators worldwide.",
+        icon: ShieldCheck
     }
 ];
 
@@ -63,7 +63,7 @@ export default function Features() {
                         viewport={{ once: true }}
                         className="text-3xl font-bold tracking-tight mb-4"
                     >
-                        Complete Video Pipeline
+                        What is Clasely?
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,8 @@ export default function Features() {
                         transition={{ delay: 0.1 }}
                         className="text-muted-foreground"
                     >
-                        Everything you need to turn one long video into a month of content.
+                        We are building the antidote to subscription fatigue.
+                        High-quality AI tools with a simple promise: <span className="text-primary font-medium">One payment. Lifetime access.</span>
                     </motion.p>
                 </div>
 

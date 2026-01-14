@@ -51,6 +51,8 @@ export const metadata: Metadata = {
   },
 }
 
+import SmoothScroll from '@/components/providers/SmoothScroll';
+
 export default function RootLayout({
   children,
 }: {
@@ -58,7 +60,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jetbrainsMono.variable}>
-      <body className="font-mono bg-background text-foreground">{children}</body>
+      <body className="font-mono bg-background text-foreground">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   )
 }

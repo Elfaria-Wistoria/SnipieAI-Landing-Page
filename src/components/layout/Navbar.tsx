@@ -13,7 +13,7 @@ export default function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-                    <Link href="/features" className="hover:text-foreground transition-colors">Features</Link>
+                    <Link href="/#features" className="hover:text-foreground transition-colors">Clasely</Link>
                     <Link href="/products" className="hover:text-foreground transition-colors">Products</Link>
                     <Link href="/news" className="hover:text-foreground transition-colors">News</Link>
                     <Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>

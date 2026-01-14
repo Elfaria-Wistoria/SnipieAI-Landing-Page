@@ -1,48 +1,76 @@
 'use client';
 
+import { useRef } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+
 export default function BottomCTA() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start start', 'end end'],
+    });
+
+    // Phase 1: Reveal "If you've scrolled this far,"
+    // Phase 2: Reveal "it's time to try Clipiee" + Button
+
+    // Phase 1: 0 - 0.4
+    const opacity1 = useTransform(scrollYProgress, [0, 0.3, 0.45], [0, 1, 0]);
+    const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
+    const blur1 = useTransform(scrollYProgress, [0.35, 0.45], [0, 10]);
+
+    // Phase 2: 0.5 - 1.0
+    const opacity2 = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+    const scale2 = useTransform(scrollYProgress, [0.5, 0.7], [1.2, 1]);
+    const y2 = useTransform(scrollYProgress, [0.5, 0.7], [50, 0]);
+
     return (
-        <section className="relative overflow-hidden py-24 md:py-32 bg-background flex justify-center">
-            <div className="container px-4 md:px-6 flex justify-center">
+        <section ref={containerRef} className="relative h-[200vh] bg-background">
+            <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+
+                {/* Background Decoration */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+                {/* Phase 1 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="relative group rounded-3xl border border-white/10 bg-neutral-900/50 p-8 md:p-16 overflow-hidden max-w-4xl w-full text-center isolate"
+                    style={{ opacity: opacity1, scale: scale1, filter: useTransform(blur1, (v) => `blur(${v}px)`) }}
+                    className="absolute inset-0 flex items-center justify-center p-8 text-center"
                 >
-                    {/* Animated Gradient Border/Glow */}
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 w-[200%] h-full animate-shine pointer-events-none" />
-                    <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary-rgb),0.1),transparent_70%)] opacity-40" />
-
-                    <div className="flex flex-col items-center space-y-8 relative z-10">
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-balance leading-tight text-white">
-                            If you've scrolled this far, <br className="md:hidden" />
-                            it's time to try <span className="text-primary">Clipiee</span>.
-                        </h2>
-
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Link href="/download">
-                                <Button size="lg" className="text-lg px-8 py-6 rounded-full group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
-                                    Get Clipiee
-                                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-                    </div>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
+                        If you've scrolled this far,
+                    </h2>
                 </motion.div>
-            </div>
 
-            {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+                {/* Phase 2 */}
+                <motion.div
+                    style={{ opacity: opacity2, scale: scale2, y: y2 }}
+                    className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center gap-12"
+                >
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none text-balance">
+                        it's time to try <br className="hidden md:block" />
+                        <span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
+                            Clipiee
+                        </span>
+                        .
+                    </h2>
+
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <Link href="/download">
+                            <Button size="lg" className="text-xl px-10 py-8 rounded-full group bg-primary hover:bg-primary/90 text-primary-foreground shadow-2xl shadow-primary/25">
+                                Get Clipiee
+                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                            </Button>
+                        </Link>
+                    </motion.div>
+                </motion.div>
+
+            </div>
         </section>
     );
 }

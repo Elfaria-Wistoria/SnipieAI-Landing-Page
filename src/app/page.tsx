@@ -26,26 +26,42 @@ export const metadata = {
 export default async function Home() {
   logger.info('Rendering Home Page');
 
-  const { data: newsItems, error } = await supabase
-    .from('news')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(3);
+  const [
+    { data: newsItems, error: newsError },
+    { data: products, error: productsError },
+    { data: plans, error: plansError },
+  ] = await Promise.all([
+    supabase
+      .from('news')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(3),
+    supabase
+      .from('products')
+      .select('*')
+      .order('created_at', { ascending: false }),
+    supabase
+      .from('pricing_plans')
+      .select('*')
+      .order('created_at', { ascending: true }),
+  ]);
 
-  const { data: products } = await supabase
-    .from('products')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  const { data: plans } = await supabase
-    .from('pricing_plans')
-    .select('*')
-    .order('created_at', { ascending: true }); // Display older plans first (usually standard plans) or add an 'order' field later
-
-  if (error) {
-    logger.error({ err: error }, 'Failed to fetch news for homepage');
+  if (newsError) {
+    logger.error({ err: newsError }, 'Failed to fetch news for homepage');
   } else {
     logger.info({ count: newsItems?.length || 0 }, 'Fetched news for homepage');
+  }
+
+  if (productsError) {
+    logger.error({ err: productsError }, 'Failed to fetch products for homepage');
+  } else {
+    logger.info({ count: products?.length || 0 }, 'Fetched products for homepage');
+  }
+
+  if (plansError) {
+    logger.error({ err: plansError }, 'Failed to fetch pricing plans for homepage');
+  } else {
+    logger.info({ count: plans?.length || 0 }, 'Fetched pricing plans for homepage');
   }
 
   return (

@@ -53,6 +53,8 @@ export const metadata: Metadata = {
 
 import SmoothScroll from '@/components/providers/SmoothScroll';
 
+import { Toaster } from "@/components/ui/sonner";
+
 export default function RootLayout({
   children,
 }: {
@@ -62,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className={jetbrainsMono.variable}>
       <body className="font-mono bg-background text-foreground">
         <SmoothScroll>{children}</SmoothScroll>
+        <Toaster />
       </body>
     </html>
   )

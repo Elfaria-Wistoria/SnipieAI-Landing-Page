@@ -3,7 +3,7 @@ import Hero from '@/components/sections/Hero';
 import TypographyReveal from '@/components/sections/TypographyReveal';
 import Features from '@/components/sections/Features';
 import Products from '@/components/sections/Products';
-import Pricing from '@/components/sections/Pricing';
+
 import Download from '@/components/sections/Download';
 import News from '@/components/sections/News';
 import FAQ from '@/components/sections/FAQ';
@@ -29,7 +29,6 @@ export default async function Home() {
   const [
     { data: newsItems, error: newsError },
     { data: products, error: productsError },
-    { data: plans, error: plansError },
   ] = await Promise.all([
     supabase
       .from('news')
@@ -40,10 +39,6 @@ export default async function Home() {
       .from('products')
       .select('*')
       .order('created_at', { ascending: false }),
-    supabase
-      .from('pricing_plans')
-      .select('*')
-      .order('created_at', { ascending: true }),
   ]);
 
   if (newsError) {
@@ -58,12 +53,6 @@ export default async function Home() {
     logger.info({ count: products?.length || 0 }, 'Fetched products for homepage');
   }
 
-  if (plansError) {
-    logger.error({ err: plansError }, 'Failed to fetch pricing plans for homepage');
-  } else {
-    logger.info({ count: plans?.length || 0 }, 'Fetched pricing plans for homepage');
-  }
-
   return (
     <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
       <Navbar />
@@ -71,7 +60,7 @@ export default async function Home() {
       <TypographyReveal />
       <Features />
       <Products items={products || []} />
-      <Pricing plans={plans || []} />
+
       <Download />
       <News items={newsItems || []} />
       <FAQ />

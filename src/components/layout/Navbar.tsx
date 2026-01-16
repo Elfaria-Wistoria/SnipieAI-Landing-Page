@@ -13,21 +13,16 @@ export default function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-                    <Link href="/#features" className="hover:text-foreground transition-colors">Clasely</Link>
+
                     <Link href="/products" className="hover:text-foreground transition-colors">Products</Link>
                     <Link href="/news" className="hover:text-foreground transition-colors">News</Link>
-                    <Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
                     <Link href="/download" className="hover:text-foreground transition-colors">Download</Link>
+                    <Link href="/redeem" className="hover:text-foreground transition-colors">Redeem</Link>
                     <Link href="/faq" className="hover:text-foreground transition-colors">FAQ</Link>
                 </div>
 
                 <div className="flex items-center gap-4">
-
-                    <Link href="/pricing">
-                        <Button size="sm" className="font-mono">
-                            Get Lifetime Access
-                        </Button>
-                    </Link>
+                    {/* CTA Button Removed */}
                 </div>
             </div>
         </nav>

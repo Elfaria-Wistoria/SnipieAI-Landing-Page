@@ -22,7 +22,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    {/* CTA Button Removed */}
+                    <Link href="/download">
+                        <Button size="sm" className="font-mono bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/25 transition-all">
+                            Get Clipiee
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </nav>

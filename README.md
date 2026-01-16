@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Release Management
+
+To distribute new versions of the application, follow these steps:
+
+1.  **Build your application** for the target platforms (macOS ARM64, macOS Intel, Windows x64).
+2.  **Upload the binaries** using the `upload-release` script. This will upload them to the `releases` bucket in Supabase and make them available via the download API.
+
+```bash
+# For Apple Silicon (mac-arm64)
+npx tsx scripts/upload-release.ts mac-arm64 /path/to/your/app-arm64.dmg
+
+# For Intel Macs (mac-intel)
+npx tsx scripts/upload-release.ts mac-intel /path/to/your/app-intel.dmg
+
+# For Windows (win64)
+npx tsx scripts/upload-release.ts win64 /path/to/your/app-setup.exe
+```
+
+The download buttons on the website point to `/api/download?platform=[platform]`, which redirects to the latest file in the Supabase bucket.

@@ -53,16 +53,20 @@ export const metadata: Metadata = {
 
 import SmoothScroll from '@/components/providers/SmoothScroll';
 
+import { ClerkProvider } from '@clerk/nextjs'
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
-      <body className="font-mono bg-background text-foreground">
-        <SmoothScroll>{children}</SmoothScroll>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={jetbrainsMono.variable}>
+        <body className="font-mono bg-background text-foreground">
+          <SmoothScroll>{children}</SmoothScroll>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

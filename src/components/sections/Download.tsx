@@ -47,12 +47,16 @@ export default function Download() {
                                 <CardDescription>Version 1.2.0 • Requires macOS 12+</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                <Button className="w-full h-12 text-base font-medium from-primary to-primary/80 bg-gradient-to-r hover:opacity-90 transition-opacity">
-                                    <DownloadIcon className="mr-2 w-4 h-4" />
-                                    Download for Apple Silicon
+                                <Button className="w-full h-12 text-base font-medium from-primary to-primary/80 bg-gradient-to-r hover:opacity-90 transition-opacity" asChild>
+                                    <a href="/api/download?platform=mac-arm64">
+                                        <DownloadIcon className="mr-2 w-4 h-4" />
+                                        Download for Apple Silicon
+                                    </a>
                                 </Button>
-                                <Button variant="outline" className="w-full h-12 text-base font-medium">
-                                    Download for Intel
+                                <Button variant="outline" className="w-full h-12 text-base font-medium" asChild>
+                                    <a href="/api/download?platform=mac-intel">
+                                        Download for Intel
+                                    </a>
                                 </Button>
                                 <p className="text-xs text-muted-foreground pt-2">
                                     Not sure? Most new Macs use Apple Silicon (M1/M2/M3).
@@ -77,9 +81,11 @@ export default function Download() {
                                 <CardDescription>Version 1.2.0 • Windows 10/11 (64-bit)</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                <Button className="w-full h-12 text-base font-medium bg-blue-600 hover:bg-blue-700 text-white">
-                                    <DownloadIcon className="mr-2 w-4 h-4" />
-                                    Download for Windows
+                                <Button className="w-full h-12 text-base font-medium bg-blue-600 hover:bg-blue-700 text-white" asChild>
+                                    <a href="/api/download?platform=win64">
+                                        <DownloadIcon className="mr-2 w-4 h-4" />
+                                        Download for Windows
+                                    </a>
                                 </Button>
                                 <Button variant="ghost" className="w-full h-12 text-base font-medium opacity-0 cursor-default pointer-events-none">
                                     Placeholder

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 export default function Navbar() {
     return (
@@ -23,20 +22,10 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <SignedOut>
-                        <SignInButton mode="modal">
-                            <Button size="sm" className="font-mono">
-                                Sign In
-                            </Button>
-                        </SignInButton>
-                    </SignedOut>
-                    <SignedIn>
-                        <UserButton afterSignOutUrl="/" />
-                    </SignedIn>
 
-                    <Link href="/pricing" className="hidden sm:block">
-                        <Button variant="outline" size="sm" className="font-mono border-primary/20 hover:bg-primary/5">
-                            Get Access
+                    <Link href="/pricing">
+                        <Button size="sm" className="font-mono">
+                            Get Lifetime Access
                         </Button>
                     </Link>
                 </div>

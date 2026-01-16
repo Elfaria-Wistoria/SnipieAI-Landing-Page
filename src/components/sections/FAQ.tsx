@@ -24,11 +24,8 @@ const faqItems = [
     {
         question: "Is there a limit to how many videos I can process?",
         answer: "No, the lifetime license includes unlimited processing. There are no caps on the number of hours or videos you can clip."
-    },
-    {
-        question: "Do you offer refunds?",
-        answer: "Yes, we offer a 30-day money-back guarantee. If you're not satisfied with Clipiee for any reason, just let us know and we'll refund your purchase."
     }
+
 ];
 
 export default function FAQ() {

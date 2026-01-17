@@ -103,11 +103,12 @@ export async function redeemLicense(prevState: any, formData: FormData) {
 
             let assignedCode = "";
 
-            // 1. Check if user ALREADY has a code assigned
+            // 1. Check if user ALREADY has a code assigned (Reserved or Used)
             const { data: existingCode } = await licenseDB
                 .from('activation_codes')
                 .select('code')
-                .eq('used_by', email)
+                .or(`owner_email.eq.${email},used_by.eq.${email}`)
+                .limit(1)
                 .single();
 
             if (existingCode) {
@@ -117,53 +118,39 @@ export async function redeemLicense(prevState: any, formData: FormData) {
                     message: "License recovered! Here is your previously assigned key.",
                     code: assignedCode
                 };
-            } else {
-                // 2. Assign a NEW code
-                const { data: newCode, error: assignError } = await licenseDB
-                    .from('activation_codes')
-                    .select('code')
-                    .eq('status', 'unused')
-                    .limit(1)
-                    .single();
-
-                if (assignError || !newCode) {
-                    logger.error("OUT OF STOCK: No unused codes available in License DB.");
-                    return { success: false, message: "Activation successful, but we are out of codes! Please contact support." };
-                }
-
-                // Mark as used
-                const { error: updateError } = await licenseDB
-                    .from('activation_codes')
-                    .update({
-                        status: 'used',
-                        used_by: email,
-                        used_at: new Date().toISOString()
-                    })
-                    .eq('code', newCode.code);
-
-                if (updateError) {
-                    logger.error({ err: updateError }, "Failed to assign code.");
-                    return { success: false, message: "System error assigning code. Please contact support." };
-                }
-
-                assignedCode = newCode.code;
-
-                // Success with Code - Activate User
-                const { error: userUpdateError } = await supabaseAdmin
-                    .from('users')
-                    .update({ is_activated: true, updated_at: new Date().toISOString() })
-                    .eq('email', email);
-
-                if (userUpdateError) {
-                    logger.error({ err: userUpdateError }, "Failed to update user status");
-                }
-
-                return {
-                    success: true,
-                    message: "Activation successful! Here is your new license key.",
-                    code: assignedCode
-                };
             }
+
+            // 2. Atomic Claim via RPC
+            const { data: claimedCode, error: claimError } = await licenseDB
+                .rpc('claim_activation_code', { claimed_by_email: email });
+
+            if (claimError) {
+                logger.error({ err: claimError }, "RPC error claiming code");
+                return { success: false, message: "System error assigning code. Please contact support." };
+            }
+
+            if (!claimedCode) {
+                logger.error("OUT OF STOCK: No unused codes available in License DB (RPC returned null).");
+                return { success: false, message: "Activation successful, but we are out of codes! Please contact support." };
+            }
+
+            assignedCode = claimedCode;
+
+            // Success with Code - Activate User
+            const { error: userUpdateError } = await supabaseAdmin
+                .from('users')
+                .update({ is_activated: true, updated_at: new Date().toISOString() })
+                .eq('email', email);
+
+            if (userUpdateError) {
+                logger.error({ err: userUpdateError }, "Failed to update user status");
+            }
+
+            return {
+                success: true,
+                message: "Activation successful! Here is your new license key.",
+                code: assignedCode
+            };
         }
 
         // ---------------------------------------------------------

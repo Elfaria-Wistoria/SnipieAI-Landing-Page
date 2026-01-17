@@ -8,7 +8,7 @@ import HeroScene from "@/components/3d/HeroScene";
 
 export default function Hero() {
     return (
-        <section className="relative pt-10 lg:pt-20 pb-20 overflow-hidden min-h-screen flex items-center z-0">
+        <section className="relative pt-32 lg:pt-20 pb-20 overflow-hidden min-h-screen flex items-center z-0">
 
             <div className="container px-4 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
                 {/* Content */}

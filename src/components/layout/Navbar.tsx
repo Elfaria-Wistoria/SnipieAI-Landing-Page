@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +50,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
+                    <ModeToggle />
                     <div className="hidden md:block">
                         <Link href="/download">
                             <Button size="sm" className="font-mono bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/25 transition-all">
@@ -85,6 +87,11 @@ export default function Navbar() {
                             <Link href="/download" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Download</Link>
                             <Link href="/redeem" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Redeem</Link>
                             <Link href="/faq" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 mb-4">FAQ</Link>
+
+                            <div className="flex items-center justify-between py-2 mb-4 border-t border-border/10 pt-4">
+                                <span className="text-sm font-medium">Theme</span>
+                                <ModeToggle />
+                            </div>
 
                             <Link href="/download" onClick={toggleMenu} className="w-full">
                                 <Button className="w-full font-mono bg-primary/90 hover:bg-primary shadow-lg">

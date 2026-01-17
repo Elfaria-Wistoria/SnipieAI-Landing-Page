@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { LayoutDashboard, Newspaper, Settings, LogOut, History, Package, CreditCard, Users } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const sidebarItems = [
     {
@@ -80,7 +81,11 @@ export function Sidebar() {
                     ))}
                 </nav>
             </div>
-            <div className="p-4 border-t">
+            <div className="p-4 border-t space-y-2">
+                <div className="flex items-center justify-between px-2">
+                    <span className="text-sm text-muted-foreground">Theme</span>
+                    <ModeToggle />
+                </div>
                 <Button
                     variant="ghost"
                     className="w-full justify-start gap-2 text-red-500 hover:text-red-600 hover:bg-red-50"

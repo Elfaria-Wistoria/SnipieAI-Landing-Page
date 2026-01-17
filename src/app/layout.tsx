@@ -52,6 +52,7 @@ export const metadata: Metadata = {
 }
 
 import SmoothScroll from '@/components/providers/SmoothScroll';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 import { Toaster } from "@/components/ui/sonner";
 
@@ -61,10 +62,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
       <body className="font-mono bg-background text-foreground">
-        <SmoothScroll>{children}</SmoothScroll>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScroll>{children}</SmoothScroll>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )

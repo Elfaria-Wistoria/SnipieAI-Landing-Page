@@ -9,7 +9,7 @@ interface OverviewProps {
 export function Overview({ data }: OverviewProps) {
     return (
         <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
+            <BarChart data={data} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
                 <XAxis
                     dataKey="name"
                     stroke="#888888"
@@ -22,6 +22,7 @@ export function Overview({ data }: OverviewProps) {
                     fontSize={12}
                     tickLine={false}
                     axisLine={false}
+                    width={80}
                     tickFormatter={(value) => `Rp ${value}`}
                 />
                 <Tooltip

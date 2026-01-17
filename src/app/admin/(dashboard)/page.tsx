@@ -1,4 +1,5 @@
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import DeleteButton from "@/components/admin/DeleteButton";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Newspaper, DollarSign, CreditCard, Activity, Package } from "lucide-react";
 import Link from "next/link";
@@ -181,8 +182,11 @@ export default async function AdminDashboardPage() {
                                                 {tx.customer_name} ({tx.customer_email})
                                             </p>
                                         </div>
-                                        <div className="ml-auto font-medium">
-                                            +{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(tx.amount)}
+                                        <div className="ml-auto flex items-center gap-4">
+                                            <div className="font-medium">
+                                                +{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(tx.amount)}
+                                            </div>
+                                            <DeleteButton table="transactions" id={tx.id} />
                                         </div>
                                     </div>
                                 ))

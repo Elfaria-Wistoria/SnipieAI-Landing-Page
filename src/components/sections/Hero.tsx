@@ -17,7 +17,7 @@ export default function Hero() {
                         opacity: [0, 0.5, 0]
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-[50%] left-[20%] w-[20vw] h-[80vh] bg-gradient-to-b from-transparent via-purple-950 to-transparent blur-[80px] opacity-30 mix-blend-screen"
+                    className="absolute -top-[50%] left-[20%] w-[20vw] h-[80vh] bg-gradient-to-b from-transparent via-[#adf91d] to-transparent blur-[80px] opacity-30 mix-blend-multiply dark:mix-blend-screen"
                 />
                 <motion.div
                     animate={{
@@ -26,7 +26,7 @@ export default function Hero() {
                         opacity: [0, 0.4, 0]
                     }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 2 }}
-                    className="absolute -top-[50%] right-[30%] w-[25vw] h-[100vh] bg-gradient-to-b from-transparent via-blue-950 to-transparent blur-[100px] opacity-20 mix-blend-screen"
+                    className="absolute -top-[50%] right-[30%] w-[25vw] h-[100vh] bg-gradient-to-b from-transparent via-[#adf91d] to-transparent blur-[100px] opacity-20 mix-blend-multiply dark:mix-blend-screen"
                 />
                 <motion.div
                     animate={{
@@ -34,7 +34,7 @@ export default function Hero() {
                         opacity: [0, 0.3, 0]
                     }}
                     transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
-                    className="absolute -top-[50%] left-[50%] w-[30vw] h-[90vh] bg-gradient-to-b from-transparent via-indigo-950 to-transparent blur-[120px] opacity-20 mix-blend-screen"
+                    className="absolute -top-[50%] left-[50%] w-[30vw] h-[90vh] bg-gradient-to-b from-transparent via-[#adf91d] to-transparent blur-[120px] opacity-20 mix-blend-multiply dark:mix-blend-screen"
                 />
             </div>
 
@@ -46,17 +46,17 @@ export default function Hero() {
                     transition={{ duration: 0.5 }}
                     className="text-center lg:text-left"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black bg-primary/5 text-black text-xs font-mono mb-6">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
-                        v1.0 Now Available
+                        v1.0.0
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                         Clasely. <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-neutral-600 dark:from-white dark:to-neutral-400">
                             {"Let It Free.".split("").map((char, index) => (
                                 <motion.span
                                     key={index}

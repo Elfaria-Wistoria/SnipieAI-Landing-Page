@@ -41,6 +41,7 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
                     <Link href="/products" className="hover:text-foreground transition-colors">Products</Link>
+                    <Link href="/#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
                     <Link href="/news" className="hover:text-foreground transition-colors">News</Link>
                     <Link href="/download" className="hover:text-foreground transition-colors">Download</Link>
                     <Link href="/redeem" className="hover:text-foreground transition-colors">Redeem</Link>
@@ -79,6 +80,7 @@ export default function Navbar() {
                     >
                         <div className="flex flex-col p-4 space-y-4 font-medium text-muted-foreground">
                             <Link href="/products" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Products</Link>
+                            <Link href="/#pricing" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Pricing</Link>
                             <Link href="/news" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">News</Link>
                             <Link href="/download" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Download</Link>
                             <Link href="/redeem" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Redeem</Link>

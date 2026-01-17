@@ -8,6 +8,7 @@ import Download from '@/components/sections/Download';
 import News from '@/components/sections/News';
 import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/sections/Footer';
+import Pricing from '@/components/sections/Pricing';
 import Newsletter from '@/components/sections/Newsletter';
 import BottomCTA from '@/components/sections/BottomCTA';
 import { supabase } from '@/lib/supabase';
@@ -29,6 +30,7 @@ export default async function Home() {
   const [
     { data: newsItems, error: newsError },
     { data: products, error: productsError },
+    { data: pricingPlans, error: pricingError },
   ] = await Promise.all([
     supabase
       .from('news')
@@ -39,6 +41,10 @@ export default async function Home() {
       .from('products')
       .select('*')
       .order('created_at', { ascending: false }),
+    supabase
+      .from('pricing_plans')
+      .select('*')
+      .order('created_at', { ascending: true }),
   ]);
 
   if (newsError) {
@@ -53,6 +59,12 @@ export default async function Home() {
     logger.info({ count: products?.length || 0 }, 'Fetched products for homepage');
   }
 
+  if (pricingError) {
+    logger.error({ err: pricingError }, 'Failed to fetch pricing for homepage');
+  } else {
+    logger.info({ count: pricingPlans?.length || 0 }, 'Fetched pricing for homepage');
+  }
+
   return (
     <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
       <Navbar />
@@ -60,6 +72,7 @@ export default async function Home() {
       <TypographyReveal />
       <Features />
       <Products items={products || []} />
+      <Pricing items={pricingPlans || []} />
 
       <Download />
       <News items={newsItems || []} />

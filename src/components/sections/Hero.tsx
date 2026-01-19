@@ -47,8 +47,8 @@ export default function Hero() {
                     </h1>
 
                     <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-                        We sell super apps with lifetime licenses.
-                        Build, create, and ship without limits.<br className="hidden sm:block" />
+                        We sell super apps, not subscriptions.
+                        <b>Clipiee</b> is the #1 local alternative to Opus Clip. Runs 100% offline on your device.<br className="hidden sm:block" />
                         <span className="text-black dark:text-white font-medium">#F*ckSubscriptions</span>
                     </p>
 

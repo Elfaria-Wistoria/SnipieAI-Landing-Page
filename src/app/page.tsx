@@ -20,8 +20,8 @@ export const revalidate = 60;
 const logger = getLogger('HomePage');
 
 export const metadata = {
-  title: 'Clasely - AI Tools for Creators',
-  description: 'Discover Clasely\'s ecosystem of lifetime-license AI tools including Clipiee. Professional video creation, streamlined.',
+  title: 'Clasely - Clipiee: Local AI Video Clipper (No Subscription)',
+  description: 'Download Clipiee, the #1 local AI video clipper. An Opus Clip alternative that runs offline on your Mac/PC. One-time payment, no monthly fees.',
 };
 
 export default async function Home() {

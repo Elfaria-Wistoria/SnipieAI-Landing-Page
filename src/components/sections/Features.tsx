@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const features = [
     {
         title: "Lifetime Access",
-        description: "Pay once, use forever. No monthly fees, no hidden costs. You own your tools.",
+        description: "Stop paying monthly subscriptions. Pay once for Clipiee and use it forever. Save $100s/year vs competitors.",
         icon: Infinity
     },
     {
@@ -17,7 +17,7 @@ const features = [
     },
     {
         title: "Privacy Focused",
-        description: "We believe in your right to privacy. Your content stays yours, processed securely.",
+        description: "Runs 100% locally on your device. No cloud uploads. Your content never leaves your laptop.",
         icon: Lock
     },
     {

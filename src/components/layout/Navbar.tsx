@@ -46,6 +46,7 @@ export default function Navbar() {
                     <Link href="/news" className="hover:text-foreground transition-colors">News</Link>
                     <Link href="/download" className="hover:text-foreground transition-colors">Download</Link>
                     <Link href="/redeem" className="hover:text-foreground transition-colors">Redeem</Link>
+                    <Link href="/update" className="hover:text-foreground transition-colors">Update</Link>
                     <Link href="/faq" className="hover:text-foreground transition-colors">FAQ</Link>
                 </div>
 
@@ -86,6 +87,7 @@ export default function Navbar() {
                             <Link href="/news" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">News</Link>
                             <Link href="/download" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Download</Link>
                             <Link href="/redeem" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Redeem</Link>
+                            <Link href="/update" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Update</Link>
                             <Link href="/faq" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 mb-4">FAQ</Link>
 
                             <div className="flex items-center justify-between py-2 mb-4 border-t border-border/10 pt-4">

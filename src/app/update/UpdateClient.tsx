@@ -3,10 +3,11 @@
 import { verifyDownloadAccess } from "@/app/actions/update-verification";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { Apple, ArrowRight, Check, Download as DownloadIcon, Loader2, Lock, Monitor, RefreshCcw, Sparkles, Zap } from "lucide-react";
+import { Apple, ArrowRight, Check, Download as DownloadIcon, Loader2, Lock, Monitor, RefreshCcw, Sparkles, Users, Zap } from "lucide-react";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -52,6 +53,7 @@ export default function UpdateClient({ macDownloadUrl, winDownloadUrl }: UpdateC
     const [os, setOs] = useState<"mac" | "windows" | null>(null);
     const [state, formAction] = useActionState(verifyDownloadAccess, initialState);
     const [isVerified, setIsVerified] = useState(false);
+    const [showCommunityPopup, setShowCommunityPopup] = useState(false);
 
     useEffect(() => {
         const userAgent = window.navigator.userAgent.toLowerCase();
@@ -67,6 +69,8 @@ export default function UpdateClient({ macDownloadUrl, winDownloadUrl }: UpdateC
             if (state.success) {
                 toast.success(state.message);
                 setIsVerified(true);
+                // Show popup after a short delay
+                setTimeout(() => setShowCommunityPopup(true), 1500);
             } else {
                 toast.error(state.message);
             }
@@ -81,6 +85,31 @@ export default function UpdateClient({ macDownloadUrl, winDownloadUrl }: UpdateC
                 <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
                 <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[100px] opacity-30" />
             </div>
+
+            {/* Community Popup */}
+            <Dialog open={showCommunityPopup} onOpenChange={setShowCommunityPopup}>
+                <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                        <div className="mx-auto w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
+                            <Users className="w-6 h-6 text-blue-500" />
+                        </div>
+                        <DialogTitle className="text-center text-xl">Join the Community!</DialogTitle>
+                        <DialogDescription className="text-center">
+                            Join our Telegram group to get the latest updates, feature announcements, and tips from other creators.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="flex-col sm:flex-col gap-2 mt-4">
+                        <Button className="w-full bg-blue-500 hover:bg-blue-600" asChild>
+                            <a href="https://t.me/+J-_n_mS9jd4xMTRl" target="_blank" rel="noopener noreferrer">
+                                Join Telegram Group
+                            </a>
+                        </Button>
+                        <Button variant="ghost" className="w-full" onClick={() => setShowCommunityPopup(false)}>
+                            Maybe Later
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
 
             <div className="container px-4 text-center relative z-10">
                 <motion.div
@@ -301,6 +330,11 @@ export default function UpdateClient({ macDownloadUrl, winDownloadUrl }: UpdateC
                     transition={{ delay: 0.6, duration: 0.6 }}
                     className="mt-20 flex flex-col items-center gap-4"
                 >
+                    {isVerified && (
+                        <Button onClick={() => setShowCommunityPopup(true)} className="gap-2 bg-blue-500 hover:bg-blue-600 rounded-full px-6 mb-2">
+                            <Users className="w-4 h-4" /> Join Community
+                        </Button>
+                    )}
                     <p className="text-sm text-muted-foreground/50">
                         Current Version: v{VERSION} • Released Jan 2026
                     </p>

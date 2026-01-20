@@ -9,7 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { KeyRound, ShieldCheck, Loader2, Sparkles, Info, Copy } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Users, KeyRound, ShieldCheck, Loader2, Sparkles, Info, Copy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -44,13 +45,18 @@ function SubmitButton() {
     );
 }
 
+// ... imports ...
+
 export default function RedeemPage() {
     const [state, formAction] = useActionState(redeemLicense, initialState);
+    const [showCommunityPopup, setShowCommunityPopup] = useState(false);
 
     useEffect(() => {
         if (state.message) {
             if (state.success) {
                 toast.success(state.message);
+                // Show popup after a short delay for better UX
+                setTimeout(() => setShowCommunityPopup(true), 1500);
             } else {
                 toast.error(state.message);
             }
@@ -62,11 +68,32 @@ export default function RedeemPage() {
             <Navbar />
 
             <main className="flex-1 flex items-center justify-center relative overflow-hidden px-4 md:px-0 py-20">
-                {/* Background Textures */}
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]" />
-                </div>
+                {/* ... existing content ... */}
+
+                {/* Community Popup */}
+                <Dialog open={showCommunityPopup} onOpenChange={setShowCommunityPopup}>
+                    <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                            <div className="mx-auto w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
+                                <Users className="w-6 h-6 text-blue-500" />
+                            </div>
+                            <DialogTitle className="text-center text-xl">Join the Community!</DialogTitle>
+                            <DialogDescription className="text-center">
+                                Join our Telegram group to get the latest updates, feature announcements, and tips from other creators.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DialogFooter className="flex-col sm:flex-col gap-2 mt-4">
+                            <Button className="w-full bg-blue-500 hover:bg-blue-600" asChild>
+                                <a href="https://t.me/+J-_n_mS9jd4xMTRl" target="_blank" rel="noopener noreferrer">
+                                    Join Telegram Group
+                                </a>
+                            </Button>
+                            <Button variant="ghost" className="w-full" onClick={() => setShowCommunityPopup(false)}>
+                                Maybe Later
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
 
                 <div className="w-full max-w-md relative z-10">
                     <motion.div
@@ -125,9 +152,18 @@ export default function RedeemPage() {
                                                 </div>
                                             )}
 
-                                            <Button variant="outline" className="mt-4" onClick={() => window.location.href = '/'}>
-                                                Return Home
-                                            </Button>
+                                            <div className="flex flex-col gap-2 mt-4">
+                                                <Button
+                                                    className="w-full bg-blue-500 hover:bg-blue-600 gap-2"
+                                                    onClick={() => setShowCommunityPopup(true)}
+                                                >
+                                                    <Users className="w-4 h-4" />
+                                                    Join Community
+                                                </Button>
+                                                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/'}>
+                                                    Return Home
+                                                </Button>
+                                            </div>
                                         </motion.div>
                                     ) : (
                                         <div className="space-y-6">

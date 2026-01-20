@@ -1,18 +1,21 @@
+import { Suspense } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import TypographyReveal from '@/components/sections/TypographyReveal';
 import Features from '@/components/sections/Features';
-import Products from '@/components/sections/Products';
 
 import Download from '@/components/sections/Download';
-import News from '@/components/sections/News';
 import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/sections/Footer';
-import Pricing from '@/components/sections/Pricing';
 import Newsletter from '@/components/sections/Newsletter';
 import BottomCTA from '@/components/sections/BottomCTA';
-import { supabase } from '@/lib/supabase';
 import { getLogger } from '@/lib/logger';
+
+// Async Server Components
+import StatsSection from '@/components/sections/server/StatsSection';
+import ProductsSection from '@/components/sections/server/ProductsSection';
+import NewsSection from '@/components/sections/server/NewsSection';
+import PricingSection from '@/components/sections/server/PricingSection';
 
 // Enable generic ISR for the homepage as well
 export const revalidate = 60;
@@ -24,58 +27,41 @@ export const metadata = {
   description: 'Download Clipiee, the #1 local AI video clipper. An Opus Clip alternative that runs offline on your Mac/PC. One-time payment, no monthly fees.',
 };
 
-export default async function Home() {
-  logger.info('Rendering Home Page');
-
-  const [
-    { data: newsItems, error: newsError },
-    { data: products, error: productsError },
-    { data: pricingPlans, error: pricingError },
-  ] = await Promise.all([
-    supabase
-      .from('news')
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(3),
-    supabase
-      .from('products')
-      .select('*')
-      .order('created_at', { ascending: false }),
-    supabase
-      .from('pricing_plans')
-      .select('*')
-      .order('created_at', { ascending: true }),
-  ]);
-
-  if (newsError) {
-    logger.error({ err: newsError }, 'Failed to fetch news for homepage');
-  } else {
-    logger.info({ count: newsItems?.length || 0 }, 'Fetched news for homepage');
-  }
-
-  if (productsError) {
-    logger.error({ err: productsError }, 'Failed to fetch products for homepage');
-  } else {
-    logger.info({ count: products?.length || 0 }, 'Fetched products for homepage');
-  }
-
-  if (pricingError) {
-    logger.error({ err: pricingError }, 'Failed to fetch pricing for homepage');
-  } else {
-    logger.info({ count: pricingPlans?.length || 0 }, 'Fetched pricing for homepage');
-  }
+export default function Home() {
+  logger.info('Rendering Home Page (Streaming Mode)');
 
   return (
     <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
       <Navbar />
+
+      {/* 1. Hero loads instantly (0ms) */}
       <Hero />
+
+      {/* 2. Stats stream in */}
+      <Suspense fallback={<div className="h-32 bg-transparent" />}>
+        <StatsSection />
+      </Suspense>
+
       <TypographyReveal />
       <Features />
-      <Products items={products || []} />
-      <Pricing items={pricingPlans || []} />
+
+      {/* 3. Products stream in */}
+      <Suspense fallback={<div className="h-96" />}>
+        <ProductsSection />
+      </Suspense>
+
+      {/* 4. Pricing streams in */}
+      <Suspense fallback={<div className="h-96" />}>
+        <PricingSection />
+      </Suspense>
 
       <Download />
-      <News items={newsItems || []} />
+
+      {/* 5. News streams in */}
+      <Suspense fallback={<div className="h-64" />}>
+        <NewsSection />
+      </Suspense>
+
       <FAQ />
       <Newsletter />
       <BottomCTA />

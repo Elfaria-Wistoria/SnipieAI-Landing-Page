@@ -28,6 +28,9 @@ export async function POST(req: NextRequest) {
         // Parse the body after verification
         const payload = JSON.parse(rawBody);
 
+        // Log the entire payload for debugging
+        console.log('Gumroad webhook payload:', JSON.stringify(payload, null, 2));
+
         // Extract data from Gumroad webhook payload
         const {
             sale_id,
@@ -40,9 +43,18 @@ export async function POST(req: NextRequest) {
             timestamp,
         } = payload;
 
+        console.log('Extracted fields:', {
+            sale_id,
+            email,
+            full_name,
+            product_name,
+            price,
+            product_id
+        });
+
         // Validate required fields
         if (!sale_id || !email) {
-            console.error('Missing required fields in Gumroad webhook');
+            console.error('Missing required fields in Gumroad webhook. sale_id:', sale_id, 'email:', email);
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
@@ -57,30 +69,36 @@ export async function POST(req: NextRequest) {
             },
         ];
 
+        const transactionData = {
+            ref_id: sale_id,
+            message_id: sale_id, // Use sale_id as message_id for consistency
+            customer_name: full_name || email.split('@')[0],
+            customer_email: email,
+            amount: price || 0,
+            status: 'SUCCESS',
+            items: items,
+            raw_data: payload,
+        };
+
+        console.log('Attempting to insert transaction:', JSON.stringify(transactionData, null, 2));
+
         // Insert into Supabase
         const { error } = await supabaseAdmin
             .from('transactions')
-            .insert({
-                ref_id: sale_id,
-                message_id: sale_id, // Use sale_id as message_id for consistency
-                customer_name: full_name || email.split('@')[0],
-                customer_email: email,
-                amount: price || 0,
-                status: 'SUCCESS',
-                items: items,
-                raw_data: payload,
-            });
+            .insert(transactionData);
 
         if (error) {
             console.error('Database insert error:', error);
+            console.error('Error details:', JSON.stringify(error, null, 2));
             // Duplicate key error means we already processed this webhook
             if (error.code === '23505') {
+                console.log('Transaction already exists for sale_id:', sale_id);
                 return NextResponse.json({ message: 'Already processed' }, { status: 200 });
             }
             return NextResponse.json({ error: 'Database error' }, { status: 500 });
         }
 
-        console.log(`Successfully processed Gumroad webhook for sale ${sale_id}`);
+        console.log(`✅ Successfully processed Gumroad webhook for sale ${sale_id}`);
         return NextResponse.json({ message: 'Success' }, { status: 200 });
     } catch (err) {
         console.error('Webhook processing error:', err);

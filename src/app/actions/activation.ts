@@ -83,16 +83,21 @@ export async function redeemLicense(prevState: any, formData: FormData) {
                 return { success: false, message: "No purchase found for this email." };
             }
 
-            // FILTER: Check if they bought the App (Title contains "Clipiee")
+
+            // FILTER: Check if they bought the App using configurable keyword
+            // Fetch the license product keyword from settings
+            const { getSetting } = await import("@/lib/settings");
+            const licenseKeyword = (await getSetting('license_product_keyword')) || 'clipiee';
+
             const hasValidLicense = transactions.some((tx: any) => {
                 if (!tx.items || !Array.isArray(tx.items)) return false;
                 return tx.items.some((item: any) =>
-                    item.title && item.title.toLowerCase().includes("clipiee")
+                    item.title && item.title.toLowerCase().includes(licenseKeyword.toLowerCase())
                 );
             });
 
             if (!hasValidLicense) {
-                return { success: false, message: "No 'Clipiee' license found in your purchase history. Did you buy an eBook?" };
+                return { success: false, message: `No '${licenseKeyword}' license found in your purchase history. Did you buy a different product?` };
             }
 
             logger.info({ email }, "Valid transaction found. Fetching activation code...");

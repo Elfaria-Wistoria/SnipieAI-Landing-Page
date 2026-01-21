@@ -33,6 +33,7 @@ function SubmitButton() {
 type SettingsFormProps = {
     initialMacUrl: string;
     initialWinUrl: string;
+    initialLicenseKeyword: string;
 };
 
 const initialState = {
@@ -40,7 +41,7 @@ const initialState = {
     message: "",
 };
 
-export default function SettingsForm({ initialMacUrl, initialWinUrl }: SettingsFormProps) {
+export default function SettingsForm({ initialMacUrl, initialWinUrl, initialLicenseKeyword }: SettingsFormProps) {
     const [state, formAction] = useActionState(updateDownloadLinks, initialState);
 
     useEffect(() => {
@@ -82,6 +83,19 @@ export default function SettingsForm({ initialMacUrl, initialWinUrl }: SettingsF
                             placeholder="https://..."
                             required
                         />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="license_product_keyword">License Product Keyword</Label>
+                        <Input
+                            id="license_product_keyword"
+                            name="license_product_keyword"
+                            defaultValue={initialLicenseKeyword}
+                            placeholder="clipiee"
+                            required
+                        />
+                        <p className="text-sm text-muted-foreground">
+                            Product names must contain this keyword for license activation (case-insensitive)
+                        </p>
                     </div>
                     <SubmitButton />
                 </CardContent>

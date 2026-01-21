@@ -7,18 +7,22 @@ export async function POST(req: NextRequest) {
         // Get raw body for signature verification
         const rawBody = await req.text();
         const signature = req.headers.get('x-gumroad-signature');
-
-        if (!signature) {
-            return NextResponse.json({ error: 'Missing signature' }, { status: 401 });
-        }
-
-        // Verify Signature
         const secretKey = process.env.GUMROAD_SECRET || '';
-        const isValid = verifyGumroadSignature(rawBody, signature, secretKey);
 
-        if (!isValid) {
-            console.error('Invalid Gumroad signature');
-            return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
+        // Verify signature if both signature and secret are present
+        // Note: Gumroad's basic "Ping" feature doesn't provide signatures
+        // Only the newer webhook API includes signature verification
+        if (signature && secretKey) {
+            const isValid = verifyGumroadSignature(rawBody, signature, secretKey);
+            if (!isValid) {
+                console.error('Invalid Gumroad signature');
+                return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
+            }
+            console.log('Gumroad signature verified successfully');
+        } else if (signature && !secretKey) {
+            console.warn('Gumroad signature present but GUMROAD_SECRET not configured');
+        } else {
+            console.log('Processing Gumroad Ping webhook (no signature verification)');
         }
 
         // Parse the body after verification

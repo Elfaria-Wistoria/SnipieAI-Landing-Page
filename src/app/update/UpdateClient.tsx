@@ -13,7 +13,7 @@ import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 
-const VERSION = "1.0.2";
+const VERSION = "1.0.3";
 
 type UpdateClientProps = {
     macDownloadUrl: string;

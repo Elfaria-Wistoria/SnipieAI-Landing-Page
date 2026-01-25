@@ -18,6 +18,8 @@ interface ChangelogFormProps {
         description: string;
         version: string | null;
         date: string;
+        mac_download_url?: string | null;
+        windows_download_url?: string | null;
     };
     mode: "create" | "edit";
 }
@@ -27,6 +29,8 @@ export default function ChangelogForm({ initialData, mode }: ChangelogFormProps)
     const [description, setDescription] = useState(initialData?.description || "");
     const [version, setVersion] = useState(initialData?.version || "");
     const [date, setDate] = useState(initialData?.date || new Date().toISOString().split('T')[0]);
+    const [macDownloadUrl, setMacDownloadUrl] = useState(initialData?.mac_download_url || "");
+    const [windowsDownloadUrl, setWindowsDownloadUrl] = useState(initialData?.windows_download_url || "");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const router = useRouter();
 
@@ -43,6 +47,8 @@ export default function ChangelogForm({ initialData, mode }: ChangelogFormProps)
                         description,
                         version: version || null,
                         date,
+                        mac_download_url: macDownloadUrl || null,
+                        windows_download_url: windowsDownloadUrl || null,
                     }]);
                 if (insertError) throw insertError;
             } else {
@@ -54,6 +60,8 @@ export default function ChangelogForm({ initialData, mode }: ChangelogFormProps)
                         description,
                         version: version || null,
                         date,
+                        mac_download_url: macDownloadUrl || null,
+                        windows_download_url: windowsDownloadUrl || null,
                     })
                     .eq('id', initialData.id);
                 if (updateError) throw updateError;
@@ -95,6 +103,27 @@ export default function ChangelogForm({ initialData, mode }: ChangelogFormProps)
                         onChange={(e) => setVersion(e.target.value)}
                         className="bg-background/50"
                         placeholder="e.g. v2.0.0"
+                    />
+                </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label className="block text-sm mb-2">Mac Download URL</label>
+                    <Input
+                        value={macDownloadUrl}
+                        onChange={(e) => setMacDownloadUrl(e.target.value)}
+                        className="bg-background/50"
+                        placeholder="https://example.com/download/mac"
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm mb-2">Windows Download URL</label>
+                    <Input
+                        value={windowsDownloadUrl}
+                        onChange={(e) => setWindowsDownloadUrl(e.target.value)}
+                        className="bg-background/50"
+                        placeholder="https://example.com/download/windows"
                     />
                 </div>
             </div>

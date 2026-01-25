@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-const VERSION = "1.0.3";
+const VERSION = "1.0.4";
 const RELEASE_TAG = "Clasely";
 const MAC_FILENAME = `Clipieev${VERSION}.dmg`;
 const WIN_FILENAME = `Clipieev${VERSION}.exe`;

@@ -6,7 +6,12 @@ import { ArrowRight, Download } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
-import HeroScene from "@/components/3d/HeroScene";
+import dynamic from "next/dynamic";
+
+const HeroScene = dynamic(() => import("@/components/3d/HeroScene"), {
+    ssr: false,
+    loading: () => <div className="w-full h-full min-h-[400px]" />
+});
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -28,20 +33,20 @@ export default function Hero() {
             </div>
 
             <div className="container px-4 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-10"
-                >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono mb-8 backdrop-blur-sm">
+                {/* Text Content - Static div for LCP */}
+                <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono mb-8 backdrop-blur-sm"
+                    >
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
                         v1.0.4 Now Available
-                    </div>
+                    </motion.div>
 
                     <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
                         Clasely. <br className="hidden md:block" />
@@ -53,7 +58,7 @@ export default function Hero() {
                                     animate={{ opacity: 1 }}
                                     transition={{
                                         duration: 0.1,
-                                        delay: index * 0.1,
+                                        delay: index * 0.05, // Faster stagger
                                         ease: "easeIn"
                                     }}
                                 >
@@ -77,7 +82,7 @@ export default function Hero() {
                         </Link>
                         <p className="text-sm text-muted-foreground/60 font-mono">Pay once, use forever.</p>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* 3D Scene - Right Column */}
                 <motion.div

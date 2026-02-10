@@ -21,7 +21,7 @@ export default async function AdminDashboardPage() {
         { count: productCount, error: productError }
     ] = await Promise.all([
         supabaseAdmin.from("news").select("*", { count: "exact", head: true }),
-        supabaseAdmin.from("transactions").select("*").order('created_at', { ascending: false }),
+        supabaseAdmin.from("transactions").select("*").eq('status', 'SUCCESS').order('created_at', { ascending: false }),
         supabaseAdmin.from("products").select("*", { count: "exact", head: true })
     ]);
 

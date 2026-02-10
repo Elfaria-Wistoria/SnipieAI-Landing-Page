@@ -16,6 +16,11 @@ const sidebarItems = [
         icon: LayoutDashboard,
     },
     {
+        title: "Revenue",
+        href: "/admin/revenue",
+        icon: CreditCard,
+    },
+    {
         title: "News",
         href: "/admin/news",
         icon: Newspaper,

@@ -11,7 +11,7 @@ export default function PrivacyTerms() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8">Privacy Policy</h1>
                     <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground">
                         <p>
-                            At Clasely, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.
+                            At Clipiee, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.
                         </p>
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">1. Information We Collect</h3>
@@ -42,7 +42,7 @@ export default function PrivacyTerms() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8">Terms of Service</h1>
                     <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground">
                         <p>
-                            By accessing or using Clasely's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                            By accessing or using Clipiee's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
                         </p>
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">1. Accounts</h3>
@@ -52,7 +52,7 @@ export default function PrivacyTerms() {
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">2. Intellectual Property</h3>
                         <p>
-                            The Service and its original content, features, and functionality are and will remain the exclusive property of Clasely and its licensors. The Service is protected by copyright, trademark, and other laws of both the United States and foreign countries.
+                            The Service and its original content, features, and functionality are and will remain the exclusive property of Clipiee and its licensors. The Service is protected by copyright, trademark, and other laws of both the United States and foreign countries.
                         </p>
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">3. Termination</h3>
@@ -62,7 +62,7 @@ export default function PrivacyTerms() {
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">4. Limitation of Liability</h3>
                         <p>
-                            In no event shall Clasely, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
+                            In no event shall Clipiee, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
                         </p>
 
                         <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">5. Changes</h3>

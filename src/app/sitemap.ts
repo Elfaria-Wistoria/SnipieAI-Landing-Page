@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL
         ? `https://${process.env.NEXT_PUBLIC_APP_URL}`
-        : 'https://www.clasely.com'
+        : 'https://www.clipiee.com'
 
     // Fetch all news IDs
     const { data: posts } = await supabase

@@ -61,7 +61,7 @@ export default function TypographyReveal() {
                     <div className="flex flex-col items-center gap-6">
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-balance">
                             <span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-                                Clasely
+                                Clipiee
                             </span>{' '}
                             is the solution.
                         </h2>

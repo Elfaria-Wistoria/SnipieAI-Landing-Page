@@ -121,7 +121,7 @@ export async function sendEmailBlast(prevState: any, formData: FormData) {
 
         for (let i = 0; i < emails.length; i += BATCH_SIZE) {
             const batch = emails.slice(i, i + BATCH_SIZE).map(to => ({
-                from: 'Clasely <onboarding@resend.dev>', // Default testing domain
+                from: 'Clipiee <onboarding@resend.dev>', // Default testing domain
                 to: [to],
                 subject: result.data.subject,
                 html: `<p>${result.data.content.replace(/\n/g, '<br>')}</p>`,

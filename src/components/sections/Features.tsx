@@ -63,7 +63,7 @@ export default function Features() {
                         viewport={{ once: true }}
                         className="text-3xl font-bold tracking-tight mb-4"
                     >
-                        What is Clasely?
+                        What is Clipiee?
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}

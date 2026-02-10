@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     return {
         title: article.title,
-        description: article.excerpt || `Read about ${article.title} on Clasely.`,
+        description: article.excerpt || `Read about ${article.title} on Clipiee.`,
         openGraph: {
             title: article.title,
             description: article.excerpt || undefined,

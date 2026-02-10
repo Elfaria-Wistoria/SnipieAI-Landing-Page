@@ -11,7 +11,7 @@ const logger = getLogger('NewsPage');
 
 export const metadata = {
     title: 'News & Updates',
-    description: 'Latest news, announcements, and insights from the Clasely team.',
+    description: 'Latest news, announcements, and insights from the Clipiee team.',
 };
 
 export default async function NewsPage() {

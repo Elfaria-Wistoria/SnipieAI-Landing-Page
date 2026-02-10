@@ -9,10 +9,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const VERSION = "1.0.4";
-const RELEASE_TAG = "Clasely";
+const RELEASE_TAG = "Clipiee";
 const MAC_FILENAME = `Clipieev${VERSION}.dmg`;
 const WIN_FILENAME = `Clipieev${VERSION}.exe`;
-const REPO_URL = "https://github.com/claselyexplore/clipiee-releases/releases/download";
+const REPO_URL = "https://github.com/clipieeexplore/clipiee-releases/releases/download";
 
 // Construct download URLs
 const MAC_DOWNLOAD_URL = `${REPO_URL}/${RELEASE_TAG}/${MAC_FILENAME}`;

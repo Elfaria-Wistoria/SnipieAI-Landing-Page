@@ -65,7 +65,7 @@ export default function News({ items = [] }: NewsProps) {
                             transition={{ delay: 0.1 }}
                             className="text-muted-foreground"
                         >
-                            News and announcements from the Clasely team.
+                            News and announcements from the Clipiee team.
                         </motion.p>
                     </div>
                 </div>

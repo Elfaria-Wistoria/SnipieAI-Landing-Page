@@ -2,7 +2,7 @@ export default function JsonLd() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'Clasely',
+        name: 'Clipiee',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'Windows, macOS',
         offers: {

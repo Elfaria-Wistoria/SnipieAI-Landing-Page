@@ -13,7 +13,7 @@ async function getChangelogs() {
 
 export const metadata = {
     title: 'Changelog',
-    description: 'Track the latest updates, features, and improvements to the Clasely ecosystem.',
+    description: 'Track the latest updates, features, and improvements to the Clipiee ecosystem.',
 };
 
 export default async function ChangelogPage() {

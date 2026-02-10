@@ -1,6 +1,6 @@
 export const metadata = {
     title: 'About Us',
-    description: 'We are building tools for the next generation of creators. Learn about Clasely\'s mission and vision.',
+    description: 'We are building tools for the next generation of creators. Learn about Clipiee\'s mission and vision.',
 };
 
 export default function AboutPage() {
@@ -12,7 +12,7 @@ export default function AboutPage() {
                     We are building the tools for the next generation of creators.
                 </p>
                 <p className="mb-4">
-                    Clasely started with a simple mission: make it easier to create and share high-quality content.
+                    Clipiee started with a simple mission: make it easier to create and share high-quality content.
                     We believe that everyone has a story to tell, and our tools are designed to amplify your voice.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">

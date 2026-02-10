@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'Clipiee',
     images: [
       {
-        url: '/icon.png',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Clipiee - Clipiee Ecosystem',
@@ -57,11 +57,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Clipiee - Clipiee: No Subscription AI Clipper',
     description: 'The best local alternative to Opus Clip. No monthly fees. 100% Offline privacy.',
-    images: ['/icon.png'],
+    images: ['/logo.png'],
     creator: '@clipieeexplore',
   },
   icons: {
-    icon: '/icon.png',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
 }
 

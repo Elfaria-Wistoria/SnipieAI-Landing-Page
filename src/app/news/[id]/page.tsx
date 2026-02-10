@@ -84,7 +84,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ id
     const newsItem = article as NewsItem;
 
     return (
-        <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+        <main className="min-h-screen bg-background selection:bg-primary/20">
             <Navbar />
 
             <article className="pt-32 pb-24">

@@ -4,7 +4,7 @@ import Footer from '@/components/sections/Footer';
 
 export default function FAQPage() {
     return (
-        <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+        <main className="min-h-screen bg-background selection:bg-primary/20">
             <Navbar />
             <div className="pt-20">
                 <FAQ />

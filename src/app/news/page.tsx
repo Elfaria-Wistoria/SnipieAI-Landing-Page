@@ -29,7 +29,7 @@ export default async function NewsPage() {
     }
 
     return (
-        <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+        <main className="min-h-screen bg-background selection:bg-primary/20">
             <Navbar />
             <div className="pt-32 container px-4">
                 <h1 className="text-4xl font-bold tracking-tight mb-8">News & Updates</h1>

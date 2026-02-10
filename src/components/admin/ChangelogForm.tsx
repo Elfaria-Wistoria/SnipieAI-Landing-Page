@@ -145,7 +145,7 @@ export default function ChangelogForm({ initialData, mode }: ChangelogFormProps)
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
-                    className="min-h-[150px] bg-background/50 font-mono text-sm"
+                    className="min-h-[150px] bg-background/50 text-sm"
                     placeholder="Describe the changes..."
                 />
             </div>

@@ -12,7 +12,7 @@ export default async function ProductsPage() {
         .order('created_at', { ascending: false });
 
     return (
-        <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+        <main className="min-h-screen bg-background selection:bg-primary/20">
             <Navbar />
             <div className="pt-20">
                 <Products items={products || []} />

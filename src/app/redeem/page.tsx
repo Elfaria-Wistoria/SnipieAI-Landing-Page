@@ -64,7 +64,7 @@ export default function RedeemPage() {
     }, [state]);
 
     return (
-        <div className="min-h-screen bg-background flex flex-col font-mono">
+        <div className="min-h-screen bg-background flex flex-col">
             <Navbar />
 
             <main className="flex-1 flex items-center justify-center relative overflow-hidden px-4 md:px-0 py-20">
@@ -134,7 +134,7 @@ export default function RedeemPage() {
                                                 <div className="mt-6 p-4 bg-secondary/50 rounded-lg border border-border">
                                                     <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Your License Key</p>
                                                     <div className="flex items-center gap-2 justify-center">
-                                                        <code className="text-lg font-mono font-bold tracking-widest text-primary">
+                                                        <code className="text-lg font-bold tracking-widest text-primary">
                                                             {state.code}
                                                         </code>
                                                         <Button

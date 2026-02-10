@@ -50,7 +50,7 @@ export default function Stats({ stats }: StatsProps) {
                         <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
                             <Counter value={stats.downloads} />+
                         </div>
-                        <p className="text-muted-foreground font-mono text-sm uppercase tracking-wider">
+                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
                             Total Downloads
                         </p>
                     </div>
@@ -60,7 +60,7 @@ export default function Stats({ stats }: StatsProps) {
                         <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
                             <Counter value={stats.hoursSaved} />+
                         </div>
-                        <p className="text-muted-foreground font-mono text-sm uppercase tracking-wider">
+                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
                             Hours of Editing Saved
                         </p>
                     </div>
@@ -71,7 +71,7 @@ export default function Stats({ stats }: StatsProps) {
                             <Counter value={stats.rating} decimal={true} />
                             <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
                         </div>
-                        <p className="text-muted-foreground font-mono text-sm uppercase tracking-wider">
+                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
                             Average Rating
                         </p>
                     </div>

@@ -58,7 +58,7 @@ export default function Products({ items = [] }: ProductsProps) {
                         viewport={{ once: true }}
                         className="text-right"
                     >
-                        <div className="font-mono text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-foreground via-muted-foreground to-foreground opacity-20 select-none tracking-tighter">
+                        <div className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-foreground via-muted-foreground to-foreground opacity-20 select-none tracking-tighter">
                             let_it_free
                         </div>
                     </motion.div>
@@ -123,12 +123,12 @@ export default function Products({ items = [] }: ProductsProps) {
 
                                     {product.link ? (
                                         <Link href={product.link} target="_blank" rel="noopener noreferrer">
-                                            <Button variant="outline" className="w-full font-mono text-xs group-hover:bg-primary group-hover:text-primary-foreground border-primary/20">
+                                            <Button variant="outline" className="w-full text-xs group-hover:bg-primary group-hover:text-primary-foreground border-primary/20">
                                                 View Product
                                             </Button>
                                         </Link>
                                     ) : (
-                                        <Button variant="outline" disabled className="w-full font-mono text-xs opacity-50 cursor-not-allowed">
+                                        <Button variant="outline" disabled className="w-full text-xs opacity-50 cursor-not-allowed">
                                             Coming Soon
                                         </Button>
                                     )}

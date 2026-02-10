@@ -41,10 +41,10 @@ export default function EditNewsPage({ params }: { params: { id: string } }) {
         init();
     }, [id, router]);
 
-    if (loading) return <div className="container py-20 text-center font-mono">Loading editor...</div>;
+    if (loading) return <div className="container py-20 text-center">Loading editor...</div>;
 
     return (
-        <div className="container max-w-2xl py-20 font-mono">
+        <div className="container max-w-2xl py-20">
             <div className="flex items-center justify-between mb-8">
                 <h1 className="text-2xl font-bold">Edit News Post</h1>
                 <p className="text-sm text-muted-foreground">ID: {id.slice(0, 8)}...</p>

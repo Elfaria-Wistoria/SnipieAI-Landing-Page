@@ -31,7 +31,7 @@ export default function Home() {
   logger.info('Rendering Home Page (Streaming Mode)');
 
   return (
-    <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+    <main className="min-h-screen bg-background selection:bg-primary/20">
       <Navbar />
 
       {/* 1. Hero loads instantly (0ms) */}

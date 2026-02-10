@@ -62,7 +62,7 @@ export default function AdminChangelogPage() {
     };
 
     return (
-        <div className="container py-10 font-mono">
+        <div className="container py-10">
             <div className="flex justify-between items-center mb-10">
                 <h1 className="text-3xl font-bold">Changelog Management</h1>
                 <Link href="/admin/changelog/create">

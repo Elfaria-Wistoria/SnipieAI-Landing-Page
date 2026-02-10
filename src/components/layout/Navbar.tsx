@@ -35,7 +35,7 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
             <div className="container flex h-16 items-center justify-between px-4">
-                <Link href="/" className="font-mono text-xl font-bold tracking-tighter hover:text-primary transition-colors z-50">
+                <Link href="/" className="text-xl font-bold tracking-tighter hover:text-primary transition-colors z-50">
                     Clipiee_
                 </Link>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
 
                     <div className="hidden md:block">
                         <Link href="/download">
-                            <Button size="sm" className="font-mono bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/25 transition-all">
+                            <Button size="sm" className="bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/25 transition-all">
                                 Get Clipiee
                             </Button>
                         </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
 
 
                             <Link href="/download" onClick={toggleMenu} className="w-full">
-                                <Button className="w-full font-mono bg-primary/90 hover:bg-primary shadow-lg">
+                                <Button className="w-full bg-primary/90 hover:bg-primary shadow-lg">
                                     Get Clipiee
                                 </Button>
                             </Link>

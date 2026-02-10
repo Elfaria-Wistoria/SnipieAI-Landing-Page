@@ -115,7 +115,7 @@ export default function SubscribersPage() {
     };
 
     return (
-        <div className="container py-20 font-mono">
+        <div className="container py-20">
             <div className="flex justify-between items-center mb-10">
                 <h1 className="text-3xl font-bold">Subscribers</h1>
                 <div className="flex gap-2">

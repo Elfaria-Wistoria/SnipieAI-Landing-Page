@@ -20,7 +20,7 @@ export default async function ChangelogPage() {
     const changelogs = await getChangelogs();
 
     return (
-        <div className="container py-20 font-mono">
+        <div className="container py-20">
             <h1 className="text-4xl font-bold mb-2">Changelog</h1>
             <p className="text-muted-foreground mb-12">Stay updated with our latest improvements and features.</p>
 

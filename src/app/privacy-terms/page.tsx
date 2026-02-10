@@ -4,7 +4,7 @@ import TypographyReveal from '@/components/sections/TypographyReveal';
 
 export default function PrivacyTerms() {
     return (
-        <main className="min-h-screen bg-background font-mono selection:bg-primary/20">
+        <main className="min-h-screen bg-background selection:bg-primary/20">
             <Navbar />
             <div className="container px-4 py-24 md:py-32 max-w-4xl mx-auto space-y-16">
                 <section id="privacy" className="scroll-mt-24">

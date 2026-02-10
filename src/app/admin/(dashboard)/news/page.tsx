@@ -80,7 +80,7 @@ export default function AdminNewsDashboard() {
     };
 
     return (
-        <div className="container py-20 font-mono">
+        <div className="container py-20">
             <div className="flex justify-between items-center mb-10">
                 <h1 className="text-3xl font-bold">News Dashboard</h1>
                 <Link href="/admin/news/create">

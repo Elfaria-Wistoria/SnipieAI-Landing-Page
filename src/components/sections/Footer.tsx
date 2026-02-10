@@ -15,7 +15,7 @@ export default function Footer() {
             >
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="space-y-4">
-                        <Link href="/" className="font-mono text-xl font-bold tracking-tighter">
+                        <Link href="/" className="text-xl font-bold tracking-tighter">
                             Clipiee_
                         </Link>
                         <p className="text-sm text-muted-foreground">

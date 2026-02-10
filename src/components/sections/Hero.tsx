@@ -24,6 +24,10 @@ export default function Hero() {
             <div className="absolute inset-0 -z-10 bg-[#050505] overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen" />
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] mix-blend-screen" />
+
+                {/* Top Light Effect */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-gradient-to-b from-white/10 to-transparent blur-[100px] opacity-40 mix-blend-overlay pointer-events-none" />
+                <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-400/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
             </div>
 
             <div className="container px-4 flex flex-col items-center relative z-10">

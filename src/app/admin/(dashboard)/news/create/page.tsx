@@ -23,7 +23,7 @@ export default function CreateNewsPage() {
     }, [router]);
 
     return (
-        <div className="container max-w-2xl py-20 font-mono">
+        <div className="container max-w-2xl py-20">
             <h1 className="text-2xl font-bold mb-8">Create News Post</h1>
             <NewsForm mode="create" />
         </div>

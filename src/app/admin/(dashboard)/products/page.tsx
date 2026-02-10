@@ -70,7 +70,7 @@ export default async function AdminProductsPage() {
                                     <TableCell>
                                         <div className="flex items-center gap-2">
                                             <div className={`w-4 h-4 rounded-full bg-gradient-to-br ${product.color_from || 'from-gray-500'} ${product.color_to || 'to-gray-500'}`} />
-                                            <span className="text-xs text-muted-foreground font-mono">
+                                            <span className="text-xs text-muted-foreground">
                                                 {product.color_from?.replace('from-', '')}-{product.color_to?.replace('to-', '')}
                                             </span>
                                         </div>

@@ -96,7 +96,7 @@ export default function News({ items = [] }: NewsProps) {
                                                 />
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center text-muted-foreground/20">
-                                                    <span className="font-mono text-xs">NO IMAGE</span>
+                                                    <span className="text-xs">NO IMAGE</span>
                                                 </div>
                                             )}
                                             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

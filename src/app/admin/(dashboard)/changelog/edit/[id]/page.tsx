@@ -40,7 +40,7 @@ export default function EditChangelogPage({ params }: { params: Promise<{ id: st
     }
 
     return (
-        <div className="container max-w-2xl py-10 font-mono">
+        <div className="container max-w-2xl py-10">
             <h1 className="text-3xl font-bold mb-8">Edit Changelog Entry</h1>
             <ChangelogForm mode="edit" initialData={changelog} />
         </div>

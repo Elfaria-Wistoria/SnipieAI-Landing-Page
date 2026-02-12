@@ -2,29 +2,27 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Apple, Download as DownloadIcon, Monitor, ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { HeroGridBackground } from "@/components/ui/animated-grid-pattern";
 
 const VERSION = "1.0.5";
 const RELEASE_TAG = "Clipiee";
-const MAC_FILENAME = `Clipieev${VERSION}.dmg`;
 const WIN_FILENAME = `Clipieev${VERSION}.exe`;
 const REPO_URL = "https://github.com/clipieeexplore/clipiee-releases/releases/download";
 
 // Construct download URLs
-const MAC_DOWNLOAD_URL = `${REPO_URL}/${RELEASE_TAG}/${MAC_FILENAME}`;
 const WIN_DOWNLOAD_URL = `${REPO_URL}/${RELEASE_TAG}/${WIN_FILENAME}`;
 
 interface DownloadProps {
-    macUrl?: string;
     winUrl?: string;
 }
 
-export default function Download({ macUrl, winUrl }: DownloadProps) {
-    const finalMacUrl = macUrl || MAC_DOWNLOAD_URL;
+export default function Download({ winUrl }: DownloadProps) {
+    // const finalMacUrl = macUrl || MAC_DOWNLOAD_URL;
     const finalWinUrl = winUrl || WIN_DOWNLOAD_URL;
     const [os, setOs] = useState<"mac" | "windows" | null>(null);
 
@@ -33,6 +31,7 @@ export default function Download({ macUrl, winUrl }: DownloadProps) {
         if (userAgent.includes("mac")) {
             setOs("mac");
         } else if (userAgent.includes("win")) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setOs("windows");
         }
     }, []);
@@ -45,6 +44,8 @@ export default function Download({ macUrl, winUrl }: DownloadProps) {
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[100px] opacity-30" />
             </div>
+
+            <HeroGridBackground />
 
             <div className="container px-4 text-center relative z-10">
                 <motion.div

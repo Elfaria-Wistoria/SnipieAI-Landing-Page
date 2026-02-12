@@ -62,7 +62,9 @@ export const metadata: Metadata = {
     creator: '@clipieeexplore',
   },
   icons: {
-    icon: '/logo.png',
+    icon: [
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+    ],
     shortcut: '/logo.png',
     apple: '/logo.png',
   },

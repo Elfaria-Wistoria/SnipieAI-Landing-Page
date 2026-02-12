@@ -36,7 +36,7 @@ export default function TypographyReveal() {
                     style={{ opacity: opacity1, scale: scale1, filter: useTransform(blur1, (v) => `blur(${v}px)`) }}
                     className="absolute inset-0 flex items-center justify-center p-8 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
                         Say goodbye to endless <br className="hidden md:block" />
                         <span className="text-foreground">subscription fatigue.</span>
                     </h2>
@@ -47,7 +47,7 @@ export default function TypographyReveal() {
                     style={{ opacity: opacity2, scale: scale2, y: y2 }}
                     className="absolute inset-0 flex items-center justify-center p-8 text-center"
                 >
-                    <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-none text-balance">
+                    <h2 className="text-5xl md:text-7xl lg:text-9xl font-light tracking-tighter leading-none text-balance">
                         <span className="text-destructive drop-shadow-2xl">f*ck</span>{' '}
                         <span className="text-foreground">subscription</span>
                     </h2>
@@ -59,7 +59,7 @@ export default function TypographyReveal() {
                     className="absolute inset-0 flex items-center justify-center p-8 text-center"
                 >
                     <div className="flex flex-col items-center gap-6">
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-balance">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight text-balance">
                             <span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
                                 Clipiee
                             </span>{' '}

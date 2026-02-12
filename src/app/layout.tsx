@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Toaster } from "@/components/ui/sonner";
 import JsonLd from '@/components/JsonLd';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 const jetbrainsMono = localFont({
   src: './fonts/JetBrainsMono-Regular.ttf',
@@ -85,6 +86,7 @@ export default function RootLayout({
           <SmoothScroll>{children}</SmoothScroll>
           <Toaster />
           <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

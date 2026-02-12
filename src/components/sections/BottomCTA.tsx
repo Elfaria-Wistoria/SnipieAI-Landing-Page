@@ -39,7 +39,7 @@ export default function BottomCTA() {
                     style={{ opacity: opacity1, scale: scale1, filter: useTransform(blur1, (v) => `blur(${v}px)`) }}
                     className="absolute inset-0 flex items-center justify-center p-8 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
                         If you've scrolled this far,
                     </h2>
                 </motion.div>
@@ -49,7 +49,7 @@ export default function BottomCTA() {
                     style={{ opacity: opacity2, scale: scale2, y: y2 }}
                     className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center gap-12"
                 >
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none text-balance">
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-none text-balance">
                         it's time to try <br className="hidden md:block" />
                         <span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
                             Clipiee

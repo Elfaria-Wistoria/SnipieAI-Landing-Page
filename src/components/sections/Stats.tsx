@@ -47,7 +47,7 @@ export default function Stats({ stats }: StatsProps) {
 
                     {/* Downloads */}
                     <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
+                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
                             <Counter value={stats.downloads} />+
                         </div>
                         <p className="text-muted-foreground text-sm uppercase tracking-wider">
@@ -57,7 +57,7 @@ export default function Stats({ stats }: StatsProps) {
 
                     {/* Hours Saved */}
                     <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
+                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
                             <Counter value={stats.hoursSaved} />+
                         </div>
                         <p className="text-muted-foreground text-sm uppercase tracking-wider">
@@ -67,7 +67,7 @@ export default function Stats({ stats }: StatsProps) {
 
                     {/* Rating */}
                     <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2 flex items-center gap-2">
+                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2 flex items-center gap-2">
                             <Counter value={stats.rating} decimal={true} />
                             <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
                         </div>

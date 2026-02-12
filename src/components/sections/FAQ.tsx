@@ -30,7 +30,7 @@ const faqItems = [
 
 export default function FAQ() {
     return (
-        <section id="faq" className="py-24 bg-background/50 relative overflow-hidden">
+        <section id="faq" className="py-24 relative overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute inset-0 -z-10 pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
@@ -44,7 +44,7 @@ export default function FAQ() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-light tracking-tight mb-4">Frequently Asked Questions</h2>
                     <p className="text-muted-foreground">
                         Everything you need to know about Clipiee and how it works.
                     </p>

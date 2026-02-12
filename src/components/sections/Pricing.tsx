@@ -43,7 +43,7 @@ export default function Pricing({ items }: PricingProps) {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                        <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
                             Simple, Transparent Pricing
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
@@ -76,10 +76,10 @@ export default function Pricing({ items }: PricingProps) {
                             )}
 
                             <div className="mb-8 space-y-4">
-                                <h3 className="text-xl font-bold tracking-tight">{plan.title}</h3>
+                                <h3 className="text-xl font-medium tracking-tight">{plan.title}</h3>
                                 <div className="flex items-baseline gap-1">
                                     <span className="text-3xl font-light text-muted-foreground">{plan.currency}</span>
-                                    <span className="text-5xl font-bold tracking-tighter text-foreground">{plan.price}</span>
+                                    <span className="text-5xl font-light tracking-tighter text-foreground">{plan.price}</span>
                                     <span className="text-sm font-medium text-muted-foreground">{plan.frequency}</span>
                                 </div>
                                 <p className="text-sm text-muted-foreground min-h-[40px]">{plan.description}</p>

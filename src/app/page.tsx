@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
+import TechStack from '@/components/sections/TechStack';
 import TypographyReveal from '@/components/sections/TypographyReveal';
 import Features from '@/components/sections/Features';
 
@@ -10,10 +11,10 @@ import Footer from '@/components/sections/Footer';
 import Newsletter from '@/components/sections/Newsletter';
 import BottomCTA from '@/components/sections/BottomCTA';
 import { getLogger } from '@/lib/logger';
+import { getSetting } from '@/lib/settings';
 
 // Async Server Components
 import StatsSection from '@/components/sections/server/StatsSection';
-import ProductsSection from '@/components/sections/server/ProductsSection';
 import NewsSection from '@/components/sections/server/NewsSection';
 import PricingSection from '@/components/sections/server/PricingSection';
 
@@ -27,8 +28,11 @@ export const metadata = {
   description: 'Download Clipiee, the #1 local AI video clipper. An Opus Clip alternative that runs offline on your Mac/PC. One-time payment, no monthly fees.',
 };
 
-export default function Home() {
+export default async function Home() {
   logger.info('Rendering Home Page (Streaming Mode)');
+
+  const macUrl = await getSetting('mac_download_url');
+  const winUrl = await getSetting('win_download_url');
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/20">
@@ -36,6 +40,8 @@ export default function Home() {
 
       {/* 1. Hero loads instantly (0ms) */}
       <Hero />
+      
+      <TechStack />
 
       {/* 2. Stats stream in */}
       <Suspense fallback={<div className="h-32 bg-transparent" />}>
@@ -45,17 +51,12 @@ export default function Home() {
       <TypographyReveal />
       <Features />
 
-      {/* 3. Products stream in */}
-      <Suspense fallback={<div className="h-96" />}>
-        <ProductsSection />
-      </Suspense>
-
       {/* 4. Pricing streams in */}
       <Suspense fallback={<div className="h-96" />}>
         <PricingSection />
       </Suspense>
 
-      <Download />
+      <Download macUrl={macUrl || undefined} winUrl={winUrl || undefined} />
 
       {/* 5. News streams in */}
       <Suspense fallback={<div className="h-64" />}>

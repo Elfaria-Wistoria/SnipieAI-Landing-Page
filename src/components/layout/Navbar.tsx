@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -34,20 +35,26 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
+
             <div className="container flex h-16 items-center justify-between px-4">
-                <Link href="/" className="text-xl font-bold tracking-tighter hover:text-primary transition-colors z-50">
-                    Clipiee_
+                <Link href="/" className="relative z-50 flex items-center gap-3 hover:opacity-90 transition-opacity">
+                    <Image
+                        src="/logo.png"
+                        alt="Clipiee Logo"
+                        width={48}
+                        height={48}
+                        className="h-12 w-auto object-contain"
+                        priority
+                    />
+                    <span className="text-xl font-bold tracking-tighter">Clipiee_</span>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-                    <Link href="/products" className="hover:text-foreground transition-colors">Products</Link>
                     <Link href="/#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
                     <Link href="/news" className="hover:text-foreground transition-colors">News</Link>
                     <Link href="/download" className="hover:text-foreground transition-colors">Download</Link>
-                    <Link href="/redeem" className="hover:text-foreground transition-colors">Redeem</Link>
-                    <Link href="/update" className="hover:text-foreground transition-colors">Update</Link>
-                    <Link href="/tutorial" className="hover:text-foreground transition-colors">Tutorial</Link>
+                    <Link href="/redeem" className="hover:text-foreground transition-colors">Activation Code</Link>
                     <Link href="/faq" className="hover:text-foreground transition-colors">FAQ</Link>
                 </div>
 
@@ -83,13 +90,10 @@ export default function Navbar() {
                         className="md:hidden border-b border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden"
                     >
                         <div className="flex flex-col p-4 space-y-4 font-medium text-muted-foreground">
-                            <Link href="/products" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Products</Link>
                             <Link href="/#pricing" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Pricing</Link>
                             <Link href="/news" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">News</Link>
                             <Link href="/download" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Download</Link>
-                            <Link href="/redeem" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Redeem</Link>
-                            <Link href="/update" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Update</Link>
-                            <Link href="/tutorial" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Tutorial</Link>
+                            <Link href="/redeem" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 border-b border-border/10">Activation Code</Link>
                             <Link href="/faq" onClick={toggleMenu} className="hover:text-foreground transition-colors py-2 mb-4">FAQ</Link>
 
 

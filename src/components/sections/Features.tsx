@@ -54,14 +54,14 @@ const item = {
 
 export default function Features() {
     return (
-        <section id="features" className="py-20 bg-muted/50">
+        <section id="features" className="py-20">
             <div className="container px-4">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl font-bold tracking-tight mb-4"
+                        className="text-3xl font-light tracking-tight mb-4"
                     >
                         What is Clipiee?
                     </motion.h2>

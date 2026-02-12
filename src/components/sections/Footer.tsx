@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-border/40 bg-background/50 backdrop-blur-xl">
+        <footer className="border-t border-border/40 backdrop-blur-xl">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -29,7 +29,7 @@ export default function Newsletter() {
                     className="max-w-2xl mx-auto text-center space-y-8"
                 >
                     <div className="space-y-4">
-                        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                        <h2 className="text-3xl font-light tracking-tighter md:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
                             Stay Verified. Stay Updated.
                         </h2>
                         <p className="text-muted-foreground text-lg">

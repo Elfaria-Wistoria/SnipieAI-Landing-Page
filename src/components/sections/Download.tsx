@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-const VERSION = "1.0.4";
+const VERSION = "1.0.5";
 const RELEASE_TAG = "Clipiee";
 const MAC_FILENAME = `Clipieev${VERSION}.dmg`;
 const WIN_FILENAME = `Clipieev${VERSION}.exe`;
@@ -18,7 +18,14 @@ const REPO_URL = "https://github.com/clipieeexplore/clipiee-releases/releases/do
 const MAC_DOWNLOAD_URL = `${REPO_URL}/${RELEASE_TAG}/${MAC_FILENAME}`;
 const WIN_DOWNLOAD_URL = `${REPO_URL}/${RELEASE_TAG}/${WIN_FILENAME}`;
 
-export default function Download() {
+interface DownloadProps {
+    macUrl?: string;
+    winUrl?: string;
+}
+
+export default function Download({ macUrl, winUrl }: DownloadProps) {
+    const finalMacUrl = macUrl || MAC_DOWNLOAD_URL;
+    const finalWinUrl = winUrl || WIN_DOWNLOAD_URL;
     const [os, setOs] = useState<"mac" | "windows" | null>(null);
 
     useEffect(() => {
@@ -55,7 +62,7 @@ export default function Download() {
                         v{VERSION} Stable Release
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
+                    <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
                         Get Clipiee for Desktop
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -92,9 +99,11 @@ export default function Download() {
                             <CardHeader className="pt-10 pb-2">
                                 <div className="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-b from-background to-muted border border-border/50 shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 relative">
                                     <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-50" />
-                                    <Apple className="w-10 h-10 text-foreground relative z-10" />
+                                    <svg viewBox="0 0 384 512" fill="currentColor" className="w-10 h-10 text-foreground relative z-10">
+                                        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
+                                    </svg>
                                 </div>
-                                <CardTitle className="text-3xl font-bold">macOS</CardTitle>
+                                <CardTitle className="text-3xl font-light">macOS</CardTitle>
                                 <CardDescription className="text-base text-muted-foreground/80">
                                     Universal Binary • Apple Silicon & Intel
                                 </CardDescription>
@@ -159,9 +168,11 @@ export default function Download() {
                             <CardHeader className="pt-10 pb-2">
                                 <div className="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-b from-background to-muted border border-border/50 shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 relative">
                                     <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-50" />
-                                    <Monitor className="w-10 h-10 text-foreground relative z-10" />
+                                    <svg viewBox="0 0 88 88" fill="currentColor" className="w-10 h-10 text-foreground relative z-10">
+                                        <path d="M0 12.402l35.687-4.86.016 34.423-35.67.203L0 12.402zm35.67 33.529l.028 34.453L.028 75.462l-.028-29.28 35.67-.251zm52.326-38.64l.003 39.554-48.245.225-.015-39.048L87.996 7.29zM39.729 46.18l48.262.246V80.68l-48.247-6.578-.015-27.922z"/>
+                                    </svg>
                                 </div>
-                                <CardTitle className="text-3xl font-bold">Windows</CardTitle>
+                                <CardTitle className="text-3xl font-light">Windows</CardTitle>
                                 <CardDescription className="text-base text-muted-foreground/80">
                                     64-bit Installer • Single File
                                 </CardDescription>
@@ -169,15 +180,17 @@ export default function Download() {
 
                             <CardContent className="space-y-6 pt-6">
                                 <Button
-                                    asChild
                                     className={cn(
                                         "w-full h-14 text-lg font-medium shadow-lg transition-all duration-300 relative overflow-hidden group/btn",
-                                        "bg-blue-600 hover:bg-blue-700 text-white border-0"
+                                        "bg-blue-600 hover:bg-blue-700 text-white border-0 cursor-pointer"
                                     )}
+                                    onClick={() => {
+                                        if (finalWinUrl) {
+                                            window.location.href = finalWinUrl;
+                                        }
+                                    }}
                                 >
-                                    <a href="http://lynk.id/edwinsyah.u/rdy9n5rd4pn8/checkout" target="_blank" rel="noopener noreferrer">
-                                        Download for Windows
-                                    </a>
+                                    Download for Windows
                                 </Button>
 
                                 <div className="space-y-3 text-sm text-muted-foreground text-left px-4">

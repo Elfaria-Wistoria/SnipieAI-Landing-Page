@@ -31,7 +31,7 @@ export const metadata = {
 export default async function Home() {
   logger.info('Rendering Home Page (Streaming Mode)');
 
-  const macUrl = await getSetting('mac_download_url');
+
   const winUrl = await getSetting('win_download_url');
 
   return (
@@ -56,7 +56,7 @@ export default async function Home() {
         <PricingSection />
       </Suspense>
 
-      <Download macUrl={macUrl || undefined} winUrl={winUrl || undefined} />
+      <Download winUrl={winUrl || undefined} />
 
       {/* 5. News streams in */}
       <Suspense fallback={<div className="h-64" />}>

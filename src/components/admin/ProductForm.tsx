@@ -143,7 +143,7 @@ export default function ProductForm({ initialData, mode }: ProductFormProps) {
                         <Input
                             value={link}
                             onChange={(e) => setLink(e.target.value)}
-                            placeholder="https://clipiee.com"
+                            placeholder="https://clasely.com"
                             className="bg-background/50"
                         />
                     </div>

@@ -54,7 +54,7 @@ export default function Hero() {
                             </Button>
                         </Link>
                         
-                        <a href="mailto:contact@clipiee.com">
+                        <a href="mailto:contact@clasely.com">
                             <Button variant="outline" size="lg" className="rounded-none h-14 px-8 text-lg border-2 border-zinc-800 hover:border-white text-white bg-transparent hover:bg-transparent transition-all">
                                 Contact Sales
                                 <ArrowRight className="ml-2 w-5 h-5" />

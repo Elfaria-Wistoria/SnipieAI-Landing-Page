@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Newspaper, Settings, LogOut, History, Package, CreditCard, Users, ShoppingBag } from "lucide-react";
+import { LayoutDashboard, Newspaper, Settings, LogOut, History, Package, CreditCard, Users, ShoppingBag, Activity } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { ModeToggle } from "@/components/ui/mode-toggle";
@@ -54,6 +54,11 @@ const sidebarItems = [
         title: "Buyers",
         href: "/admin/buyers",
         icon: ShoppingBag,
+    },
+    {
+        title: "Daily Tracking",
+        href: "/admin/daily-tracking",
+        icon: Activity,
     },
 ];
 

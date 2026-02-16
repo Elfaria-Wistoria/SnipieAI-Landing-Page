@@ -27,10 +27,10 @@ export default function LoginPage() {
         });
 
         if (error) {
-            logger.error({ err: error, email }, "Login failed");
+            console.error("Login failed:", error);
             setStatus("error");
         } else {
-            logger.info({ email }, "Login successful");
+            console.log("Login successful:", email);
             router.refresh();
             router.push("/admin");
         }

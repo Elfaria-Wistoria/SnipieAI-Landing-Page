@@ -33,14 +33,14 @@ const faqItems = [
 function FAQItem({ item, isOpen, onToggle }: { item: typeof faqItems[number]; isOpen: boolean; onToggle: () => void }) {
     return (
         <div
-            className={`bg-white rounded-2xl border transition-all duration-200 ${isOpen ? 'border-[#8B5CF6]/30 shadow-md' : 'border-gray-100 shadow-sm hover:border-gray-200'}`}
+            className={`bg-white dark:bg-gray-900 rounded-2xl border transition-all duration-200 ${isOpen ? 'border-[#8B5CF6]/30 shadow-md' : 'border-gray-100 dark:border-gray-800 shadow-sm hover:border-gray-200 dark:hover:border-gray-700'}`}
         >
             <button
                 onClick={onToggle}
                 className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
             >
-                <span className="text-[15px] font-medium text-gray-800 pr-4">{item.question}</span>
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200 ${isOpen ? 'bg-[#8B5CF6] text-white' : 'bg-gray-100 text-gray-400'}`}>
+                <span className="text-[15px] font-medium text-gray-800 dark:text-gray-200 pr-4">{item.question}</span>
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200 ${isOpen ? 'bg-[#8B5CF6] text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500'}`}>
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                 </div>
             </button>
@@ -51,7 +51,7 @@ function FAQItem({ item, isOpen, onToggle }: { item: typeof faqItems[number]; is
                     opacity: isOpen ? 1 : 0,
                 }}
             >
-                <div className="px-6 pb-5 text-sm text-gray-500 leading-relaxed">
+                <div className="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                     {item.answer}
                 </div>
             </div>
@@ -63,13 +63,13 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section id="faq" className="py-24 md:py-32 bg-white">
+        <section id="faq" className="py-24 md:py-32 bg-white dark:bg-gray-950 transition-colors duration-300">
             <div className="container px-4">
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
                     {/* Left — Bold heading */}
                     <div className="lg:w-[340px] shrink-0 lg:sticky lg:top-32">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 uppercase leading-[1.1]">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white uppercase leading-[1.1]">
                             Frequently{" "}
                             <span className="bg-gradient-to-r from-[#7C3AED] via-[#8B5CF6] to-[#C4B5FD] bg-clip-text text-transparent">
                                 Asked

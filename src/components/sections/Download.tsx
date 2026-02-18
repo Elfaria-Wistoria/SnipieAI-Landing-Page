@@ -29,10 +29,10 @@ export default function Download({ winUrl }: DownloadProps) {
     }, []);
 
     return (
-        <section id="download" className="py-24 md:py-32 relative overflow-hidden bg-white min-h-screen flex items-center">
+        <section id="download" className="py-24 md:py-32 relative overflow-hidden bg-white dark:bg-gray-950 min-h-screen flex items-center transition-colors duration-300">
             
             {/* Background Grid Pattern */}
-            <div className="absolute inset-0 pointer-events-none opacity-[0.05]" 
+            <div className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.1] dark:invert" 
                 style={{backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px'}} 
             />
 
@@ -40,18 +40,18 @@ export default function Download({ winUrl }: DownloadProps) {
                 
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-2 border-black bg-yellow-300 text-black text-sm font-bold font-mono mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-2 border-black dark:border-white bg-yellow-300 text-black text-sm font-bold font-mono mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                         <Terminal className="w-4 h-4" />
                         <span>v{VERSION}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-black" />
                         <span>STABLE</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black mb-6 uppercase">
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black dark:text-white mb-6 uppercase">
                         Ready to Create <br/>
                         <span className="text-[#8B5CF6]">Viral Clips?</span>
                     </h2>
-                    <p className="text-xl md:text-2xl text-gray-600 font-medium max-w-xl mx-auto leading-relaxed">
+                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto leading-relaxed">
                         Download SnipieAI for desktop. <br />
                         Runs locally. No cloud uploads. 100% Private.
                     </p>
@@ -59,12 +59,12 @@ export default function Download({ winUrl }: DownloadProps) {
 
                 {/* Primary Download Card */}
                 <div className="max-w-5xl mx-auto">
-                    <div className="relative bg-white rounded-[40px] border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                    <div className="relative bg-white dark:bg-gray-900 rounded-[40px] border-4 border-black dark:border-gray-700 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
                         
                         <div className="flex flex-col md:flex-row">
                             
                             {/* Left Side: Visual / Icon */}
-                            <div className="w-full md:w-1/3 bg-[#8B5CF6] p-10 flex flex-col items-center justify-center relative border-b-4 md:border-b-0 md:border-r-4 border-black">
+                            <div className="w-full md:w-1/3 bg-[#8B5CF6] p-10 flex flex-col items-center justify-center relative border-b-4 md:border-b-0 md:border-r-4 border-black dark:border-gray-700">
                                 <div className="absolute inset-0 opacity-10" 
                                     style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '16px 16px'}} 
                                 />
@@ -80,20 +80,20 @@ export default function Download({ winUrl }: DownloadProps) {
                             </div>
 
                             {/* Right Side: Content */}
-                            <div className="w-full md:w-2/3 p-8 md:p-12 flex flex-col justify-center bg-white relative">
+                            <div className="w-full md:w-2/3 p-8 md:p-12 flex flex-col justify-center bg-white dark:bg-gray-900 relative">
                                 {/* Decorative shape */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-300 rounded-bl-full opacity-50 pointer-events-none" />
 
                                 <div className="space-y-8 relative z-10">
                                     <div>
-                                        <h3 className="text-3xl font-black text-black mb-3 uppercase tracking-tight">
+                                        <h3 className="text-3xl font-black text-black dark:text-white mb-3 uppercase tracking-tight">
                                             {os === 'mac' ? 'Download for macOS' : 'Download for Windows'}
                                         </h3>
-                                        <div className="flex flex-wrap items-center gap-3 text-sm font-bold text-gray-500">
-                                            <span className="bg-gray-100 px-2 py-1 rounded-md border border-black">v{VERSION}</span>
-                                            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                                        <div className="flex flex-wrap items-center gap-3 text-sm font-bold text-gray-500 dark:text-gray-400">
+                                            <span className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md border border-black dark:border-gray-600">v{VERSION}</span>
+                                            <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
                                             <span>{os === 'mac' ? 'Apple Silicon & Intel' : '64-bit Installer'}</span>
-                                            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                                            <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
                                             <span>~140MB</span>
                                         </div>
                                     </div>
@@ -122,15 +122,15 @@ export default function Download({ winUrl }: DownloadProps) {
                                         )}
                                     </div>
                                     
-                                    <p className="text-xs font-medium text-gray-400">
-                                        By downloading, you agree to our <Link href="#" className="underline hover:text-black">Terms</Link> and <Link href="#" className="underline hover:text-black">Privacy Policy</Link>.
+                                    <p className="text-xs font-medium text-gray-400 dark:text-gray-500">
+                                        By downloading, you agree to our <Link href="#" className="underline hover:text-black dark:hover:text-white">Terms</Link> and <Link href="#" className="underline hover:text-black dark:hover:text-white">Privacy Policy</Link>.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Bottom Bar: Platform Switcher */}
-                        <div className="bg-black text-white p-4 flex flex-wrap justify-center gap-8 md:gap-16 border-t-4 border-black">
+                        <div className="bg-black text-white p-4 flex flex-wrap justify-center gap-8 md:gap-16 border-t-4 border-black dark:border-gray-700">
                             <button 
                                 onClick={() => setOs('mac')}
                                 className={cn("flex items-center gap-3 text-lg font-bold transition-all px-4 py-2 rounded-xl border-2 border-transparent", 
@@ -150,7 +150,7 @@ export default function Download({ winUrl }: DownloadProps) {
                 </div>
 
                 {/* Trust / Security */}
-                <div className="mt-16 flex justify-center gap-8 md:gap-12 text-sm font-bold text-gray-500">
+                <div className="mt-16 flex justify-center gap-8 md:gap-12 text-sm font-bold text-gray-500 dark:text-gray-400">
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center border border-black">
                              <ShieldCheck className="w-4 h-4 text-green-600" />

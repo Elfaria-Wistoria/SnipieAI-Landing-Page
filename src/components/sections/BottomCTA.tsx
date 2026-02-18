@@ -1,75 +1,55 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
+import { Button } from "@/components/ui/button";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function BottomCTA() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start start', 'end end'],
+        target: ref,
+        offset: ["start end", "end start"],
     });
-
-    // Phase 1: Reveal "If you've scrolled this far,"
-    // Phase 2: Reveal "it's time to try Clipiee" + Button
-
-    // Phase 1: 0 - 0.4
-    const opacity1 = useTransform(scrollYProgress, [0, 0.3, 0.45], [0, 1, 0]);
-    const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
-    const blur1 = useTransform(scrollYProgress, [0.35, 0.45], [0, 10]);
-
-    // Phase 2: 0.5 - 1.0
-    const opacity2 = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
-    const scale2 = useTransform(scrollYProgress, [0.5, 0.7], [1.2, 1]);
-    const y2 = useTransform(scrollYProgress, [0.5, 0.7], [50, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, 1, 1]);
+    const y = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.3, 1, 1], [0.95, 1, 1, 1]);
 
     return (
-        <section ref={containerRef} className="relative h-[200vh] bg-background">
-            <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+        <section ref={ref} className="relative py-32 overflow-hidden bg-white">
+            {/* Background */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8B5CF6]/10 rounded-full blur-[128px]" />
+            </div>
 
-                {/* Background Decoration */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
-
-                {/* Phase 1 */}
+            <div className="container px-4 relative z-10">
                 <motion.div
-                    style={{ opacity: opacity1, scale: scale1, filter: useTransform(blur1, (v) => `blur(${v}px)`) }}
-                    className="absolute inset-0 flex items-center justify-center p-8 text-center"
+                    style={{ opacity, y, scale }}
+                    className="text-center max-w-3xl mx-auto"
                 >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground/80 leading-tight text-balance max-w-4xl">
-                        If you've scrolled this far,
+                    <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 text-gray-900">
+                        Ready to <span className="bg-gradient-to-r from-[#7C3AED] via-[#8B5CF6] to-[#C4B5FD] bg-clip-text text-transparent">make clips</span> the smart way?
                     </h2>
-                </motion.div>
+                    <p className="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
+                        Join thousands of creators who ditched subscriptions.
+                        One time payment. Lifetime updates. No strings attached.
+                    </p>
 
-                {/* Phase 2 */}
-                <motion.div
-                    style={{ opacity: opacity2, scale: scale2, y: y2 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center gap-12"
-                >
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-none text-balance">
-                        it's time to try <br className="hidden md:block" />
-                        <span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-                            Clipiee
-                        </span>
-                        .
-                    </h2>
-
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link href="/download">
-                            <Button size="lg" className="text-xl px-10 py-8 rounded-full group bg-primary hover:bg-primary/90 text-primary-foreground shadow-2xl shadow-primary/25">
-                                Get Clipiee
-                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                            <Button size="lg" className="rounded-full h-14 px-10 text-lg bg-[#8B5CF6] hover:bg-[#6D28D9] text-white font-medium transition-all shadow-lg shadow-[#8B5CF6]/25 hover:shadow-xl hover:shadow-[#8B5CF6]/30 hover:scale-[1.02]">
+                                Get Started for Free
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                         </Link>
-                    </motion.div>
+                        <Link href="/#pricing">
+                            <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg border-2 border-gray-200 text-gray-700 hover:border-[#8B5CF6] hover:text-gray-900 bg-white/60 hover:bg-white transition-all">
+                                See Pricing
+                            </Button>
+                        </Link>
+                    </div>
                 </motion.div>
-
             </div>
         </section>
     );

@@ -35,9 +35,9 @@ export default function AdminDashboardLayout({
     }
 
     return (
-        <div className="flex min-h-screen w-full bg-background">
+        <div className="flex min-h-screen w-full bg-white">
             <Sidebar />
-            <main className="flex-1 p-8">
+            <main className="flex-1 p-8 overflow-y-auto">
                 {children}
             </main>
         </div>

@@ -1,7 +1,5 @@
 "use client";
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 
 interface StatsProps {
@@ -12,66 +10,39 @@ interface StatsProps {
     };
 }
 
-function Counter({ value, decimal = false }: { value: number, decimal?: boolean }) {
-    const ref = useRef<HTMLSpanElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-100px" });
-
-    const spring = useSpring(0, {
-        mass: 1,
-        stiffness: 75,
-        damping: 15,
-    });
-
-    const display = useTransform(spring, (current) => {
-        if (decimal) {
-            return current.toFixed(1);
-        }
-        // Format with commas: 12,345
-        return Math.round(current).toLocaleString();
-    });
-
-    useEffect(() => {
-        if (inView) {
-            spring.set(value);
-        }
-    }, [inView, value, spring]);
-
-    return <motion.span ref={ref}>{display}</motion.span>;
-}
-
 export default function Stats({ stats }: StatsProps) {
     return (
-        <section className="py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm relative z-20">
+        <section className="py-16 relative z-20">
             <div className="container px-4 mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 
                     {/* Downloads */}
-                    <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
-                            <Counter value={stats.downloads} />+
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2">
+                            {stats.downloads.toLocaleString()}+
                         </div>
-                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
+                        <p className="text-gray-500 text-sm uppercase tracking-wider font-medium">
                             Total Downloads
                         </p>
                     </div>
 
                     {/* Hours Saved */}
-                    <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2">
-                            <Counter value={stats.hoursSaved} />+
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2">
+                            {stats.hoursSaved.toLocaleString()}+
                         </div>
-                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
+                        <p className="text-gray-500 text-sm uppercase tracking-wider font-medium">
                             Hours of Editing Saved
                         </p>
                     </div>
 
                     {/* Rating */}
-                    <div className="flex flex-col items-center justify-center p-4">
-                        <div className="text-4xl md:text-5xl font-light bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 mb-2 flex items-center gap-2">
-                            <Counter value={stats.rating} decimal={true} />
-                            <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2 flex items-center gap-2">
+                            {stats.rating.toFixed(1)}
+                            <Star className="w-8 h-8 text-amber-400 fill-amber-400" />
                         </div>
-                        <p className="text-muted-foreground text-sm uppercase tracking-wider">
+                        <p className="text-gray-500 text-sm uppercase tracking-wider font-medium">
                             Average Rating
                         </p>
                     </div>

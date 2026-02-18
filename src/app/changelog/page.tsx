@@ -4,11 +4,16 @@ import { supabase } from "@/lib/supabase";
 export const revalidate = 60; // Revalidate every minute
 
 async function getChangelogs() {
-    const { data } = await supabase
-        .from('changelogs')
-        .select('*')
-        .order('date', { ascending: false });
-    return data || [];
+    // Static changelog data
+    return [
+        {
+            id: 'static-1',
+            title: 'Initial Release',
+            description: 'Launch of SnipieAI - The local AI video clipper.',
+            version: 'v1.0.0',
+            date: '2025-10-01'
+        }
+    ];
 }
 
 export const metadata = {

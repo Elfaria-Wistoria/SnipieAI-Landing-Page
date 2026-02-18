@@ -18,11 +18,21 @@ export function verifyLynkSignature(
     // Based on docs, grandTotal is a number, so we must be careful with string coercion.
 
     const signatureString = `${amount}${refId}${messageId}${secretKey}`;
+    
+    console.log('[Lynk Lib] Verifying Signature:', {
+        amount,
+        refId,
+        messageId,
+        signatureStringConstructed: signatureString.replace(secretKey, '***SECRET***'),
+        receivedSignature
+    });
 
     const calculatedSignature = crypto
         .createHash('sha256')
         .update(signatureString)
         .digest('hex');
+
+    console.log('[Lynk Lib] Calculated:', calculatedSignature);
 
     // Use timingSafeEqual to prevent timing attacks
     const receivedBuffer = Buffer.from(receivedSignature);

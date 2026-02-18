@@ -31,6 +31,14 @@ export async function POST(req: NextRequest) {
         // Verify Signature
         const secretKey = process.env.LYNK_SECRET_KEY || '';
 
+        console.log('[Lynk Webhook] Received:', { 
+            refId, 
+            grandTotal, 
+            message_id, 
+            signature,
+            secretKeyPartial: secretKey.substring(0, 4) + '...'
+        });
+
         // Convert grandTotal to string for signature verification if strictly required, 
         // but JS coercion usually handles `amount + ...` if amount is number.
         // However, verifyLynkSignature expects string for amount.
@@ -41,9 +49,11 @@ export async function POST(req: NextRequest) {
             signature,
             secretKey
         );
+        
+        console.log('[Lynk Webhook] Verification Result:', isValid);
 
         if (!isValid) {
-            console.error('Invalid Lynk signature');
+            console.error('[Lynk Webhook] Invalid Lynk signature. Expected vs Received mismatch potentially.');
             // Return 200 to acknowledge receipt but verify failure internally? 
             // Usually webhooks expect 400/401 for bad sigs to trigger retry, 
             // OR 200 to stop retries if we know it's garbage. 

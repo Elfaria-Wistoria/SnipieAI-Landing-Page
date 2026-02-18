@@ -11,8 +11,8 @@ export const GridPattern = ({ className }: { className?: string }) => {
                 className="absolute inset-0 w-full h-full"
                 style={{
                     backgroundImage: `
-                        linear-gradient(to right, #222 1px, transparent 1px),
-                        linear-gradient(to bottom, #222 1px, transparent 1px)
+                        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+                        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
                     `,
                     backgroundSize: '4rem 4rem',
                     maskImage: 'linear-gradient(to bottom right, transparent 20%, black 100%)',
@@ -27,7 +27,7 @@ export const AnimatedGridBlocks = ({ className }: { className?: string }) => {
     const [blocks, setBlocks] = useState<{ id: number; r: number; c: number; color: string; delay: number }[]>([]);
 
     useEffect(() => {
-        const colors = ["bg-white/80", "bg-white/60", "bg-zinc-200/50", "bg-zinc-400/50"];
+        const colors = ["bg-[#8B5CF6]/40", "bg-[#8B5CF6]/25", "bg-[#C4B5FD]/40", "bg-[#C4B5FD]/30"];
         const newBlocks = [];
         const positions = [
             { r: 2, c: 8 }, { r: 3, c: 9 }, { r: 5, c: 7 }, { r: 6, c: 8 }, { r: 4, c: 10 }
@@ -47,7 +47,7 @@ export const AnimatedGridBlocks = ({ className }: { className?: string }) => {
     }, []);
 
     return (
-        <div className={cn("absolute inset-0 z-0 pointer-events-none overflow-hidden hidden md:block opacity-30", className)}>
+        <div className={cn("absolute inset-0 z-0 pointer-events-none overflow-hidden hidden md:block opacity-40", className)}>
              {blocks.map((block) => (
                 <motion.div
                     key={block.id}
@@ -60,7 +60,7 @@ export const AnimatedGridBlocks = ({ className }: { className?: string }) => {
                         repeatType: "reverse",
                         repeatDelay: 4 
                     }}
-                    className={`absolute w-16 h-16 ${block.color}`}
+                    className={`absolute w-16 h-16 rounded-lg ${block.color}`}
                     style={{
                         top: `calc(${block.r * 4}rem + 1px)`,
                         left: `calc(50% + ${block.c * 4}rem + 1px)`,
@@ -91,7 +91,7 @@ export const GridBeams = ({ className }: { className?: string }) => {
             {beams.map((beam) => (
                 <motion.div
                     key={beam.id}
-                    className="absolute left-0 h-[1px] w-[200px] bg-gradient-to-r from-transparent via-primary to-transparent"
+                    className="absolute left-0 h-[1px] w-[200px] bg-gradient-to-r from-transparent via-[#8B5CF6]/50 to-transparent"
                     style={{ top: `${beam.top}rem` }}
                     initial={{ x: "-100%", opacity: 0 }}
                     animate={{ x: "100vw", opacity: [0, 1, 0] }}
@@ -106,7 +106,7 @@ export const GridBeams = ({ className }: { className?: string }) => {
              {beams.map((beam) => (
                 <motion.div
                     key={`v-${beam.id}`}
-                    className="absolute top-0 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"
+                    className="absolute top-0 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-[#8B5CF6]/40 to-transparent"
                     style={{ left: `${beam.left}rem` }} 
                     initial={{ y: "-100%", opacity: 0 }}
                     animate={{ y: "100vh", opacity: [0, 1, 0] }}
@@ -126,7 +126,6 @@ export const HeroGridBackground = ({ className }: { className?: string }) => {
     return (
         <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}>
             <GridPattern />
-            {/* Dark overlay for better text contrast if needed, adjustable via className */}
             <AnimatedGridBlocks />
             <GridBeams />
         </div>

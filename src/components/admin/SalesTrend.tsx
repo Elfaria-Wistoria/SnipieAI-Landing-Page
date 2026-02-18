@@ -27,9 +27,9 @@ export function SalesTrend({ data }: SalesTrendProps) {
                     tickFormatter={(value) => `${value}`}
                 />
                 <Tooltip
-                    contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', fontSize: '12px' }}
+                    contentStyle={{ borderRadius: '12px', border: '2px solid #000', boxShadow: '4px 4px 0px 0px #000', fontSize: '12px', fontWeight: 'bold' }}
                     itemStyle={{ color: '#000' }}
-                    cursor={{ stroke: '#8884d8', strokeWidth: 1 }}
+                    cursor={{ stroke: '#8B5CF6', strokeWidth: 2 }}
                 />
                 <Line
                     type="monotone"

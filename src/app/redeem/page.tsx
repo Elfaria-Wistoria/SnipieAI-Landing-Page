@@ -20,25 +20,25 @@ const initialState: { success: boolean; message: string; code?: string } = {
     message: "",
 };
 
-function SubmitButton() {
+export function SubmitButton() {
     const { pending } = useFormStatus();
 
     return (
         <Button
             type="submit"
-            className="w-full h-12 text-base font-medium relative overflow-hidden group"
+            className="w-full h-14 text-lg font-bold relative overflow-hidden group bg-black text-white hover:bg-black/90 border-2 border-black shadow-[4px_4px_0px_0px_rgba(139,92,246,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(139,92,246,1)] transition-all rounded-xl"
             disabled={pending}
         >
             {pending ? (
                 <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Activating...
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    ACTIVATING...
                 </>
             ) : (
                 <>
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                    <Sparkles className="w-4 h-4 mr-2" />
-                    Verify & Activate
+                    <Sparkles className="w-5 h-5 mr-3 text-[#8B5CF6]" />
+                    VERIFY & ACTIVATE
                 </>
             )}
         </Button>
@@ -67,131 +67,134 @@ export default function RedeemPage() {
         <div className="min-h-screen bg-background flex flex-col">
             <Navbar />
 
-            <main className="flex-1 flex items-center justify-center relative overflow-hidden px-4 md:px-0 py-20">
-                {/* ... existing content ... */}
+            <main className="flex-1 flex items-center justify-center relative overflow-hidden px-4 md:px-0 py-20 min-h-[80vh]">
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 pointer-events-none opacity-[0.05]" 
+                    style={{backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px'}} 
+                />
 
                 {/* Community Popup */}
                 <Dialog open={showCommunityPopup} onOpenChange={setShowCommunityPopup}>
-                    <DialogContent className="sm:max-w-md">
+                    <DialogContent className="sm:max-w-md border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                         <DialogHeader>
-                            <div className="mx-auto w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
-                                <Users className="w-6 h-6 text-blue-500" />
+                            <div className="mx-auto w-12 h-12 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center mb-4 border-2 border-black">
+                                <Users className="w-6 h-6 text-[#8B5CF6]" />
                             </div>
-                            <DialogTitle className="text-center text-xl">Join the Community!</DialogTitle>
-                            <DialogDescription className="text-center">
+                            <DialogTitle className="text-center text-xl font-bold">Join the Community!</DialogTitle>
+                            <DialogDescription className="text-center font-medium text-black">
                                 Join our Telegram group to get the latest updates, feature announcements, and tips from other creators.
                             </DialogDescription>
                         </DialogHeader>
-                        <DialogFooter className="flex-col sm:flex-col gap-2 mt-4">
-                            <Button className="w-full bg-blue-500 hover:bg-blue-600" asChild>
+                        <DialogFooter className="flex-col sm:flex-col gap-3 mt-4">
+                            <Button className="w-full bg-[#8B5CF6] text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold" asChild>
                                 <a href="https://t.me/+J-_n_mS9jd4xMTRl" target="_blank" rel="noopener noreferrer">
                                     Join Telegram Group
                                 </a>
                             </Button>
-                            <Button variant="ghost" className="w-full" onClick={() => setShowCommunityPopup(false)}>
+                            <Button variant="ghost" className="w-full font-bold hover:bg-gray-100" onClick={() => setShowCommunityPopup(false)}>
                                 Maybe Later
                             </Button>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
 
-                <div className="w-full max-w-md relative z-10">
+                <div className="w-full max-w-lg relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Card className="border-border/50 bg-background/50 backdrop-blur-xl shadow-2xl">
-                            <CardHeader className="space-y-1 text-center pb-8 border-b border-border/50">
-                                <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 ring-1 ring-primary/20">
-                                    <KeyRound className="w-7 h-7 text-primary" />
+                        <Card className="border-2 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl overflow-hidden">
+                            <CardHeader className="space-y-2 text-center pb-8 border-b-2 border-black bg-yellow-400/10">
+                                <div className="mx-auto w-16 h-16 rounded-2xl bg-[#8B5CF6] flex items-center justify-center mb-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                    <KeyRound className="w-8 h-8 text-white" />
                                 </div>
-                                <CardTitle className="text-2xl font-bold">Activate Clipiee</CardTitle>
-                                <CardDescription className="text-base">
-                                    By verifying your email used for purchase.
+                                <CardTitle className="text-3xl font-black uppercase tracking-tight">Activate SnipieAI</CardTitle>
+                                <CardDescription className="text-base font-medium text-black/70">
+                                    Enter your email to verify purchase & get your license.
                                 </CardDescription>
                             </CardHeader>
-                            <CardContent className="pt-8">
+                            <CardContent className="pt-8 px-8 pb-10">
                                 <AnimatePresence mode="wait">
                                     {state.success ? (
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            className="text-center py-6 space-y-4"
+                                            className="text-center space-y-6"
                                         >
-                                            <div className="mx-auto w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center">
-                                                <ShieldCheck className="w-8 h-8 text-green-500" />
+                                            <div className="mx-auto w-20 h-20 rounded-full bg-green-400 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                                <ShieldCheck className="w-10 h-10 text-white" />
                                             </div>
                                             <div>
-                                                <h3 className="text-xl font-bold text-green-500 mb-2">Activation Successful!</h3>
-                                                <p className="text-muted-foreground text-sm">
-                                                    Your account has been upgraded. You can now use all premium features in the app.
+                                                <h3 className="text-2xl font-black text-black mb-2">ACTIVATION SUCCESSFUL!</h3>
+                                                <p className="text-gray-600 font-medium">
+                                                    Your account has been upgraded. You can now use all premium features.
                                                 </p>
                                             </div>
 
                                             {/* Display Dispensed Code */}
                                             {state.code && (
-                                                <div className="mt-6 p-4 bg-secondary/50 rounded-lg border border-border">
-                                                    <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Your License Key</p>
-                                                    <div className="flex items-center gap-2 justify-center">
-                                                        <code className="text-lg font-bold tracking-widest text-primary">
+                                                <div className="p-6 bg-gray-50 rounded-2xl border-2 border-black dashed">
+                                                    <p className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Your License Key</p>
+                                                    <div className="flex items-center gap-3 justify-center">
+                                                        <code className="text-xl md:text-2xl font-mono font-bold tracking-widest text-[#8B5CF6]">
                                                             {state.code}
                                                         </code>
                                                         <Button
                                                             size="icon"
                                                             variant="ghost"
-                                                            className="h-8 w-8 ml-2"
+                                                            className="h-10 w-10 hover:bg-gray-200 rounded-xl"
                                                             onClick={() => {
                                                                 navigator.clipboard.writeText(state.code || "");
                                                                 toast.success("License key copied!");
                                                             }}
                                                         >
-                                                            <Copy className="w-4 h-4" />
+                                                            <Copy className="w-5 h-5" />
                                                         </Button>
                                                     </div>
                                                 </div>
                                             )}
 
-                                            <div className="flex flex-col gap-2 mt-4">
+                                            <div className="flex flex-col gap-3 mt-6">
                                                 <Button
-                                                    className="w-full bg-blue-500 hover:bg-blue-600 gap-2"
+                                                    className="w-full h-14 text-lg bg-[#8B5CF6] hover:bg-[#7c4dff] text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold rounded-xl"
                                                     onClick={() => setShowCommunityPopup(true)}
                                                 >
-                                                    <Users className="w-4 h-4" />
+                                                    <Users className="w-5 h-5 mr-2" />
                                                     Join Community
                                                 </Button>
-                                                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/'}>
+                                                <Button variant="outline" className="w-full h-14 text-lg font-bold border-2 border-black rounded-xl hover:bg-gray-100" onClick={() => window.location.href = '/'}>
                                                     Return Home
                                                 </Button>
                                             </div>
                                         </motion.div>
                                     ) : (
                                         <div className="space-y-6">
-                                            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 flex gap-3 items-start text-sm text-blue-500">
+                                            <div className="bg-blue-50 border-2 border-blue-500 rounded-xl p-4 flex gap-3 items-start text-sm text-blue-800 font-medium">
                                                 <Info className="w-5 h-5 shrink-0 mt-0.5" />
                                                 <p>
-                                                    <strong>Important:</strong> Please ensure you enter the <u>same email address</u> that you used for your purchase on Lynk.id.
+                                                    <strong>Important:</strong> Use the <u>same email address</u> you used for your purchase.
                                                 </p>
                                             </div>
 
                                             <form action={formAction} className="space-y-6">
-                                                <div className="space-y-2">
-                                                    <Label htmlFor="email">Email Address</Label>
+                                                <div className="space-y-2 text-left">
+                                                    <Label htmlFor="email" className="text-lg font-bold">Email Address</Label>
                                                     <Input
                                                         id="email"
                                                         name="email"
                                                         type="email"
                                                         placeholder="you@example.com"
                                                         required
-                                                        className="h-11 bg-background/50"
+                                                        className="h-14 bg-white border-2 border-black rounded-xl text-lg focus-visible:ring-0 focus-visible:border-[#8B5CF6] focus-visible:shadow-[4px_4px_0px_0px_rgba(139,92,246,1)] transition-all placeholder:text-gray-400"
                                                     />
                                                 </div>
 
 
                                                 <SubmitButton />
 
-                                                <p className="text-xs text-center text-muted-foreground pt-2">
-                                                    Having trouble? <a href="https://t.me/gunsel112" target="_blank" className="underline hover:text-foreground">Contact Support</a>
+                                                <p className="text-xs text-center text-gray-500 pt-2 font-medium">
+                                                    Having trouble? <a href="https://t.me/gunsel112" target="_blank" className="underline hover:text-black font-bold">Contact Support</a>
                                                 </p>
                                             </form>
                                         </div>

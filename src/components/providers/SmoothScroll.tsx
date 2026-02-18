@@ -4,6 +4,8 @@ import { ReactNode, useEffect } from 'react';
 import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
+    // Disabled Lenis for instant, native scroll per user request for "no delay"
+    /*
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.5,
@@ -26,6 +28,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
             lenis.destroy();
         };
     }, []);
+    */
 
     return <>{children}</>;
 }

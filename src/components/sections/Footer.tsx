@@ -1,80 +1,96 @@
-"use client";
-
-import { Instagram } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, ArrowRight } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-border/40 backdrop-blur-xl">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="container px-4 py-12"
-            >
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div className="space-y-4">
-                        <Link href="/" className="text-xl font-bold tracking-tighter">
-                            Clipiee_
+        <footer className="bg-gradient-to-b from-[#7C3AED] to-[#5B21B6] text-white relative overflow-hidden">
+            <div className="container px-4 pt-16 md:pt-20 pb-8">
+
+                {/* Top section — CTA + Contact */}
+                <div className="flex flex-col lg:flex-row justify-between gap-12 mb-16">
+
+                    {/* Left — CTA */}
+                    <div>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-[1.1] mb-8">
+                            Ready to create<br />
+                            viral clips?
+                        </h2>
+                        <Link href="/download">
+                            <Button size="lg" className="h-14 md:h-16 px-8 md:px-10 text-lg md:text-xl font-bold rounded-2xl bg-[#8B5CF6] text-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+                                Download SnipieAI
+                                <ArrowRight className="ml-2 w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
+                            </Button>
                         </Link>
-                        <p className="text-sm text-muted-foreground">
-                            Built for creators, by creators.
-                        </p>
                     </div>
 
-                    <div>
-                        <h3 className="font-semibold mb-4">Product</h3>
-                        <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="#features" className="hover:text-foreground transition-colors">Clipiee</Link></li>
-                            <li><Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
-                            <li><Link href="/changelog" className="hover:text-foreground transition-colors">Changelog</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold mb-4">Company</h3>
-                        <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="/about" className="hover:text-foreground transition-colors">About</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold mb-4">Connect</h3>
-                        <div className="flex space-x-4">
-                            <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="h-5 w-5"
-                                >
-                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                                </svg>
-                            </Link>
-                            <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                <Instagram className="h-5 w-5" />
-                            </Link>
+                    {/* Right — Contact links */}
+                    <div className="flex flex-col sm:flex-row gap-12">
+                        <div>
+                            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Contact</h4>
+                            <ul className="space-y-3 text-sm">
+                                <li>
+                                    <Link href="https://x.com/clipieeexplore" target="_blank" className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+                                        Twitter / X <ExternalLink className="w-3 h-3" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="https://youtube.com/@clipieeexplore" target="_blank" className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+                                        YouTube <ExternalLink className="w-3 h-3" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="mailto:contact@clasely.com" className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+                                        Email <ExternalLink className="w-3 h-3" />
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Product</h4>
+                            <ul className="space-y-3 text-sm">
+                                <li>
+                                    <Link href="/#features" className="text-white/80 hover:text-white transition-colors">Features</Link>
+                                </li>
+                                <li>
+                                    <Link href="/#pricing" className="text-white/80 hover:text-white transition-colors">Pricing</Link>
+                                </li>
+                                <li>
+                                    <Link href="/download" className="text-white/80 hover:text-white transition-colors">Download</Link>
+                                </li>
+                                <li>
+                                    <Link href="/faq" className="text-white/80 hover:text-white transition-colors">FAQ</Link>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="text-xs text-muted-foreground">
-                        &copy; {new Date().getFullYear()} Clipiee. All rights reserved.
+                {/* Bottom — Legal links */}
+                <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div className="flex gap-6 text-xs font-bold uppercase tracking-wider">
+                        <Link href="/privacy-terms" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">
+                            Privacy Policy
+                        </Link>
+                        <Link href="/privacy-terms" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">
+                            Terms and Conditions
+                        </Link>
                     </div>
-                    <div className="flex gap-4 text-xs text-muted-foreground">
-                        <Link href="/privacy-terms#privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-                        <Link href="/privacy-terms#terms" className="hover:text-foreground transition-colors">Terms</Link>
-                    </div>
+                    <p className="text-xs text-white/50">
+                        &copy; {new Date().getFullYear()} SnipieAI by Clasely. All rights reserved.
+                    </p>
                 </div>
-            </motion.div>
+            </div>
+
+            {/* Large brand watermark */}
+            <div className="relative h-24 md:h-36 overflow-hidden">
+                <div 
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[120px] md:text-[200px] font-black text-[#5B21B6] leading-none tracking-tighter select-none whitespace-nowrap translate-y-[35%]"
+                    style={{ WebkitTextStroke: '6px white', paintOrder: 'stroke fill' }}
+                >
+                    SnipieAI
+                </div>
+            </div>
         </footer>
     );
 }

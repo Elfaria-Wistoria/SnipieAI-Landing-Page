@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Inter, Press_Start_2P } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import SmoothScroll from '@/components/providers/SmoothScroll';
@@ -15,10 +15,17 @@ const jetbrainsMono = localFont({
   display: 'swap',
 })
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const pressStart2P = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-pixel',
   display: 'swap',
 })
 
@@ -31,32 +38,32 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Clipiee - Clipiee: The #1 No-Subscription AI Video Clipper',
-    template: '%s | Clipiee'
+    default: 'SnipieAI - The #1 No-Subscription AI Video Clipper',
+    template: '%s | SnipieAI'
   },
-  description: 'The best local, no-subscription alternative to Opus Clip. Clipiee runs 100% offline on your device. Pay once, use forever. Create viral shorts with AI.',
-  keywords: ['Opus Clip alternative', 'no subscription AI clipper', 'local video AI', 'offline video clipper', 'AI tools', 'video creation', 'Clipiee', 'lifetime license', 'AI clipping', 'automatic video editor', 'free AI clipper'],
-  authors: [{ name: 'Clipiee Team' }],
-  creator: 'Clipiee',
+  description: 'The best local, no-subscription alternative to Opus Clip. SnipieAI runs 100% offline on your device. Pay once, use forever. Create viral shorts with AI.',
+  keywords: ['Opus Clip alternative', 'no subscription AI clipper', 'local video AI', 'offline video clipper', 'AI tools', 'video creation', 'SnipieAI', 'lifetime license', 'AI clipping', 'automatic video editor', 'free AI clipper'],
+  authors: [{ name: 'SnipieAI Team' }],
+  creator: 'SnipieAI',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Clipiee - Clipiee: No Subscription AI Clipper',
-    description: 'Stop paying monthly fees. Clipiee is the local, offline, one-time payment alternative to Opus Clip. Viral shorts in seconds.',
-    siteName: 'Clipiee',
+    title: 'SnipieAI - No Subscription AI Clipper',
+    description: 'Stop paying monthly fees. SnipieAI is the local, offline, one-time payment alternative to Opus Clip. Viral shorts in seconds.',
+    siteName: 'SnipieAI',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Clipiee - Clipiee Ecosystem',
+        alt: 'SnipieAI Ecosystem',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Clipiee - Clipiee: No Subscription AI Clipper',
+    title: 'SnipieAI - No Subscription AI Clipper',
     description: 'The best local alternative to Opus Clip. No monthly fees. 100% Offline privacy.',
     images: ['/logo.png'],
     creator: '@clipieeexplore',
@@ -76,13 +83,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className="font-sans bg-background text-foreground">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${pressStart2P.variable} scroll-smooth`} suppressHydrationWarning>
+      <body className="font-sans bg-background text-foreground overflow-x-hidden">
         <JsonLd />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <SmoothScroll>{children}</SmoothScroll>

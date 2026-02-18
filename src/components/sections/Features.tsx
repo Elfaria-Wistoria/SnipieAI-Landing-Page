@@ -210,7 +210,11 @@ export default function Features() {
 
     const item = {
         hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } },
+        show: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { type: "spring", stiffness: 50 } as any
+        },
     };
 
     return (
@@ -249,7 +253,7 @@ export default function Features() {
                     
                     {/* [1] Large Card: AI Detection Timeline */}
                     <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 hover:border-[#8B5CF6]/30 transition-colors"
@@ -272,7 +276,7 @@ export default function Features() {
 
                     {/* [2] Tall Card: Auto Captions */}
                     <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 hover:border-[#8B5CF6]/30 transition-colors flex flex-col"
@@ -295,7 +299,7 @@ export default function Features() {
 
                     {/* [3] Small Card: Local/Private */}
                     <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -311,7 +315,7 @@ export default function Features() {
 
                     {/* [4] Small Card: Performance */}
                     <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -327,7 +331,7 @@ export default function Features() {
 
                     {/* [5] Small Card: Hooks */}
                     <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -343,7 +347,7 @@ export default function Features() {
 
                      {/* [6] Small Card: License */}
                      <motion.div 
-                        variants={item}
+                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 hover:border-[#8B5CF6]/30 transition-colors"

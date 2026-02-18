@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 /* ─── Floating Badge Component ─── */
 function FloatingBadge({ 
@@ -44,7 +44,7 @@ function FloatingBadge({
 
 export default function Hero() {
 
-    const popUp = {
+    const popUp: Variants = {
         hidden: { opacity: 0, scale: 0.8, y: 20 },
         visible: (custom: number) => ({
             opacity: 1,

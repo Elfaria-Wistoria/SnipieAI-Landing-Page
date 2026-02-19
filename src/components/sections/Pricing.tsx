@@ -28,8 +28,7 @@ export default function Pricing({ items }: PricingProps) {
     return (
         <section id="pricing" className="relative w-full py-24 md:py-32 overflow-hidden bg-gray-50/50 dark:bg-gray-950 transition-colors duration-300">
             {/* Background elements */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent" />
+
 
             <div className="container relative z-10 px-4 md:px-6">
                 

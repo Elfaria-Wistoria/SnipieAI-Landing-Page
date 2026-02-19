@@ -44,7 +44,7 @@ export default function Pricing({ items }: PricingProps) {
                 </div>
 
                 <div className="max-w-4xl mx-auto">
-                    <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 md:p-12 rounded-3xl bg-white dark:bg-gray-900 border-2 border-black dark:border-gray-700 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-12 rounded-3xl bg-white dark:bg-gray-900 border-2 border-black dark:border-gray-700 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                         
                         {/* Left Side: Pricing Info */}
                         <div className="flex-1 text-center md:text-left">

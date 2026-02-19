@@ -238,7 +238,7 @@ export default function Features() {
                     <motion.div 
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-8 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#8B5CF6]/30 transition-colors"
                     >
                         <div className="mb-6">
                             <div className="flex items-center gap-3 mb-3">
@@ -260,7 +260,7 @@ export default function Features() {
                     <motion.div 
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-8 hover:border-[#8B5CF6]/30 transition-colors flex flex-col"
+                        className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#8B5CF6]/30 transition-colors flex flex-col"
                     >
                         <div className="mb-auto">
                             <div className="flex items-center gap-3 mb-3">

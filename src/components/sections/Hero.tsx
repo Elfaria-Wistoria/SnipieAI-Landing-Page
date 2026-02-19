@@ -70,7 +70,7 @@ export default function Hero() {
             {/* ─── Floating Elements ─── */ }
             
             {/* Donation Badge */}
-            <FloatingBadge className="top-32 right-10 md:right-32" rotate={6} delay={0.2}>
+            <FloatingBadge className="hidden md:block top-32 right-10 md:right-32" rotate={6} delay={0.2}>
                 <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center border border-black text-black">
                     👾
                 </div>
@@ -81,7 +81,7 @@ export default function Hero() {
             </FloatingBadge>
 
             {/* Viral Badge */}
-            <FloatingBadge className="bottom-48 left-10 md:left-16" rotate={-6} delay={0.4}>
+            <FloatingBadge className="hidden md:block bottom-48 left-10 md:left-16" rotate={-6} delay={0.4}>
                 <div className="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center border border-black text-black">
                     🔥
                 </div>
@@ -114,7 +114,7 @@ export default function Hero() {
                         variants={popUp}
                         initial="hidden"
                         animate="visible"
-                        className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
+                        className="text-[2.75rem] md:text-[5rem] lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
                     >
                         <span className="block -rotate-1">JUST 4 STEPS</span>
                         <span className="block text-[#8B5CF6] rotate-1 relative inline-block">
@@ -160,7 +160,7 @@ export default function Hero() {
                 initial={{ x: -100, opacity: 0, rotate: -10 }}
                 animate={{ x: 0, opacity: 1, rotate: 0 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.5 }}
-                className="absolute -bottom-5 md:bottom-0 left-0 md:left-20 w-40 md:w-64 pointer-events-none z-20"
+                className="absolute -bottom-5 md:bottom-0 left-[-20px] md:left-20 w-32 md:w-64 pointer-events-none z-0"
             >
                 <Image 
                     src="/images/character_cat-1.png" 

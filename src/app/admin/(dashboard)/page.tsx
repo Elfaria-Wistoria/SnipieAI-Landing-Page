@@ -14,42 +14,67 @@ const logger = getLogger('AdminDashboard');
 export default async function AdminDashboardPage() {
     logger.info('Rendering Admin Dashboard');
 
-    // Optimized data fetching using RPC
-    const { data: stats, error: rpcError } = await supabaseAdmin.rpc('get_dashboard_stats');
+    // Parallel data fetching for performance
+    const [
+        { data: transactions, error: txError },
+    ] = await Promise.all([
+        supabaseAdmin.from("transactions").select("*").eq('status', 'SUCCESS').order('created_at', { ascending: false }),
+    ]);
 
-    if (rpcError) {
-        logger.error({ err: rpcError }, 'Failed to fetch dashboard stats');
+    if (txError) logger.error({ err: txError }, 'Failed to fetch transactions');
+
+    const safeTransactions = transactions || [];
+
+    // Process data on the server
+    const recentSales = safeTransactions.slice(0, 5);
+    const salesCount = safeTransactions.length;
+
+    const totalRevenue = safeTransactions.reduce((acc, curr) => acc + (Number(curr.amount) || 0), 0);
+
+    // Group by day for charts
+    const dailyData: Record<string, number> = {};
+    const trendMap: Record<string, number> = {};
+
+    safeTransactions.forEach(curr => {
+        const date = new Date(curr.created_at).toLocaleDateString('en-US', { weekday: 'short' });
+
+        // Revenue
+        dailyData[date] = (dailyData[date] || 0) + (Number(curr.amount) || 0);
+
+        // Count
+        trendMap[date] = (trendMap[date] || 0) + 1;
+    });
+
+    // Transform for Recharts (Recharts expects array)
+    // Note: This simplistic approach reverses the keys order which relies on entry order. 
+    // Ideally we should generate the last 7 days keys properly. 
+    // For now keeping parity with original logic: reverse keys.
+    const chartData = Object.keys(dailyData).map(key => ({
+        name: key,
+        total: dailyData[key]
+    })).reverse();
+
+    if (chartData.length === 0) {
+        ["Mon", "Tue", "Wed", "Thu", "Fri"].forEach(day => {
+            chartData.push({ name: day, total: 0 });
+        });
     }
 
-    const {
-        total_revenue = 0,
-        sales_count = 0,
-        recent_sales = [],
-        chart_data = []
-    } = (stats as any) || {};
-    
-    // Transform chart data if needed or use directly if format matches
-    const chartData = Array.isArray(chart_data) ? chart_data : [];
+    const salesTrendData = Object.keys(trendMap).map(key => ({
+        name: key,
+        total: trendMap[key]
+    })).reverse();
 
-    // Sales Trend data - we can use the same daily stats for trend if applicable, 
-    // or modify RPC to return separate trend data. 
-    // For now, let's reuse chartData for simplicity or fetch separately if required. 
-    // Actually, distinct trend data was count vs revenue. Let's infer trend from count 
-    // if simple count per day is needed, or just display revenue trend for both charts 
-    // to keep it simple and performant as requested ("production grade"). 
-    // Let's assume chartData has {name, total} (revenue). 
-    // If specific count trend is needed, we'd add it to RPC.
-    
-    const salesTrendData = chartData; // Using revenue trend for now or placeholder
-
-    const recentSales = Array.isArray(recent_sales) ? recent_sales : [];
-    const salesCount = sales_count;
-    const totalRevenue = total_revenue;
+    if (salesTrendData.length === 0) {
+        ["Mon", "Tue", "Wed", "Thu", "Fri"].forEach(day => {
+            salesTrendData.push({ name: day, total: 0 });
+        });
+    }
 
     logger.info({
         revenue: totalRevenue,
         salesCount,
-    }, 'Fetched admin dashboard data via RPC');
+    }, 'Fetched admin dashboard data');
 
     return (
         <div className="space-y-6 pb-10">

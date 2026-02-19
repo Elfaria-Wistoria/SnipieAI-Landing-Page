@@ -44,7 +44,7 @@ export default function Navbar() {
                             priority
                         />
                     </div>
-                    <span className="text-2xl font-black tracking-tighter text-black dark:text-white uppercase mt-1">SnipieAI</span>
+                    <span className="text-2xl font-black tracking-tighter text-black dark:text-white uppercase mt-1">Snipie<span className="text-[#8B5CF6]">AI</span></span>
                 </Link>
 
                 {/* Desktop Navigation */}

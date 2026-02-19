@@ -95,46 +95,45 @@ export default function Hero() {
             {/* ─── Main Content ─── */}
             <div className="container px-4 text-center relative z-10 mt-0">
 
-                {/* Top Left: Launch Badge (Moved inside container for better grouping) */}
-                <motion.div 
-                    custom={0}
-                    variants={popUp}
-                    initial="hidden"
-                    animate="visible"
-                    className="absolute -top-12 left-0 md:left-[10%] rotate-[-12deg] z-10 hidden md:block"
-                >
-                    <div className="bg-[#22c55e] border-2 border-black text-white font-black px-4 py-1 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase tracking-widest text-sm">
-                        Beta Launch!
-                    </div>
-                </motion.div>
-                
                 {/* Headline */}
-                <motion.h1 
-                    custom={1}
-                    variants={popUp}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
-                >
-                    <span className="block -rotate-1">JUST 4 STEPS</span>
-                    <span className="block text-[#8B5CF6] rotate-1 relative inline-block">
-                        TO BE A CLIPPER
-                        <svg className="absolute -bottom-2 md:-bottom-4 w-full h-2 md:h-4 text-black dark:text-white" viewBox="0 0 100 10" preserveAspectRatio="none">
-                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                        </svg>
-                    </span>
-                </motion.h1>
+                <div className="relative inline-block">
+                     <motion.div 
+                        custom={0}
+                        variants={popUp}
+                        initial="hidden"
+                        animate="visible"
+                        className="absolute -top-8 -left-6 md:-left-10 rotate-[-12deg] z-20 hidden md:block"
+                    >
+                        <div className="bg-[#22c55e] border-2 border-black text-white font-black italic px-4 py-1 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase tracking-widest text-sm">
+                            Beta Launch!
+                        </div>
+                    </motion.div>
+                    
+                    <motion.h1 
+                        custom={1}
+                        variants={popUp}
+                        initial="hidden"
+                        animate="visible"
+                        className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
+                    >
+                        <span className="block -rotate-1">JUST 4 STEPS</span>
+                        <span className="block text-[#8B5CF6] rotate-1 relative inline-block">
+                            TO BE A CLIPPER
+                            <svg className="absolute -bottom-2 md:-bottom-4 w-full h-2 md:h-4 text-black dark:text-white" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                            </svg>
+                        </span>
+                    </motion.h1>
+                </div>
 
                 <motion.p 
                     custom={2}
                     variants={popUp}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-2xl mx-auto text-lg md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-10 leading-relaxed"
+                    className="max-w-3xl mx-auto text-lg md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-10 leading-relaxed capitalize"
                 >
-                    Turn long videos into viral content in seconds.
-                    <br className="hidden md:block" />
-                    Automatic. Fast. Simple.
+                    Open App, Upload Video, Choose Template, and Download The Video
                 </motion.p>
 
                 {/* CTAs */}

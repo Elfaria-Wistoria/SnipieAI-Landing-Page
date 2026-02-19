@@ -223,37 +223,19 @@ export default function Features() {
                 
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-xl md:text-2xl font-medium text-gray-400 dark:text-gray-400 tracking-tight mb-2"
-                    >
+                    <h2 className="text-xl md:text-2xl font-medium text-gray-400 dark:text-gray-400 tracking-tight mb-2">
                         Precision Engineered
-                    </motion.h2>
-                    <motion.h3 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight"
-                    >
+                    </h2>
+                    <h3 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
                         Built for <span className="text-[#8B5CF6]">Creator Workflow</span>
-                    </motion.h3>
+                    </h3>
                 </div>
 
                 {/* Bento Grid */}
-                <motion.div 
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
                     
                     {/* [1] Large Card: AI Detection Timeline */}
                     <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-8 hover:border-[#8B5CF6]/30 transition-colors"
@@ -276,7 +258,6 @@ export default function Features() {
 
                     {/* [2] Tall Card: Auto Captions */}
                     <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-8 hover:border-[#8B5CF6]/30 transition-colors flex flex-col"
@@ -299,7 +280,6 @@ export default function Features() {
 
                     {/* [3] Small Card: Local/Private */}
                     <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -315,7 +295,6 @@ export default function Features() {
 
                     {/* [4] Small Card: Performance */}
                     <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -331,7 +310,6 @@ export default function Features() {
 
                     {/* [5] Small Card: Hooks */}
                     <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -347,7 +325,6 @@ export default function Features() {
 
                      {/* [6] Small Card: License */}
                      <motion.div 
-                        variants={item as any}
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
@@ -357,7 +334,7 @@ export default function Features() {
                         </div>
                     </motion.div>
 
-                </motion.div>
+                </div>
             </div>
         </section>
     );

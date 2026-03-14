@@ -71,11 +71,11 @@ export default function Hero() {
                         variants={popUp}
                         initial="hidden"
                         animate="visible"
-                        className="text-[2.75rem] md:text-[5rem] lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
+                        className="text-[2.25rem] md:text-[3.5rem] lg:text-[4.75rem] font-black tracking-tighter leading-[0.9] text-black dark:text-white mb-6 uppercase drop-shadow-sm"
                     >
-                        <span className="block">JUST 4 STEPS</span>
+                        <span className="block">AI CLIPPING POWER</span>
                         <span className="block text-[#7C3AED] relative inline-block">
-                            TO BE A CLIPPER
+                            WITHOUT THE SUBSCRIPTION
                             <svg className="absolute -bottom-2 md:-bottom-4 w-full h-2 md:h-4 text-black dark:text-white" viewBox="0 0 100 10" preserveAspectRatio="none">
                                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                             </svg>
@@ -93,7 +93,7 @@ export default function Hero() {
                     While Opus Clip charges{" "}
                     <span className="font-black text-red-500 line-through decoration-2">$19/month</span>
                     {" "}— Norraclip is yours{" "}
-                    <span className="font-black text-[#7C3AED]">forever for $5.91</span>.{" "}
+                    <span className="font-black text-[#7C3AED]">forever for $6</span>.{" "}
                     No subscription. No cloud. 100% offline.
                 </motion.p>
 
@@ -108,7 +108,7 @@ export default function Hero() {
                     {[
                         { label: "Opus Clip", price: "$19/mo", bad: true },
                         { label: "Descript", price: "$24/mo", bad: true },
-                        { label: "Norraclip", price: "$5.91 once", bad: false },
+                        { label: "Norraclip", price: "$6 once", bad: false },
                     ].map(({ label, price, bad }) => (
                         <div
                             key={label}
@@ -146,16 +146,7 @@ export default function Hero() {
                     </Link>
                 </motion.div>
 
-                {/* Trust signal */}
-                <motion.p
-                    custom={5}
-                    variants={popUp}
-                    initial="hidden"
-                    animate="visible"
-                    className="mt-5 text-xs text-gray-400 dark:text-gray-500 font-medium"
-                >
-                    🔒 Secured by Gumroad · Instant download · 30-day money-back guarantee
-                </motion.p>
+
 
             </motion.div>
 

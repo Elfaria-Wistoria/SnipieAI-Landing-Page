@@ -50,7 +50,7 @@ export default function Pricing({ items }: PricingProps) {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Lifetime License</h3>
                             <div className="flex items-baseline justify-center md:justify-start gap-2 mb-4">
-                                <span className="text-5xl font-black tracking-tight text-gray-900 dark:text-white">$5.91</span>
+                                <span className="text-5xl font-black tracking-tight text-gray-900 dark:text-white">$6</span>
                                 <span className="text-xl font-bold text-gray-400 line-through decoration-2 decoration-red-500">$10</span>
                                 <span className="text-lg font-medium text-gray-500 dark:text-gray-400">/one-time</span>
                             </div>

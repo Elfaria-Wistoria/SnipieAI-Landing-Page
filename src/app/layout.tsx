@@ -70,10 +70,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/tab_logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/norraclip.png', sizes: '32x32', type: 'image/png' },
     ],
-    shortcut: '/tab_logo.png',
-    apple: '/tab_logo.png',
+    shortcut: '/norraclip.png',
+    apple: '/norraclip.png',
   },
 }
 

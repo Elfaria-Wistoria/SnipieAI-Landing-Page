@@ -77,7 +77,7 @@ export default function Footer() {
                         </Link>
                     </div>
                     <p className="text-xs text-white/50">
-                        &copy; {new Date().getFullYear()} Norraclip by Clasely. All rights reserved.
+                        &copy; {new Date().getFullYear()} Norraclip by Naura. All rights reserved.
                     </p>
                 </div>
             </div>

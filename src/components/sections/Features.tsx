@@ -20,27 +20,27 @@ function TimelineMockup() {
             {/* Tracks */}
             <div className="space-y-1.5 relative">
                 {/* Playhead */}
-                <motion.div 
+                <motion.div
                     className="absolute top-0 bottom-0 w-[1px] bg-red-500 z-10"
                     animate={{ left: ["10%", "90%"] }}
                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 >
                     <div className="w-1.5 h-1.5 bg-red-500 rounded-full -ml-[2px] -mt-[3px]" />
                 </motion.div>
-                
+
                 {/* Video Track */}
                 <div className="h-4 bg-gray-100 dark:bg-gray-800 rounded-sm w-full relative overflow-hidden">
-                    <div className="absolute left-[10%] w-[25%] h-full bg-[#8B5CF6]/20 border-x border-[#8B5CF6]/50" />
-                    <div className="absolute left-[60%] w-[15%] h-full bg-[#8B5CF6]/20 border-x border-[#8B5CF6]/50" />
+                    <div className="absolute left-[10%] w-[25%] h-full bg-[#7C3AED]/20 border-x border-[#7C3AED]/50" />
+                    <div className="absolute left-[60%] w-[15%] h-full bg-[#7C3AED]/20 border-x border-[#7C3AED]/50" />
                 </div>
                 {/* Audio Track */}
                 <div className="h-4 bg-gray-50 dark:bg-gray-800/50 rounded-sm w-full flex items-center px-1 gap-0.5 opacity-60">
                     {[40, 70, 30, 60, 50, 80, 20, 90, 45, 55, 35, 65, 25, 75, 50, 40, 70, 30, 60, 50, 80, 20, 90, 45, 55, 35, 65, 25, 75, 50, 40, 70, 30, 60, 50, 80, 20, 90, 45, 55].map((height, i) => (
-                        <motion.div 
-                            key={i} 
-                            className="w-full bg-gray-300 dark:bg-gray-600 rounded-full" 
+                        <motion.div
+                            key={i}
+                            className="w-full bg-gray-300 dark:bg-gray-600 rounded-full"
                             style={{ height: `${height}%` }}
-                            animate={{ height: [ `${height}%`, `${Math.min(100, height + 20)}%`, `${height}%` ] }}
+                            animate={{ height: [`${height}%`, `${Math.min(100, height + 20)}%`, `${height}%`] }}
                             transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.05, ease: "easeInOut" }}
                         />
                     ))}
@@ -50,7 +50,7 @@ function TimelineMockup() {
             <div className="flex justify-between items-center pt-2">
                 <div className="flex gap-2">
                     <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-gray-500 dark:text-gray-400">CLIP_01</span>
-                    <span className="text-[10px] font-mono bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded text-[#8B5CF6] dark:text-[#A78BFA]">VIRAL_SCORE: 92</span>
+                    <span className="text-[10px] font-mono bg-violet-50 dark:bg-violet-900/20 px-1.5 py-0.5 rounded text-[#7C3AED] dark:text-[#A78BFA]">VIRAL_SCORE: 92</span>
                 </div>
             </div>
         </div>
@@ -60,16 +60,16 @@ function TimelineMockup() {
 function CaptionsMockup() {
     return (
         <div className="w-full p-4 font-mono text-[11px] leading-relaxed text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex gap-3 border-l-2 border-[#8B5CF6] pl-3 py-1 bg-white dark:bg-gray-900 shadow-sm rounded-r-md"
+                className="flex gap-3 border-l-2 border-[#7C3AED] pl-3 py-1 bg-white dark:bg-gray-900 shadow-sm rounded-r-md"
             >
                 <span className="text-gray-300 dark:text-gray-500">00:04.22</span>
-                <span className="text-gray-900 dark:text-gray-200 font-medium">Wait for the <span className="text-[#8B5CF6] underline decoration-wavy">drop</span>...</span>
+                <span className="text-gray-900 dark:text-gray-200 font-medium">Wait for the <span className="text-[#7C3AED] underline decoration-wavy">drop</span>...</span>
             </motion.div>
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 0.5, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
@@ -78,7 +78,7 @@ function CaptionsMockup() {
                 <span className="text-gray-300 dark:text-gray-600">00:06.18</span>
                 <span>Before everything changed.</span>
             </motion.div>
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 0.5, x: 0 }}
                 transition={{ duration: 0.5, delay: 2.5 }}
@@ -103,7 +103,7 @@ function LocalResourceMockup() {
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 rounded p-2 border border-gray-100 dark:border-gray-700">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <Activity className="w-3 h-3 text-emerald-500" />
+                    <Activity className="w-3 h-3 text-violet-500" />
                     <span className="text-[10px] font-semibold text-gray-600 dark:text-gray-300 uppercase">Status</span>
                 </div>
                 <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400">Encrypted</div>
@@ -121,15 +121,15 @@ function PerformanceMockup() {
         <div className="w-full space-y-3 px-2">
             <div className="space-y-1">
                 <div className="flex justify-between text-[11px]">
-                    <span className="font-medium text-gray-900 dark:text-gray-100">SnipieAI (Local)</span>
+                    <span className="font-medium text-gray-900 dark:text-gray-100">Norraclip (Local)</span>
                     <span className="font-mono text-gray-500 dark:text-gray-400">24s</span>
                 </div>
                 <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                         initial={{ width: "0%" }}
                         whileInView={{ width: "15%" }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                        className="h-full bg-gray-900 dark:bg-white rounded-full" 
+                        className="h-full bg-gray-900 dark:bg-white rounded-full"
                     />
                 </div>
             </div>
@@ -139,11 +139,11 @@ function PerformanceMockup() {
                     <span className="font-mono dark:text-gray-400">120s</span>
                 </div>
                 <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                         initial={{ width: "0%" }}
                         whileInView={{ width: "75%" }}
                         transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-                        className="h-full bg-gray-400 dark:bg-gray-600 rounded-full" 
+                        className="h-full bg-gray-400 dark:bg-gray-600 rounded-full"
                     />
                 </div>
             </div>
@@ -154,7 +154,7 @@ function PerformanceMockup() {
 function HooksMockup() {
     return (
         <div className="w-full flex flex-col gap-2">
-            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm rounded-lg p-3 group hover:border-[#8B5CF6]/30 transition-colors">
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm rounded-lg p-3 group hover:border-[#7C3AED]/30 transition-colors">
                 <div className="flex justify-between items-start mb-1">
                     <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500 uppercase tracking-wider">Generated Hook</span>
                     <div className="flex gap-0.5">
@@ -164,7 +164,7 @@ function HooksMockup() {
                     </div>
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-tight">
-                    "Stop scrolling if you want to create <span className="bg-[#8B5CF6]/10 text-[#7C3AED] dark:text-[#A78BFA] px-1 rounded">viral clips</span>"
+                    "Stop scrolling if you want to create <span className="bg-[#7C3AED]/10 text-[#6D28D9] dark:text-[#A78BFA] px-1 rounded">viral clips</span>"
                 </p>
             </div>
         </div>
@@ -210,40 +210,40 @@ export default function Features() {
 
     const item = {
         hidden: { opacity: 0, y: 30 },
-        show: { 
-            opacity: 1, 
-            y: 0, 
+        show: {
+            opacity: 1,
+            y: 0,
             transition: { type: "spring", stiffness: 50 } as any
         },
     };
 
     return (
-        <section id="features" className="py-24 md:py-32 bg-white dark:bg-gray-950 transition-colors duration-300">
+        <section id="features" className="py-24 md:py-32 bg-[#ffffff] dark:bg-[#1A1A18] transition-colors duration-300">
             <div className="container px-4">
-                
+
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h2 className="text-xl md:text-2xl font-medium text-gray-400 dark:text-gray-400 tracking-tight mb-2">
                         Precision Engineered
                     </h2>
                     <h3 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
-                        Built for <span className="text-[#8B5CF6]">Creator Workflow</span>
+                        Built for <span className="text-[#7C3AED]">Creator Workflow</span>
                     </h3>
                 </div>
 
                 {/* Bento Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                    
+
                     {/* [1] Large Card: AI Detection Timeline */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#7C3AED]/30 transition-colors"
                     >
                         <div className="mb-6">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:bg-[#8B5CF6]/10 transition-colors">
-                                    <Scissors className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#8B5CF6] transition-colors" />
+                                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:bg-[#7C3AED]/10 transition-colors">
+                                    <Scissors className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#7C3AED] transition-colors" />
                                 </div>
                                 <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">AI Clip Detection</h4>
                             </div>
@@ -257,15 +257,15 @@ export default function Features() {
                     </motion.div>
 
                     {/* [2] Tall Card: Auto Captions */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#8B5CF6]/30 transition-colors flex flex-col"
+                        className="md:row-span-2 group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 md:p-8 hover:border-[#7C3AED]/30 transition-colors flex flex-col"
                     >
                         <div className="mb-auto">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:bg-[#8B5CF6]/10 transition-colors">
-                                    <Captions className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#8B5CF6] transition-colors" />
+                                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:bg-[#7C3AED]/10 transition-colors">
+                                    <Captions className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-[#7C3AED] transition-colors" />
                                 </div>
                                 <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Auto Captions</h4>
                             </div>
@@ -274,19 +274,19 @@ export default function Features() {
                             </p>
                         </div>
                         <div className="mt-4">
-                             <CaptionsMockup />
+                            <CaptionsMockup />
                         </div>
                     </motion.div>
 
                     {/* [3] Small Card: Local/Private */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#7C3AED]/30 transition-colors"
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#8B5CF6] transition-colors">100% Offline</h4>
-                            <Lock className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-[#8B5CF6] transition-colors" />
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#7C3AED] transition-colors">100% Offline</h4>
+                            <Lock className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-[#7C3AED] transition-colors" />
                         </div>
                         <div className="bg-white dark:bg-gray-950 rounded-xl">
                             <LocalResourceMockup />
@@ -294,42 +294,42 @@ export default function Features() {
                     </motion.div>
 
                     {/* [4] Small Card: Performance */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#7C3AED]/30 transition-colors"
                     >
-                         <div className="flex items-center justify-between mb-4">
-                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#8B5CF6] transition-colors">Speed</h4>
+                        <div className="flex items-center justify-between mb-4">
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#7C3AED] transition-colors">Speed</h4>
                             <Zap className="w-4 h-4 text-amber-500 fill-amber-500 group-hover:scale-110 transition-transform" />
                         </div>
                         <div className="bg-white dark:bg-gray-950 rounded-xl pt-2">
-                             <PerformanceMockup />
+                            <PerformanceMockup />
                         </div>
                     </motion.div>
 
                     {/* [5] Small Card: Hooks */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#7C3AED]/30 transition-colors"
                     >
-                         <div className="flex items-center justify-between mb-4">
-                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#8B5CF6] transition-colors">Smart Hooks</h4>
-                            <Sparkles className="w-4 h-4 text-purple-500 group-hover:rotate-12 transition-transform" />
+                        <div className="flex items-center justify-between mb-4">
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-[#7C3AED] transition-colors">Smart Hooks</h4>
+                            <Sparkles className="w-4 h-4 text-violet-500 group-hover:rotate-12 transition-transform" />
                         </div>
-                         <div className="bg-white dark:bg-gray-950 rounded-xl">
+                        <div className="bg-white dark:bg-gray-950 rounded-xl">
                             <HooksMockup />
                         </div>
                     </motion.div>
 
-                     {/* [6] Small Card: License */}
-                     <motion.div 
+                    {/* [6] Small Card: License */}
+                    <motion.div
                         whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#8B5CF6]/30 transition-colors"
+                        className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 hover:border-[#7C3AED]/30 transition-colors"
                     >
-                         <div className="h-full flex items-center justify-center">
+                        <div className="h-full flex items-center justify-center">
                             <LicenseMockup />
                         </div>
                     </motion.div>

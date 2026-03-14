@@ -17,7 +17,7 @@ export default function Stats({ stats }: StatsProps) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 
                     {/* Downloads */}
-                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#ffffff]/60 backdrop-blur border border-[#E8E8CC] shadow-sm hover:shadow-md transition-shadow duration-300">
                         <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2">
                             {stats.downloads.toLocaleString()}+
                         </div>
@@ -27,7 +27,7 @@ export default function Stats({ stats }: StatsProps) {
                     </div>
 
                     {/* Hours Saved */}
-                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#ffffff]/60 backdrop-blur border border-[#E8E8CC] shadow-sm hover:shadow-md transition-shadow duration-300">
                         <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2">
                             {stats.hoursSaved.toLocaleString()}+
                         </div>
@@ -37,7 +37,7 @@ export default function Stats({ stats }: StatsProps) {
                     </div>
 
                     {/* Rating */}
-                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/60 backdrop-blur border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#ffffff]/60 backdrop-blur border border-[#E8E8CC] shadow-sm hover:shadow-md transition-shadow duration-300">
                         <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-500 mb-2 flex items-center gap-2">
                             {stats.rating.toFixed(1)}
                             <Star className="w-8 h-8 text-amber-400 fill-amber-400" />

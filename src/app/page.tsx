@@ -17,8 +17,8 @@ export const revalidate = 60;
 const logger = getLogger('HomePage');
 
 export const metadata = {
-  title: 'SnipieAI - Local AI Video Clipper (No Subscription)',
-  description: 'Download SnipieAI, the #1 local AI video clipper. An Opus Clip alternative that runs offline on your Mac/PC. One-time payment, no monthly fees.',
+  title: 'Norraclip - Local AI Video Clipper (No Subscription)',
+  description: 'Download Norraclip, the #1 local AI video clipper. An Opus Clip alternative that runs offline on your Mac/PC. One-time payment, no monthly fees.',
 };
 
 export default async function Home() {

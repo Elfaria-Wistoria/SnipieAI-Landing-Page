@@ -4,7 +4,7 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-b from-[#7C3AED] to-[#5B21B6] text-white relative overflow-hidden">
+        <footer className="bg-[#1A1A18] text-white relative overflow-hidden">
             <div className="container px-4 pt-16 md:pt-20 pb-8">
 
                 {/* Top section — CTA + Contact */}
@@ -16,9 +16,9 @@ export default function Footer() {
                             Ready to create<br />
                             viral clips?
                         </h2>
-                        <Link href="/download">
-                            <Button size="lg" className="h-14 md:h-16 px-8 md:px-10 text-lg md:text-xl font-bold rounded-2xl bg-[#8B5CF6] text-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
-                                Download SnipieAI
+                        <Link href="https://drive.google.com/drive/folders/1ozHuB4uJaEGipYwBUbh9-Yr__l8Ibr5i?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <Button size="lg" className="h-14 md:h-16 px-8 md:px-10 text-lg md:text-xl font-bold rounded-2xl bg-[#7C3AED] text-white border-2 border-white/20 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.1)] transition-all">
+                                Download Norraclip
                                 <ArrowRight className="ml-2 w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
                             </Button>
                         </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                                     <Link href="/#pricing" className="text-white/80 hover:text-white transition-colors">Pricing</Link>
                                 </li>
                                 <li>
-                                    <Link href="/download" className="text-white/80 hover:text-white transition-colors">Download</Link>
+                                    <Link href="https://drive.google.com/drive/folders/1ozHuB4uJaEGipYwBUbh9-Yr__l8Ibr5i?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">Download</Link>
                                 </li>
                                 <li>
                                     <Link href="/faq" className="text-white/80 hover:text-white transition-colors">FAQ</Link>
@@ -77,18 +77,18 @@ export default function Footer() {
                         </Link>
                     </div>
                     <p className="text-xs text-white/50">
-                        &copy; {new Date().getFullYear()} SnipieAI by Clasely. All rights reserved.
+                        &copy; {new Date().getFullYear()} Norraclip by Clasely. All rights reserved.
                     </p>
                 </div>
             </div>
 
             {/* Large brand watermark */}
             <div className="relative h-24 md:h-36 overflow-hidden">
-                <div 
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[120px] md:text-[200px] font-black text-[#5B21B6] leading-none tracking-tighter select-none whitespace-nowrap translate-y-[35%]"
+                <div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[120px] md:text-[200px] font-black text-[#141412] leading-none tracking-tighter select-none whitespace-nowrap translate-y-[35%]"
                     style={{ WebkitTextStroke: '6px white', paintOrder: 'stroke fill' }}
                 >
-                    SnipieAI
+                    Norraclip
                 </div>
             </div>
         </footer>

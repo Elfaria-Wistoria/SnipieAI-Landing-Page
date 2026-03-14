@@ -26,7 +26,7 @@ export function SubmitButton() {
     return (
         <Button
             type="submit"
-            className="w-full h-14 text-lg font-bold relative overflow-hidden group bg-black text-white hover:bg-black/90 border-2 border-black shadow-[4px_4px_0px_0px_rgba(139,92,246,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(139,92,246,1)] transition-all rounded-xl"
+            className="w-full h-14 text-lg font-bold relative overflow-hidden group bg-black text-white hover:bg-black/90 border-2 border-black shadow-[4px_4px_0px_0px_rgba(13,92,71,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(13,92,71,1)] transition-all rounded-xl"
             disabled={pending}
         >
             {pending ? (
@@ -37,7 +37,7 @@ export function SubmitButton() {
             ) : (
                 <>
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                    <Sparkles className="w-5 h-5 mr-3 text-[#8B5CF6]" />
+                    <Sparkles className="w-5 h-5 mr-3 text-[#0D5C47]" />
                     VERIFY & ACTIVATE
                 </>
             )}
@@ -77,8 +77,8 @@ export default function RedeemPage() {
                 <Dialog open={showCommunityPopup} onOpenChange={setShowCommunityPopup}>
                     <DialogContent className="sm:max-w-md border-2 border-black dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-none">
                         <DialogHeader>
-                            <div className="mx-auto w-12 h-12 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center mb-4 border-2 border-black dark:border-gray-700">
-                                <Users className="w-6 h-6 text-[#8B5CF6]" />
+                            <div className="mx-auto w-12 h-12 rounded-full bg-[#0D5C47]/10 flex items-center justify-center mb-4 border-2 border-black dark:border-gray-700">
+                                <Users className="w-6 h-6 text-[#0D5C47]" />
                             </div>
                             <DialogTitle className="text-center text-xl font-bold text-black dark:text-white">Join the Community!</DialogTitle>
                             <DialogDescription className="text-center font-medium text-black dark:text-gray-300">
@@ -86,7 +86,7 @@ export default function RedeemPage() {
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="flex-col sm:flex-col gap-3 mt-4">
-                            <Button className="w-full bg-[#8B5CF6] text-white border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold" asChild>
+                            <Button className="w-full bg-[#0D5C47] text-white border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold" asChild>
                                 <a href="https://t.me/+J-_n_mS9jd4xMTRl" target="_blank" rel="noopener noreferrer">
                                     Join Telegram Group
                                 </a>
@@ -106,10 +106,10 @@ export default function RedeemPage() {
                     >
                         <Card className="border-2 border-black dark:border-gray-700 bg-white dark:bg-gray-900 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl overflow-hidden">
                             <CardHeader className="space-y-2 text-center pb-8 border-b-2 border-black dark:border-gray-700 bg-yellow-400/10 dark:bg-yellow-400/5">
-                                <div className="mx-auto w-16 h-16 rounded-2xl bg-[#8B5CF6] flex items-center justify-center mb-4 border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <div className="mx-auto w-16 h-16 rounded-2xl bg-[#0D5C47] flex items-center justify-center mb-4 border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                                     <KeyRound className="w-8 h-8 text-white" />
                                 </div>
-                                <CardTitle className="text-3xl font-black uppercase tracking-tight text-black dark:text-white">Activate SnipieAI</CardTitle>
+                                <CardTitle className="text-3xl font-black uppercase tracking-tight text-black dark:text-white">Activate Norraclip</CardTitle>
                                 <CardDescription className="text-base font-medium text-black/70 dark:text-gray-400">
                                     Enter your email to verify purchase & get your license.
                                 </CardDescription>
@@ -137,7 +137,7 @@ export default function RedeemPage() {
                                                 <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-black dark:border-gray-700 dashed">
                                                     <p className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Your License Key</p>
                                                     <div className="flex items-center gap-3 justify-center">
-                                                        <code className="text-xl md:text-2xl font-mono font-bold tracking-widest text-[#8B5CF6] dark:text-[#A78BFA]">
+                                                        <code className="text-xl md:text-2xl font-mono font-bold tracking-widest text-[#0D5C47] dark:text-[#5DB8A0]">
                                                             {state.code}
                                                         </code>
                                                         <Button
@@ -157,7 +157,7 @@ export default function RedeemPage() {
 
                                             <div className="flex flex-col gap-3 mt-6">
                                                 <Button
-                                                    className="w-full h-14 text-lg bg-[#8B5CF6] hover:bg-[#7c4dff] text-white border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold rounded-xl"
+                                                    className="w-full h-14 text-lg bg-[#0D5C47] hover:bg-[#7c4dff] text-white border-2 border-black dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all font-bold rounded-xl"
                                                     onClick={() => setShowCommunityPopup(true)}
                                                 >
                                                     <Users className="w-5 h-5 mr-2" />
@@ -186,7 +186,7 @@ export default function RedeemPage() {
                                                         type="email"
                                                         placeholder="you@example.com"
                                                         required
-                                                        className="h-14 bg-white dark:bg-gray-950 border-2 border-black dark:border-gray-700 rounded-xl text-lg text-black dark:text-white focus-visible:ring-0 focus-visible:border-[#8B5CF6] focus-visible:shadow-[4px_4px_0px_0px_rgba(139,92,246,1)] transition-all placeholder:text-gray-400"
+                                                        className="h-14 bg-white dark:bg-gray-950 border-2 border-black dark:border-gray-700 rounded-xl text-lg text-black dark:text-white focus-visible:ring-0 focus-visible:border-[#0D5C47] focus-visible:shadow-[4px_4px_0px_0px_rgba(13,92,71,1)] transition-all placeholder:text-gray-400"
                                                     />
                                                 </div>
 

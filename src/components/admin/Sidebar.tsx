@@ -59,10 +59,10 @@ export function Sidebar() {
                                 variant="ghost"
                                 className={cn(
                                     "w-full justify-start gap-3 h-12 text-base font-bold transition-all",
-                                    "border-2 border-transparent hover:bg-purple-100 dark:hover:bg-purple-900/20 hover:border-black dark:hover:border-purple-500 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-none",
+                                    "border-2 border-transparent hover:bg-green-100 dark:hover:bg-green-900/20 hover:border-black dark:hover:border-green-500 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-none",
                                     (pathname === item.href || pathname?.startsWith(item.href + "/"))
-                                        ? "bg-[#8B5CF6] text-white border-black dark:border-purple-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-none hover:bg-[#7C3AED] hover:text-white"
-                                        : "text-black dark:text-gray-400 dark:hover:text-purple-400"
+                                        ? "bg-[#0D5C47] text-white border-black dark:border-green-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-none hover:bg-[#0A4A38] hover:text-white"
+                                        : "text-black dark:text-gray-400 dark:hover:text-green-700"
                                 )}
                             >
                                 <item.icon className="h-5 w-5" />

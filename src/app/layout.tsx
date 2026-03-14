@@ -38,32 +38,32 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'SnipieAI - The #1 No-Subscription AI Video Clipper',
-    template: '%s | SnipieAI'
+    default: 'Norraclip - The #1 No-Subscription AI Video Clipper',
+    template: '%s | Norraclip'
   },
-  description: 'The best local, no-subscription alternative to Opus Clip. SnipieAI runs 100% offline on your device. Pay once, use forever. Create viral shorts with AI.',
-  keywords: ['Opus Clip alternative', 'no subscription AI clipper', 'local video AI', 'offline video clipper', 'AI tools', 'video creation', 'SnipieAI', 'lifetime license', 'AI clipping', 'automatic video editor', 'free AI clipper'],
-  authors: [{ name: 'SnipieAI Team' }],
-  creator: 'SnipieAI',
+  description: 'The best local, no-subscription alternative to Opus Clip. Norraclip runs 100% offline on your device. Pay once, use forever. Create viral shorts with AI.',
+  keywords: ['Opus Clip alternative', 'no subscription AI clipper', 'local video AI', 'offline video clipper', 'AI tools', 'video creation', 'Norraclip', 'lifetime license', 'AI clipping', 'automatic video editor', 'free AI clipper'],
+  authors: [{ name: 'Norraclip Team' }],
+  creator: 'Norraclip',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'SnipieAI - No Subscription AI Clipper',
-    description: 'Stop paying monthly fees. SnipieAI is the local, offline, one-time payment alternative to Opus Clip. Viral shorts in seconds.',
-    siteName: 'SnipieAI',
+    title: 'Norraclip - No Subscription AI Clipper',
+    description: 'Stop paying monthly fees. Norraclip is the local, offline, one-time payment alternative to Opus Clip. Viral shorts in seconds.',
+    siteName: 'Norraclip',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'SnipieAI Ecosystem',
+        alt: 'Norraclip Ecosystem',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SnipieAI - No Subscription AI Clipper',
+    title: 'Norraclip - No Subscription AI Clipper',
     description: 'The best local alternative to Opus Clip. No monthly fees. 100% Offline privacy.',
     images: ['/logo.png'],
     creator: '@clipieeexplore',

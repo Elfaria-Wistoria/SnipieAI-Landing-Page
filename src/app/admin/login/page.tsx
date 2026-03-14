@@ -48,7 +48,7 @@ export default function LoginPage() {
 
             {/* Back to Home Link */}
             <div className="absolute top-8 left-8 z-20">
-                <Link href="/" className="flex items-center gap-2 font-bold text-black dark:text-white hover:text-[#8B5CF6] dark:hover:text-[#8B5CF6] transition-colors border-2 border-transparent hover:border-black dark:hover:border-white hover:bg-white dark:hover:bg-gray-900 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] px-4 py-2 rounded-lg">
+                <Link href="/" className="flex items-center gap-2 font-bold text-black dark:text-white hover:text-[#0D5C47] dark:hover:text-[#0D5C47] transition-colors border-2 border-transparent hover:border-black dark:hover:border-white hover:bg-white dark:hover:bg-gray-900 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] px-4 py-2 rounded-lg">
                     <ArrowLeft className="w-5 h-5" strokeWidth={3} />
                     Back to Home
                 </Link>
@@ -62,7 +62,7 @@ export default function LoginPage() {
 
                 <div className="bg-white dark:bg-gray-900 border-2 border-black dark:border-gray-700 rounded-xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-none transition-colors">
                     <div className="text-center mb-8 space-y-2">
-                        <div className="inline-block bg-[#8B5CF6] text-white px-3 py-1 font-black text-xs border-2 border-black dark:border-purple-400 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-none mb-2">
+                        <div className="inline-block bg-[#0D5C47] text-white px-3 py-1 font-black text-xs border-2 border-black dark:border-green-700 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-none mb-2">
                             SNIPIE.AI
                         </div>
                         <h1 className="text-3xl font-black uppercase tracking-tighter text-black dark:text-white">
@@ -97,7 +97,7 @@ export default function LoginPage() {
 
                         <Button 
                             type="submit" 
-                            className="w-full h-14 text-lg font-bold bg-[#8B5CF6] text-white border-2 border-black dark:border-purple-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl mt-4"
+                            className="w-full h-14 text-lg font-bold bg-[#0D5C47] text-white border-2 border-black dark:border-green-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl mt-4"
                             disabled={status === "loading"}
                         >
                             {status === "loading" ? "Authenticating..." : "Login to Dashboard"}

@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 const VERSION = "1.0.5";
 const RELEASE_DATE = "Feb 2026";
-const WIN_FILENAME = `SnipieAIv${VERSION}.exe`;
+const WIN_FILENAME = `Norraclipv${VERSION}.exe`;
 const REPO_URL = "https://github.com/clipieeexplore/clipiee-releases/releases/download";
-const WIN_DOWNLOAD_URL = `${REPO_URL}/SnipieAI/${WIN_FILENAME}`;
+const WIN_DOWNLOAD_URL = `${REPO_URL}/Norraclip/${WIN_FILENAME}`;
 
 interface DownloadProps {
     winUrl?: string;
@@ -49,10 +49,10 @@ export default function Download({ winUrl }: DownloadProps) {
 
                     <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black dark:text-white mb-6 uppercase">
                         Ready to Create <br/>
-                        <span className="text-[#8B5CF6]">Viral Clips?</span>
+                        <span className="text-[#7C3AED]">Viral Clips?</span>
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto leading-relaxed">
-                        Download SnipieAI for desktop. <br />
+                        Download Norraclip for desktop. <br />
                         Runs locally. No cloud uploads. 100% Private.
                     </p>
                 </div>
@@ -64,7 +64,7 @@ export default function Download({ winUrl }: DownloadProps) {
                         <div className="flex flex-col md:flex-row">
                             
                             {/* Left Side: Visual / Icon */}
-                            <div className="w-full md:w-1/3 bg-[#8B5CF6] p-10 flex flex-col items-center justify-center relative border-b-4 md:border-b-0 md:border-r-4 border-black dark:border-gray-700">
+                            <div className="w-full md:w-1/3 bg-[#7C3AED] p-10 flex flex-col items-center justify-center relative border-b-4 md:border-b-0 md:border-r-4 border-black dark:border-gray-700">
                                 <div className="absolute inset-0 opacity-10" 
                                     style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '16px 16px'}} 
                                 />
@@ -106,7 +106,7 @@ export default function Download({ winUrl }: DownloadProps) {
                                         ) : (
                                             <Button 
                                                 size="lg" 
-                                                className="h-16 px-10 text-xl font-bold bg-[#22c55e] text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all rounded-2xl w-full sm:w-auto"
+                                                className="h-16 px-10 text-xl font-bold bg-[#7C3AED] text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all rounded-2xl w-full sm:w-auto"
                                                 onClick={() => { if (finalWinUrl) window.location.href = finalWinUrl; }}
                                             >
                                                 <DownloadIcon className="w-6 h-6 mr-3 stroke-[3]" />
@@ -134,14 +134,14 @@ export default function Download({ winUrl }: DownloadProps) {
                             <button 
                                 onClick={() => setOs('mac')}
                                 className={cn("flex items-center gap-3 text-lg font-bold transition-all px-4 py-2 rounded-xl border-2 border-transparent", 
-                                    os === 'mac' ? "bg-white text-black border-white shadow-[4px_4px_0px_0px_#8B5CF6]" : "text-gray-400 hover:text-white")}
+                                    os === 'mac' ? "bg-white text-black border-white shadow-[4px_4px_0px_0px_#7C3AED]" : "text-gray-400 hover:text-white")}
                             >
                                 <MacIcon className="w-5 h-5" /> macOS
                             </button>
                             <button 
                                 onClick={() => setOs('windows')}
                                 className={cn("flex items-center gap-3 text-lg font-bold transition-all px-4 py-2 rounded-xl border-2 border-transparent", 
-                                    os === 'windows' ? "bg-white text-black border-white shadow-[4px_4px_0px_0px_#22c55e]" : "text-gray-400 hover:text-white")}
+                                    os === 'windows' ? "bg-white text-black border-white shadow-[4px_4px_0px_0px_#7C3AED]" : "text-gray-400 hover:text-white")}
                             >
                                 <WindowsIcon className="w-5 h-5" /> Windows
                             </button>

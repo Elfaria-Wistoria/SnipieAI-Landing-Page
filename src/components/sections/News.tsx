@@ -42,7 +42,7 @@ export default function News({ items = [] }: NewsProps) {
         <section id="news" className="py-24 relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/5 rounded-full blur-[120px]" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/5 rounded-full blur-[120px]" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#C4B5FD]/5 rounded-full blur-[120px]" />
             </div>
 
@@ -53,7 +53,7 @@ export default function News({ items = [] }: NewsProps) {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#8B5CF6]/10 text-[#7C3AED] text-sm font-medium mb-4"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#7C3AED]/10 text-[#6D28D9] text-sm font-medium mb-4"
                         >
                             Updates
                         </motion.div>
@@ -72,7 +72,7 @@ export default function News({ items = [] }: NewsProps) {
                             transition={{ delay: 0.1 }}
                             className="text-gray-500"
                         >
-                            News and announcements from the SnipieAI team.
+                            News and announcements from the Norraclip team.
                         </motion.p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ export default function News({ items = [] }: NewsProps) {
                         {newsItems.map((news) => (
                             <motion.div key={news.id} variants={item}>
                                 <Link href={`/news/${news.id}`} className="block h-full">
-                                    <Card className="h-full bg-white/80 backdrop-blur border-gray-100 hover:border-[#8B5CF6]/30 transition-all duration-300 group flex flex-col overflow-hidden cursor-pointer hover:shadow-lg hover:shadow-[#8B5CF6]/5 hover:-translate-y-1 rounded-2xl">
+                                    <Card className="h-full bg-white/80 backdrop-blur border-gray-100 hover:border-[#7C3AED]/30 transition-all duration-300 group flex flex-col overflow-hidden cursor-pointer hover:shadow-lg hover:shadow-[#7C3AED]/5 hover:-translate-y-1 rounded-2xl">
                                         {/* Feature Image Area */}
                                         <div className="h-48 w-full relative overflow-hidden bg-gray-50">
                                             {news.image ? (
@@ -102,7 +102,7 @@ export default function News({ items = [] }: NewsProps) {
                                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 />
                                             ) : (
-                                                <div className="w-full h-full bg-gradient-to-br from-[#8B5CF6]/10 to-[#C4B5FD]/10 flex items-center justify-center text-gray-300">
+                                                <div className="w-full h-full bg-gradient-to-br from-[#7C3AED]/10 to-[#C4B5FD]/10 flex items-center justify-center text-gray-300">
                                                     <span className="text-xs">NO IMAGE</span>
                                                 </div>
                                             )}
@@ -111,7 +111,7 @@ export default function News({ items = [] }: NewsProps) {
 
                                         <CardHeader>
                                             <div className="flex justify-between items-center mb-4">
-                                                <Badge variant="secondary" className="bg-[#8B5CF6]/10 text-[#7C3AED] hover:bg-[#8B5CF6]/20 border-0">
+                                                <Badge variant="secondary" className="bg-[#7C3AED]/10 text-[#6D28D9] hover:bg-[#7C3AED]/20 border-0">
                                                     {news.category || 'Update'}
                                                 </Badge>
                                                 <div className="flex items-center text-xs text-gray-400">
@@ -119,7 +119,7 @@ export default function News({ items = [] }: NewsProps) {
                                                     {news.date}
                                                 </div>
                                             </div>
-                                            <CardTitle className="group-hover:text-[#7C3AED] transition-colors line-clamp-2 leading-tight text-gray-900">
+                                            <CardTitle className="group-hover:text-[#6D28D9] transition-colors line-clamp-2 leading-tight text-gray-900">
                                                 {news.title}
                                             </CardTitle>
                                         </CardHeader>
@@ -129,7 +129,7 @@ export default function News({ items = [] }: NewsProps) {
                                             </CardDescription>
                                         </CardContent>
                                         <CardFooter>
-                                            <span className="text-sm font-medium flex items-center text-[#7C3AED] group-hover:underline decoration-[#8B5CF6]/50 underline-offset-4">
+                                            <span className="text-sm font-medium flex items-center text-[#6D28D9] group-hover:underline decoration-[#7C3AED]/50 underline-offset-4">
                                                 Read more
                                             </span>
                                         </CardFooter>

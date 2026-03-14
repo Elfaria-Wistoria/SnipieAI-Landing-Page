@@ -26,8 +26,8 @@ export default function TypographyReveal() {
                     {/* Phase 3 */}
                     <div className="flex flex-col items-center gap-6">
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight text-balance">
-                            <span className="bg-gradient-to-r from-[#7C3AED] via-[#8B5CF6] to-[#C4B5FD] bg-clip-text text-transparent">
-                                SnipieAI
+                            <span className="bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#C4B5FD] bg-clip-text text-transparent">
+                                Norraclip
                             </span>{' '}
                             <span className="text-gray-900">is the solution.</span>
                         </h2>

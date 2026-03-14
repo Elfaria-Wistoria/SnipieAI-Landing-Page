@@ -27,7 +27,7 @@ export const AnimatedGridBlocks = ({ className }: { className?: string }) => {
     const [blocks, setBlocks] = useState<{ id: number; r: number; c: number; color: string; delay: number }[]>([]);
 
     useEffect(() => {
-        const colors = ["bg-[#8B5CF6]/40", "bg-[#8B5CF6]/25", "bg-[#C4B5FD]/40", "bg-[#C4B5FD]/30"];
+        const colors = ["bg-[#0D5C47]/40", "bg-[#0D5C47]/25", "bg-[#86CEBC]/40", "bg-[#86CEBC]/30"];
         const newBlocks = [];
         const positions = [
             { r: 2, c: 8 }, { r: 3, c: 9 }, { r: 5, c: 7 }, { r: 6, c: 8 }, { r: 4, c: 10 }
@@ -91,7 +91,7 @@ export const GridBeams = ({ className }: { className?: string }) => {
             {beams.map((beam) => (
                 <motion.div
                     key={beam.id}
-                    className="absolute left-0 h-[1px] w-[200px] bg-gradient-to-r from-transparent via-[#8B5CF6]/50 to-transparent"
+                    className="absolute left-0 h-[1px] w-[200px] bg-gradient-to-r from-transparent via-[#0D5C47]/50 to-transparent"
                     style={{ top: `${beam.top}rem` }}
                     initial={{ x: "-100%", opacity: 0 }}
                     animate={{ x: "100vw", opacity: [0, 1, 0] }}
@@ -106,7 +106,7 @@ export const GridBeams = ({ className }: { className?: string }) => {
              {beams.map((beam) => (
                 <motion.div
                     key={`v-${beam.id}`}
-                    className="absolute top-0 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-[#8B5CF6]/40 to-transparent"
+                    className="absolute top-0 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-[#0D5C47]/40 to-transparent"
                     style={{ left: `${beam.left}rem` }} 
                     initial={{ y: "-100%", opacity: 0 }}
                     animate={{ y: "100vh", opacity: [0, 1, 0] }}

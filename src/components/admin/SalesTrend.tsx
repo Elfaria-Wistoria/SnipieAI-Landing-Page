@@ -29,7 +29,7 @@ export function SalesTrend({ data }: SalesTrendProps) {
                 <Tooltip
                     contentStyle={{ borderRadius: '12px', border: '2px solid #000', boxShadow: '4px 4px 0px 0px #000', fontSize: '12px', fontWeight: 'bold' }}
                     itemStyle={{ color: '#000' }}
-                    cursor={{ stroke: '#8B5CF6', strokeWidth: 2 }}
+                    cursor={{ stroke: '#0D5C47', strokeWidth: 2 }}
                 />
                 <Line
                     type="monotone"

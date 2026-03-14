@@ -9,7 +9,7 @@ async function getChangelogs() {
         {
             id: 'static-1',
             title: 'Initial Release',
-            description: 'Launch of SnipieAI - The local AI video clipper.',
+            description: 'Launch of Norraclip - The local AI video clipper.',
             version: 'v1.0.0',
             date: '2025-10-01'
         }

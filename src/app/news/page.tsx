@@ -22,10 +22,10 @@ export default async function NewsPage() {
         // Example static item if needed, otherwise empty
         // {
         //     id: '1',
-        //     title: 'SnipieAI Launch',
+        //     title: 'Norraclip Launch',
         //     date: 'October 2025',
         //     category: 'Company',
-        //     content: 'We are excited to announce the launch of SnipieAI...',
+        //     content: 'We are excited to announce the launch of Norraclip...',
         //     image: null
         // }
     ];

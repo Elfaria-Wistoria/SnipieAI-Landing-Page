@@ -21,8 +21,8 @@ export default function TechStack() {
                             key={`${name}-${index}`}
                             className="flex items-center gap-2.5 group opacity-70 hover:opacity-100 transition-all duration-300"
                         >
-                            <div className="w-6 h-6 rounded bg-[#8B5CF6]/10 flex items-center justify-center">
-                                <span className="text-[#7C3AED] font-bold text-[10px]">{name.slice(0, 2).toUpperCase()}</span>
+                            <div className="w-6 h-6 rounded bg-[#7C3AED]/10 flex items-center justify-center">
+                                <span className="text-[#6D28D9] font-bold text-[10px]">{name.slice(0, 2).toUpperCase()}</span>
                             </div>
                             <span className="text-base font-medium tracking-tight text-gray-600 group-hover:text-gray-900 transition-colors">
                                 {name}

@@ -21,7 +21,7 @@ export default async function PricingSection() {
                 "Mac & Windows Support",
                 "Free Updates Forever"
             ],
-            button_text: 'Get SnipieAI Now',
+            button_text: 'Get Norraclip Now',
             button_link: '/download',
             popular: true
         }

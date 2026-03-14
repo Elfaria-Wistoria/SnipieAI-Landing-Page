@@ -58,7 +58,7 @@ export function AddMemberDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+        <Button className="bg-[#0D5C47] hover:bg-[#0A4A38] text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
           <Plus className="mr-2 h-4 w-4" />
           Add Member
         </Button>
@@ -163,7 +163,7 @@ export function AddMemberDialog() {
             <Button 
                 type="submit" 
                 disabled={loading}
-                className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all w-full sm:w-auto"
+                className="bg-[#0D5C47] hover:bg-[#0A4A38] text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all w-full sm:w-auto"
             >
               {loading ? "Adding..." : "Add Member"}
             </Button>
